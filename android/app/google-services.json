@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "370583927560",
+    "firebase_url": "https://zebian-98492.firebaseio.com",
+    "project_id": "zebian-98492",
+    "storage_bucket": "zebian-98492.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370583927560:android:97a2449967ef6891",
+        "android_client_info": {
+          "package_name": "com.fletchers.zebian"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370583927560-lecdhb6bf3u7eq4i3parvqrmp29fff3q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAF5rwMVKlFd4ObAs9eatA-mWIf7yu6TkE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
