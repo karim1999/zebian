@@ -149,11 +149,16 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-i18n')
+    implementation project(':react-native-firebase')
+    implementation project(':react-native-i18n')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation project(':react-native-maps')
+
+    // Firebase dependencies
+    implementation "com.google.android.gms:play-services-base:15.0.1"
+    implementation "com.google.firebase:firebase-core:16.0.3"
 
 }
 
@@ -163,3 +168,4 @@ task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
 }
+apply plugin: 'com.google.gms.google-services'
