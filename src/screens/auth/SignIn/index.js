@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Form, Item, Label, Input, Icon, Button, Text, Card, CardItem, Body } from 'native-base';
-import { Dimensions, TouchableOpacity, ImageBackground } from 'react-native';
+import { View, Button, Text, Toast } from 'native-base';
+import { Dimensions, TouchableOpacity, ImageBackground, AsyncStorage } from 'react-native';
 import SignBox from '../../../components/common/signBox'
 import SignTemplate from '../signTemplate';
 import AutoHeightImage from 'react-native-auto-height-image';
@@ -9,10 +9,91 @@ import Zeban from '../../../assets/images/png/zeban.png';
 import Zeban1 from '../../../assets/images/png/Zeban1.png';
 import Sparkels from '../../../assets/images/png/sparkels.png';
 import City from '../../../assets/images/png/city.png';
+import { AccessToken, LoginManager } from 'react-native-fbsdk';
+import { GoogleSignin } from 'react-native-google-signin';
+import firebase from 'react-native-firebase'
+import { connect } from 'react-redux';
+import { setUser } from '../../../reducers';
 
 let { width, height } = Dimensions.get('window');
 
-export default class SignUp extends Component {
+class SignUp extends Component {
+	async signInWithFacebook(){
+		try {
+			const result = await LoginManager.logInWithReadPermissions(['public_profile', 'email']);
+
+			if (result.isCancelled) {
+				return false;
+			}
+
+			// get the access token
+			const data = await AccessToken.getCurrentAccessToken();
+
+			if (!data) {
+				alert('Something went wrong obtaining the users access token'); // Handle this however fits the flow of your app
+				return false;
+			}
+
+			// create a new firebase credential with the token
+			const credential = firebase.auth.FacebookAuthProvider.credential(data.accessToken);
+
+			// login with credential
+			const currentUser = await firebase.auth().signInAndRetrieveDataWithCredential(credential);
+			Toast.show({
+				text: "You have signed in successfully",
+				buttonText: "OK",
+				type: "success",
+				duration: 5000
+			});
+		} catch (e) {
+			Toast.show({
+				text: "Please, try again later",
+				buttonText: "OK",
+				type: "danger",
+				duration: 5000
+			});
+		}
+	}
+	async signInWithGoogle(){
+		try {
+			// Add any configuration settings here:
+			await GoogleSignin.configure();
+
+			const data = await GoogleSignin.signIn();
+
+			// create a new firebase credential with the token
+			const credential = firebase.auth.GoogleAuthProvider.credential(data.idToken, data.accessToken);
+			// login with credential
+			const currentUser = await firebase.auth().signInAndRetrieveDataWithCredential(credential);
+			let user= firebase.database().ref('users').child(currentUser.user.uid).set(currentUser.user);
+
+			Toast.show({
+				text: "You have signed in successfully",
+				buttonText: "OK",
+				type: "success",
+				duration: 5000
+			});
+		} catch (e) {
+			Toast.show({
+				text: "Please, try again later",
+				buttonText: "OK",
+				type: "danger",
+				duration: 5000
+			});
+		}
+	}
+	signInWithPhone(){
+
+	}
+	async storeItem(key, item) {
+		try {
+			let jsonOfItem = await AsyncStorage.setItem(key, item);
+			return jsonOfItem;
+		} catch (error) {
+			console.log(error.message);
+		}
+	}
+
 	render() {
 		const nav = this.props.navigation
 		return (
@@ -31,11 +112,9 @@ export default class SignUp extends Component {
 						/>
 					</View>
 					<View style={{ flex: 1, flexDirection: 'column', width: '80%', alignSelf: 'center' }}>
-						<SignBox onPress={()=>{
-							nav.navigate('AccountType')
-						}} color="#15588e" icon="facebook" text="تسجيل الدخول بواسطه فيسبوك"/>
-						<SignBox color="#d24040" icon="google" text="تسجيل الدخول بواسطه جوجل"/>
-						<SignBox color="#2ca3bd" icon="mobile" text="تسجيل الدخول بواسطه الجوال"/>
+						<SignBox onPress={()=> this.signInWithFacebook()} color="#15588e" icon="facebook" text="تسجيل الدخول بواسطه فيسبوك"/>
+						<SignBox onPress={()=> this.signInWithGoogle()} color="#d24040" icon="google" text="تسجيل الدخول بواسطه جوجل"/>
+						<SignBox onPress={()=> this.signInWithPhone()} color="#2ca3bd" icon="mobile" text="تسجيل الدخول بواسطه الجوال"/>
 					</View>
 					<View style={{flex: 1}}>
 						<Button bordered style={{borderColor:'#2AA2B9', backgroundColor:'transparent', borderRadius:12,alignSelf:'center',}}>
@@ -51,3 +130,14 @@ export default class SignUp extends Component {
 		);
 	}
 }
+const mapStateToProps = ({ user }) => ({
+	user,
+});
+
+const mapDispatchToProps = {
+	setUser
+};
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(SignUp);

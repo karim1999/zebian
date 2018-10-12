@@ -26,6 +26,7 @@ allprojects {
     repositories {
         mavenLocal()
         google()
+        maven {url "https://maven.google.com"} // <--- this should be added and should be above jcenter
         jcenter()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm

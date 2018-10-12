@@ -9,6 +9,7 @@ import axios from 'axios';
 import { SERVER_URL } from "../constants/config";
 import {connect} from "react-redux";
 import {setUser} from "../reducers";
+import firebase from 'react-native-firebase'
 
 class AuthLoadingScreen extends React.Component {
     constructor(props) {
@@ -18,19 +19,10 @@ class AuthLoadingScreen extends React.Component {
 
     // Fetch the token from storage then navigate to our appropriate place
     _bootstrapAsync = async () => {
-        const userToken = await AsyncStorage.getItem('token');
-        if(userToken){
-            return axios.post(SERVER_URL+'api/auth/me?token='+userToken).then(response => {
-                this.props.setUser(response.data);
-                this.props.navigation.navigate('App');
-            }).catch(error => {
-                // return AsyncStorage.removeItem('token').then(()=>{
-                this.props.navigation.navigate('Auth');
-                // });
-            })
-        }else{
-            this.props.navigation.navigate('Auth');
-        }
+	    firebase.auth().onAuthStateChanged(user => {
+	    	this.props.setUser(user);
+		    this.props.navigation.navigate(user ? 'App' : 'Auth')
+	    })
     };
 
     // Render any loading content that you like here

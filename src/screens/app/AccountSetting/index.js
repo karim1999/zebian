@@ -6,6 +6,8 @@ import ModalListItem from '../../../components/common/modalListItem';
 import Coupon from '../../../assets/images/png/coupon.png'
 import Listitem from '../../../components/common/ListItem'
 import Twon from '../../../components/common/twon'
+import firebase from 'react-native-firebase'
+
 export default class Settings extends Component {
     constructor(props) {
         super(props);
@@ -56,6 +58,9 @@ export default class Settings extends Component {
                         <Listitem press={true} onPress={()=>{
                           nav.navigate('Policy')
                         }}  RightData='سياسه الخصوصيه' />
+                        <Listitem press={true} onPress={()=>{
+                          firebase.auth().signOut()
+                        }}  RightData='تسجيل الخروج' />
                     </List>
                 </View>
                 <Modal
