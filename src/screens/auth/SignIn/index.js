@@ -65,8 +65,12 @@ class SignUp extends Component {
 			const credential = firebase.auth.GoogleAuthProvider.credential(data.idToken, data.accessToken);
 			// login with credential
 			const currentUser = await firebase.auth().signInAndRetrieveDataWithCredential(credential);
-			let user= firebase.database().ref('users').child(currentUser.user.uid).set(currentUser.user);
-
+			let user= firebase.database().ref('users/'+currentUser.user.uid);
+			user.once("value").then(snapshot => {
+				if(!snapshot.exists()){
+					user.set(currentUser.user);
+				}
+			});
 			Toast.show({
 				text: "You have signed in successfully",
 				buttonText: "OK",
@@ -117,7 +121,7 @@ class SignUp extends Component {
 						<SignBox onPress={()=> this.signInWithPhone()} color="#2ca3bd" icon="mobile" text="تسجيل الدخول بواسطه الجوال"/>
 					</View>
 					<View style={{flex: 1}}>
-						<Button bordered style={{borderColor:'#2AA2B9', backgroundColor:'transparent', borderRadius:12,alignSelf:'center',}}>
+						<Button onPress={()=> this.props.navigation.navigate("App")} bordered style={{borderColor:'#2AA2B9', backgroundColor:'transparent', borderRadius:12,alignSelf:'center',}}>
 							<Text style={{color:'#276A8E', fontSize:15,fontFamily:'Droid Arabic Kufi'}} >ليس الان</Text>
 						</Button>
 						<TouchableOpacity style={{ alignSelf: 'center', justifyContent: 'center', marginTop: 20 }}>

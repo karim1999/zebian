@@ -16,7 +16,9 @@ class AuthLoadingScreen extends React.Component {
         super(props);
         this._bootstrapAsync();
     }
-
+    componentDidMount(){
+      // firebase.auth().signOut();
+    }
     // Fetch the token from storage then navigate to our appropriate place
     _bootstrapAsync = async () => {
 	    firebase.auth().onAuthStateChanged(user => {
