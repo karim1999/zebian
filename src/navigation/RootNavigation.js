@@ -14,9 +14,7 @@ import Header2 from "../components/Header2";
 const RootStack= createStackNavigator(
     {
         AuthLoading: AuthLoadingScreen,
-        App:{
-          screen:AppNavigator,
-        } ,
+        App: AppNavigator,
         Auth:{
           screen:AuthStack,
         } ,
