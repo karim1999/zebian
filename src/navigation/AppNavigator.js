@@ -14,6 +14,8 @@ import Time from "../screens/app/Time";
 import CarType from "../screens/app/CarType";
 import Complains from "../screens/app/complainings";
 import Policy from "../screens/app/Policy";
+import Offers from "../screens/app/offers";
+
 import AddComplain from "../screens/app/AddComplain";
 
 const AppNavigator= createStackNavigator(
@@ -48,6 +50,9 @@ const AppNavigator= createStackNavigator(
         {
           screen: AddComplain,
         },
+        offers:{
+          screen:Offers
+        }
 
 
     },

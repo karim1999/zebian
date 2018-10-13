@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { View, Form, Textarea, Text, Button,Toast } from 'native-base';
+import { View, Form, Textarea, Text, Button,Toast,Picker,Item,Icon,Card } from 'native-base';
 import AppTemplate from '../appTemplate';
 import ListCard from '../../../components/common/card';
 import MapLocation from '../../../assets/images/png/map-location.png'
@@ -19,9 +19,16 @@ class OrderNow extends Component {
       give_address:'',
       time:'',
       car:'',
-      desc:''
+      desc:'',
+      deliveryType: undefined
+
     }
 
+  }
+  onValueChange2(value: string) {
+    this.setState({
+      deliveryType: value
+    });
   }
   componentDidMount(){
     AsyncStorage.getItem('recieve_address').then(address=>{
@@ -48,7 +55,7 @@ class OrderNow extends Component {
   OrderNow = ()=>{
     user_id = this.props.user.uid
     desc = this.state.desc;
-
+    deliveryType = this.state.deliveryType;
     if(user_id == null){
       Toast.show({
 				text: "تحتاج الي تسجيل الدخول اولا",
@@ -60,7 +67,7 @@ class OrderNow extends Component {
     else {
 
     order = this.props.order;
-    if(order.giveAddress == '' || order.car == '' || order.time == '' || order.recieveAddress == '' || desc == ''){
+    if(order.giveAddress == '' || order.car == '' || order.time == '' || order.recieveAddress == '' || desc == '',deliveryType == ''){
       Toast.show({
 				text: "الرجاء ملأ جميع البيانات",
 				buttonText: "موافق",
@@ -71,9 +78,22 @@ class OrderNow extends Component {
     else {
       order.desc = desc;
       order.user_id = user_id;
-        firebase.database().ref('orders/').push(
+      order.orderedTime = new Date();
+      order.deliveryType = deliveryType;
+      order.status = 0;
+      fetch('https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins='+order.recievePos.lat+','+order.recievePos.long+'&destinations='+order.givePos.lat+','+order.givePos.long+'&key=AIzaSyCxXoRqTcOTvsOLQPOiVtPnSxLUyGJBFqw').then((response) => response.json())
+    .then((data) => {
+      var distance = (data.rows[0].elements[0].distance.value)/1000; // Distanc by km
+      var time = (data.rows[0].elements[0].duration.value)/60; // time per minutes
+      order.googleTime = time;
+      order.googleDistance = distance;
+    }).then(()=>{
+      var addOrder=   firebase.database().ref('orders/').push(
           order
           );
+    });
+
+          // this.props.navigation.navigate('offers',{order_id:addOrder.key})
     }
 
       }
@@ -96,6 +116,22 @@ class OrderNow extends Component {
                         <ListCard onPress={()=>{
                           nav.navigate('CarType')
                         }} header={'حدد نوع السياره'} footer={(this.props.order.car != '')?(this.props.order.car == 'car') ? 'سيدان ': 'بيك اب':'بيك أب - سيدان'} rightIcon={Car} rightIconWidth={40} />
+                        <Card picker>
+              <Picker
+                mode="dropdown"
+                iosIcon={<Icon name="ios-arrow-down-outline" />}
+                style={{ width: undefined ,backgroundColor:'white',textAlign:'center'}}
+                placeholder="التوصيل"
+                placeholderStyle={{ color: "#bfc6ea" }}
+                placeholderIconColor="#007aff"
+                selectedValue={this.state.deliveryType}
+                onValueChange={this.onValueChange2.bind(this)}
+              >
+              <Picker.Item label="نوع التوصيل" value="0" />
+                <Picker.Item label="توصيل خارجي" value="1" />
+                <Picker.Item label="توصيل داخلي" value="2" />
+              </Picker>
+            </Card>
                     </View>
                 </View>
                 <View style={{ flexdirection: 'row' }}>
