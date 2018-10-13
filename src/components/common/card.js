@@ -100,7 +100,7 @@ export default class ListCard extends Component {
               <View style={{ flexDirection: 'row' }}>
                 <Text style={{ color: '#266A8F', fontSize: 16, fontFamily:'Droid Arabic Kufi' }} >{this.props.header}</Text>
               </View>
-              <View style={{ flexDirection: 'row' }}>
+              <View style={{width:'140%'}}>
 	              <Text  style={{ color: '#707070', fontSize: 13,fontFamily:'Droid Arabic Kufi' }} >{this.props.footer}</Text>
               </View>
               <View style={{ flexDirection: 'row' }}>
@@ -134,5 +134,3 @@ const styles = StyleSheet.create({
     color: '#FAC819',
   }
 });
-
-

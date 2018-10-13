@@ -1,0 +1,693 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AF8C11FCEE7638D044E6118AFBA6306E /* Pods-zebian-tvOSTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 472E2CB334FD8B132088FF8A03C6EA76 /* Pods-zebian-tvOSTests-dummy.m */; };
+		BF64E0BEDF15FB93148180E714B7FFBC /* Pods-zebian-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A43DE703038C69E0DDD965B9909B78B8 /* Pods-zebian-dummy.m */; };
+		C78BCF798007B29CBBFC662563E76D51 /* Pods-zebianTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB50D0C5D8ED504A1D0C9BA535EF9F0 /* Pods-zebianTests-dummy.m */; };
+		F3BCAB3E9516A2776C0B500D7573B72F /* Pods-zebian-tvOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 11747F722E0AEED90029A4B7CAA988DA /* Pods-zebian-tvOS-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		09915C9BECAE7B0EEF8C195EE1BA2286 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A74166E4BE4B77C0070C9DFDD27B03A;
+			remoteInfo = "Pods-zebian";
+		};
+		48DA42D6BCD185F2952CA3DCE70BCD94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A74166E4BE4B77C0070C9DFDD27B03A;
+			remoteInfo = "Pods-zebian";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01550518AFBC2B9DB7DD33AE6A7434B7 /* Pods-zebian-tvOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-zebian-tvOS-frameworks.sh"; sourceTree = "<group>"; };
+		0D46D0BA6C70D310F4131E05F4C3E8B0 /* Pods-zebian-tvOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-zebian-tvOS-resources.sh"; sourceTree = "<group>"; };
+		0D685E405AD6EDCE259AC67036EC204A /* Pods-zebian-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-zebian-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		11747F722E0AEED90029A4B7CAA988DA /* Pods-zebian-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-zebian-tvOS-dummy.m"; sourceTree = "<group>"; };
+		19BE31D5C7511F5A6764D72A4DF70595 /* Pods-zebian-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-zebian-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1BB50D0C5D8ED504A1D0C9BA535EF9F0 /* Pods-zebianTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-zebianTests-dummy.m"; sourceTree = "<group>"; };
+		289F68185AD0AE00BCE714970D964998 /* Pods-zebian-tvOSTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-zebian-tvOSTests-resources.sh"; sourceTree = "<group>"; };
+		367E5682E37280071F110C84DC90F404 /* Pods-zebianTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-zebianTests.release.xcconfig"; sourceTree = "<group>"; };
+		372D3A139FF095E035FF31BF65600EE1 /* Pods-zebian-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-zebian-frameworks.sh"; sourceTree = "<group>"; };
+		41A3A85E76BE22055EEF5E930514A0B1 /* libPods-zebian.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-zebian.a"; path = "libPods-zebian.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		44667330C174CBC8EB5FF92D85257E33 /* Pods-zebian-tvOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-zebian-tvOS-acknowledgements.plist"; sourceTree = "<group>"; };
+		472E2CB334FD8B132088FF8A03C6EA76 /* Pods-zebian-tvOSTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-zebian-tvOSTests-dummy.m"; sourceTree = "<group>"; };
+		48C8A072C626BFF6C42DAC1C12369D75 /* Pods-zebian-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-zebian-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		5207A4407FFEC8B94C393477CD1E2DB6 /* Pods-zebian-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-zebian-acknowledgements.plist"; sourceTree = "<group>"; };
+		8807D74DF8498A97C803400DAF8C7C17 /* Pods-zebianTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-zebianTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8FE4A126607CCCE426BDC11A8004DC90 /* Pods-zebianTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-zebianTests-resources.sh"; sourceTree = "<group>"; };
+		919C236DB20F9D2F61EDB876E2A92C56 /* Pods-zebian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-zebian.release.xcconfig"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		99AC8FAD68C4F736C9DF5D2E337C4FF3 /* Pods-zebian-tvOSTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-zebian-tvOSTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A183CC16F703EF517B196BDF069D07EC /* Pods-zebian-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-zebian-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		A3CA2FD3B898932FD2C9DF2A0CCA3B9C /* Pods-zebian-tvOSTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-zebian-tvOSTests-frameworks.sh"; sourceTree = "<group>"; };
+		A43DE703038C69E0DDD965B9909B78B8 /* Pods-zebian-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-zebian-dummy.m"; sourceTree = "<group>"; };
+		B5C22D5265060CD12ED1EEE1CF708E0E /* libPods-zebian-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-zebian-tvOSTests.a"; path = "libPods-zebian-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA3C271DB34102721C6AB5E1E408543F /* Pods-zebian-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-zebian-resources.sh"; sourceTree = "<group>"; };
+		C49EBEF6B087631AAE9EBEF4CB29485D /* Pods-zebianTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-zebianTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CEA79DE30FABE4E988A8D38D9A31B97A /* Pods-zebian-tvOSTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-zebian-tvOSTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		D30B9008C67B0E75E2BE571B1F39F0D0 /* libPods-zebian-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-zebian-tvOS.a"; path = "libPods-zebian-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8B5D22EE58E1F733719205FEDDA1C96 /* Pods-zebianTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-zebianTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		DD343380486E479411C49E8873A8230D /* Pods-zebianTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-zebianTests-frameworks.sh"; sourceTree = "<group>"; };
+		DD91481309D462012698BC990AA93A09 /* Pods-zebian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-zebian.debug.xcconfig"; sourceTree = "<group>"; };
+		EE2EDE519D6DECF64BE6A910877726BA /* Pods-zebian-tvOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-zebian-tvOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		EF845454CEBF47EF6E52E11E55C1C30F /* libPods-zebianTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-zebianTests.a"; path = "libPods-zebianTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F451E8A6B4E6386DA6BDA6CDF6D690A0 /* Pods-zebian-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-zebian-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		67DE89177DF5D926BB75F312EA0A11B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E35D3D4AAA2B24DD11992C01DF105337 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8865E57F7D44AC122C4D7755603515A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDF5600B540EEB1505F84365AD6C5B38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04D4F4AB4293D8EA7CB1E29CADFA1F0A /* Pods-zebian */ = {
+			isa = PBXGroup;
+			children = (
+				19BE31D5C7511F5A6764D72A4DF70595 /* Pods-zebian-acknowledgements.markdown */,
+				5207A4407FFEC8B94C393477CD1E2DB6 /* Pods-zebian-acknowledgements.plist */,
+				A43DE703038C69E0DDD965B9909B78B8 /* Pods-zebian-dummy.m */,
+				372D3A139FF095E035FF31BF65600EE1 /* Pods-zebian-frameworks.sh */,
+				BA3C271DB34102721C6AB5E1E408543F /* Pods-zebian-resources.sh */,
+				DD91481309D462012698BC990AA93A09 /* Pods-zebian.debug.xcconfig */,
+				919C236DB20F9D2F61EDB876E2A92C56 /* Pods-zebian.release.xcconfig */,
+			);
+			name = "Pods-zebian";
+			path = "Target Support Files/Pods-zebian";
+			sourceTree = "<group>";
+		};
+		0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4313940EF6D0AA5A0FEDB5AA577BD935 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				41A3A85E76BE22055EEF5E930514A0B1 /* libPods-zebian.a */,
+				D30B9008C67B0E75E2BE571B1F39F0D0 /* libPods-zebian-tvOS.a */,
+				B5C22D5265060CD12ED1EEE1CF708E0E /* libPods-zebian-tvOSTests.a */,
+				EF845454CEBF47EF6E52E11E55C1C30F /* libPods-zebianTests.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		55ABC762FBB17710EC2C79F86906BFAD /* Pods-zebian-tvOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				99AC8FAD68C4F736C9DF5D2E337C4FF3 /* Pods-zebian-tvOSTests-acknowledgements.markdown */,
+				CEA79DE30FABE4E988A8D38D9A31B97A /* Pods-zebian-tvOSTests-acknowledgements.plist */,
+				472E2CB334FD8B132088FF8A03C6EA76 /* Pods-zebian-tvOSTests-dummy.m */,
+				A3CA2FD3B898932FD2C9DF2A0CCA3B9C /* Pods-zebian-tvOSTests-frameworks.sh */,
+				289F68185AD0AE00BCE714970D964998 /* Pods-zebian-tvOSTests-resources.sh */,
+				F451E8A6B4E6386DA6BDA6CDF6D690A0 /* Pods-zebian-tvOSTests.debug.xcconfig */,
+				A183CC16F703EF517B196BDF069D07EC /* Pods-zebian-tvOSTests.release.xcconfig */,
+			);
+			name = "Pods-zebian-tvOSTests";
+			path = "Target Support Files/Pods-zebian-tvOSTests";
+			sourceTree = "<group>";
+		};
+		76CAB2EDDD7825615816E92DF453234A /* Pods-zebian-tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				EE2EDE519D6DECF64BE6A910877726BA /* Pods-zebian-tvOS-acknowledgements.markdown */,
+				44667330C174CBC8EB5FF92D85257E33 /* Pods-zebian-tvOS-acknowledgements.plist */,
+				11747F722E0AEED90029A4B7CAA988DA /* Pods-zebian-tvOS-dummy.m */,
+				01550518AFBC2B9DB7DD33AE6A7434B7 /* Pods-zebian-tvOS-frameworks.sh */,
+				0D46D0BA6C70D310F4131E05F4C3E8B0 /* Pods-zebian-tvOS-resources.sh */,
+				0D685E405AD6EDCE259AC67036EC204A /* Pods-zebian-tvOS.debug.xcconfig */,
+				48C8A072C626BFF6C42DAC1C12369D75 /* Pods-zebian-tvOS.release.xcconfig */,
+			);
+			name = "Pods-zebian-tvOS";
+			path = "Target Support Files/Pods-zebian-tvOS";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */,
+				4313940EF6D0AA5A0FEDB5AA577BD935 /* Products */,
+				F6E99FE41B2833DC910F554CBC378A4D /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		840DF028F8E0D1B3921BF6DE0E2A9CE8 /* Pods-zebianTests */ = {
+			isa = PBXGroup;
+			children = (
+				C49EBEF6B087631AAE9EBEF4CB29485D /* Pods-zebianTests-acknowledgements.markdown */,
+				D8B5D22EE58E1F733719205FEDDA1C96 /* Pods-zebianTests-acknowledgements.plist */,
+				1BB50D0C5D8ED504A1D0C9BA535EF9F0 /* Pods-zebianTests-dummy.m */,
+				DD343380486E479411C49E8873A8230D /* Pods-zebianTests-frameworks.sh */,
+				8FE4A126607CCCE426BDC11A8004DC90 /* Pods-zebianTests-resources.sh */,
+				8807D74DF8498A97C803400DAF8C7C17 /* Pods-zebianTests.debug.xcconfig */,
+				367E5682E37280071F110C84DC90F404 /* Pods-zebianTests.release.xcconfig */,
+			);
+			name = "Pods-zebianTests";
+			path = "Target Support Files/Pods-zebianTests";
+			sourceTree = "<group>";
+		};
+		F6E99FE41B2833DC910F554CBC378A4D /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				04D4F4AB4293D8EA7CB1E29CADFA1F0A /* Pods-zebian */,
+				76CAB2EDDD7825615816E92DF453234A /* Pods-zebian-tvOS */,
+				55ABC762FBB17710EC2C79F86906BFAD /* Pods-zebian-tvOSTests */,
+				840DF028F8E0D1B3921BF6DE0E2A9CE8 /* Pods-zebianTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3B71A3192843A4A9C20880DFCA5379FF /* Pods-zebian-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF97680C0B58D6E1973CDCCB473624A8 /* Build configuration list for PBXNativeTarget "Pods-zebian-tvOS" */;
+			buildPhases = (
+				1C22F3E05780ABB4E168ECA99913686F /* Sources */,
+				E35D3D4AAA2B24DD11992C01DF105337 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-zebian-tvOS";
+			productName = "Pods-zebian-tvOS";
+			productReference = D30B9008C67B0E75E2BE571B1F39F0D0 /* libPods-zebian-tvOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9A74166E4BE4B77C0070C9DFDD27B03A /* Pods-zebian */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3119F362E7BED8AAC3B6A680E256D080 /* Build configuration list for PBXNativeTarget "Pods-zebian" */;
+			buildPhases = (
+				44FC0E226D8F60DFEF0B54A1A6FE1AD5 /* Sources */,
+				F8865E57F7D44AC122C4D7755603515A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-zebian";
+			productName = "Pods-zebian";
+			productReference = 41A3A85E76BE22055EEF5E930514A0B1 /* libPods-zebian.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A86472C5A374379A6C004A2FFDBC5DC3 /* Pods-zebianTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F340796ED0CF933ACBFB3C749D87DD1 /* Build configuration list for PBXNativeTarget "Pods-zebianTests" */;
+			buildPhases = (
+				698954BB02C9E43436290A94E3CA111A /* Sources */,
+				FDF5600B540EEB1505F84365AD6C5B38 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				376F7FE134ECCC70ABB3D9EAFFB9F540 /* PBXTargetDependency */,
+			);
+			name = "Pods-zebianTests";
+			productName = "Pods-zebianTests";
+			productReference = EF845454CEBF47EF6E52E11E55C1C30F /* libPods-zebianTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EF2CDEFC45C8A7013DE45FA1154A8F33 /* Pods-zebian-tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35CC17A942E0B519E3E90027034489BF /* Build configuration list for PBXNativeTarget "Pods-zebian-tvOSTests" */;
+			buildPhases = (
+				E00A4A7E168E7BEE04CD6FDD2B1E0CBC /* Sources */,
+				67DE89177DF5D926BB75F312EA0A11B3 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6DE9FC19602B9E8416862C9A2DB92C5E /* PBXTargetDependency */,
+			);
+			name = "Pods-zebian-tvOSTests";
+			productName = "Pods-zebian-tvOSTests";
+			productReference = B5C22D5265060CD12ED1EEE1CF708E0E /* libPods-zebian-tvOSTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 4313940EF6D0AA5A0FEDB5AA577BD935 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9A74166E4BE4B77C0070C9DFDD27B03A /* Pods-zebian */,
+				3B71A3192843A4A9C20880DFCA5379FF /* Pods-zebian-tvOS */,
+				EF2CDEFC45C8A7013DE45FA1154A8F33 /* Pods-zebian-tvOSTests */,
+				A86472C5A374379A6C004A2FFDBC5DC3 /* Pods-zebianTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1C22F3E05780ABB4E168ECA99913686F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3BCAB3E9516A2776C0B500D7573B72F /* Pods-zebian-tvOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44FC0E226D8F60DFEF0B54A1A6FE1AD5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF64E0BEDF15FB93148180E714B7FFBC /* Pods-zebian-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		698954BB02C9E43436290A94E3CA111A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C78BCF798007B29CBBFC662563E76D51 /* Pods-zebianTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E00A4A7E168E7BEE04CD6FDD2B1E0CBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF8C11FCEE7638D044E6118AFBA6306E /* Pods-zebian-tvOSTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		376F7FE134ECCC70ABB3D9EAFFB9F540 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-zebian";
+			target = 9A74166E4BE4B77C0070C9DFDD27B03A /* Pods-zebian */;
+			targetProxy = 48DA42D6BCD185F2952CA3DCE70BCD94 /* PBXContainerItemProxy */;
+		};
+		6DE9FC19602B9E8416862C9A2DB92C5E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-zebian";
+			target = 9A74166E4BE4B77C0070C9DFDD27B03A /* Pods-zebian */;
+			targetProxy = 09915C9BECAE7B0EEF8C195EE1BA2286 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1150A30FCCFAD5152F112FB7F08BCA21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48C8A072C626BFF6C42DAC1C12369D75 /* Pods-zebian-tvOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1EA8CDCA49D5A280A3417B7878BFF5DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		3452D0FFC5150DF45C46F11E24EB50D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D685E405AD6EDCE259AC67036EC204A /* Pods-zebian-tvOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		4CE8C1E830463B4178350D970D67BDFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 367E5682E37280071F110C84DC90F404 /* Pods-zebianTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6D08B92CEB175CDE7BA48358A087936B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD91481309D462012698BC990AA93A09 /* Pods-zebian.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		78CCF2F8575642B0F9526268F670DF6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Release;
+		};
+		A1C24E56B88790C19DE6D6B6F11E3B2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F451E8A6B4E6386DA6BDA6CDF6D690A0 /* Pods-zebian-tvOSTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A711B436415D7954F5B53C627188F3C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A183CC16F703EF517B196BDF069D07EC /* Pods-zebian-tvOSTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C292433491C484938D4793D1B2D0749D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8807D74DF8498A97C803400DAF8C7C17 /* Pods-zebianTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C332C0107B315BACFE4185D72099D54D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 919C236DB20F9D2F61EDB876E2A92C56 /* Pods-zebian.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1EA8CDCA49D5A280A3417B7878BFF5DD /* Debug */,
+				78CCF2F8575642B0F9526268F670DF6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3119F362E7BED8AAC3B6A680E256D080 /* Build configuration list for PBXNativeTarget "Pods-zebian" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D08B92CEB175CDE7BA48358A087936B /* Debug */,
+				C332C0107B315BACFE4185D72099D54D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35CC17A942E0B519E3E90027034489BF /* Build configuration list for PBXNativeTarget "Pods-zebian-tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1C24E56B88790C19DE6D6B6F11E3B2D /* Debug */,
+				A711B436415D7954F5B53C627188F3C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F340796ED0CF933ACBFB3C749D87DD1 /* Build configuration list for PBXNativeTarget "Pods-zebianTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C292433491C484938D4793D1B2D0749D /* Debug */,
+				4CE8C1E830463B4178350D970D67BDFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF97680C0B58D6E1973CDCCB473624A8 /* Build configuration list for PBXNativeTarget "Pods-zebian-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3452D0FFC5150DF45C46F11E24EB50D4 /* Debug */,
+				1150A30FCCFAD5152F112FB7F08BCA21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

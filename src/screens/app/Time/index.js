@@ -4,25 +4,37 @@ import { View ,Button} from 'native-base';
 import AppTemplate from '../appTemplate';
 import TimePicker from 'react-native-modal-datetime-picker';
 import {TouchableOpacity,Text} from 'react-native'
-export default class Time extends Component {
+import {connect} from "react-redux";
+import {setOrderTime} from "../../../reducers";
+
+class Time extends Component {
   constructor(props){
     super(props);
     this.state = {
       language:1,
       isDateTimePickerVisible: true,
-
+      date:''
     }
   }
 
-  _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
+  _showDateTimePicker = () => {
+    this.setState({ isDateTimePickerVisible: true });
+    alert(this.state.date)
+  }
 
   _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
 
   _handleDatePicked = (date) => {
-    console.log('A date has been picked: ', date);
+    this.setState({date})
+    // AsyncStorage.setItem('date',''+date)
+
     this._hideDateTimePicker();
   };
 
+  accept = ()=>{
+    this.props.setOrderTime(''+this.state.date);
+    this.props.navigation.navigate('Home')
+  }
   render() {
     const nav = this.props.navigation
     return (
@@ -33,16 +45,31 @@ export default class Time extends Component {
           </Button>
 
           <TimePicker
-            mode='time'
+            mode='datetime'
             isVisible={this.state.isDateTimePickerVisible}
             onConfirm={this._handleDatePicked}
             onCancel={this._hideDateTimePicker}
           />
+          <View style={{ flexDirection: 'column', alignSelf: 'center', height: 250, width: '50%',justifyContent:'flex-end' }}>
+
+          <Button onPress={()=>this.accept()} rounded block style={{ backgroundColor: '#15588D',color:'white' }}>
+            <Text style={{fontSize:20}}>موافق</Text>
+          </Button>
+          </View>
         </View>
 
       </AppTemplate>
     );
   }
 }
+const mapStateToProps = ({ order }) => ({
+    order,
+});
 
-
+const mapDispatchToProps = {
+    setOrderTime,
+};
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Time);

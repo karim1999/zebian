@@ -9,9 +9,11 @@ import CarSelected from '../../../assets/images/png/CarSelected.png';
 import PickupSelected from '../../../assets/images/png/PickupSelected.png';
 import CarUnSelected from '../../../assets/images/png/CarUnSelected.png';
 import PickupUnSelected from '../../../assets/images/png/PickupUnSelected.png';
-import {TouchableOpacity} from 'react-native'
+import {TouchableOpacity,AsyncStorage} from 'react-native'
+import {connect} from "react-redux";
+import {setOrderCar} from "../../../reducers";
 
-export default class CarType extends Component {
+ class CarType extends Component {
   constructor(props){
     super(props);
     this.state= {
@@ -19,6 +21,11 @@ export default class CarType extends Component {
       car:false,
       selected:'pickup'
     }
+  }
+  accept = ()=>{
+    // AsyncStorage.setItem('car',''+this.state.selected);
+    this.props.setOrderCar(this.state.selected);
+    this.props.navigation.navigate('Home')
   }
   render() {
     const nav = this.props.navigation
@@ -45,7 +52,7 @@ export default class CarType extends Component {
           </View>
         </View>
         <View style={{ flexDirection: 'column', alignSelf: 'center', height: 250, width: '50%',justifyContent:'flex-end' }}>
-          <Button rounded block style={{ backgroundColor: '#15588D', }}>
+          <Button onPress={()=>this.accept()} rounded block style={{ backgroundColor: '#15588D', }}>
             <Text style={{fontSize:20}}>موافق</Text>
           </Button>
         </View>
@@ -57,3 +64,14 @@ export default class CarType extends Component {
 const styles = {
 
 }
+const mapStateToProps = ({ order }) => ({
+    order,
+});
+
+const mapDispatchToProps = {
+    setOrderCar
+};
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(CarType);
