@@ -6,20 +6,56 @@ import MapMarker from '../../../assets/images/png/map-marker.png';
 import GreenDot from '../../../assets/images/png/green-dot.png';
 import YellowDot from '../../../assets/images/png/yellow-dot.png';
 import Done from '../../../assets/images/png/done.png';
+import firebase from 'react-native-firebase'
+import {connect} from "react-redux";
+import {TouchableOpacity} from 'react-native';
+import {_} from 'lodash';
+class Talabaty extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      orders:[
+         { test1: { giveShortAddress: 'FirstHeader', giveAddress: 'FirstText' } }
+         , { test2: { giveShortAddress: 'SecondSub', giveAddress: 'SecondSub' } }],
+      fetch:0
+    }
+  }
+  componentWillMount(){
+    const ref = firebase.database().ref('orders');
+var finished = [];
+ref.once('value',snapshot => {
+   this.setState({ orders:  _.map(snapshot.val(), (value, key)=> {
+          if(value.user_id == this.props.user.uid){
+					    return {...value, key};
+          }
+				})
+       });
+  })
 
-export default class Talabaty extends Component {
+  }
+
     render() {
         const nav = this.props.navigation
+
         return (
             <AppTemplate navigation={nav} name="طلباتي">
                 <View style={{flex: 1, flexDirection: 'row',justifyContent:'center' }}>
                     <View style={{width:'95%'}}>
-                        <ListCard header={'توصيل شاشه'} footer={'حي النصر- شارع الوحده'} status='1' />
-                        <ListCard header={'توصيل اثاث منزلي'} footer={'شارع خالد بن الوليد'} status='3' />
-                        <ListCard header={'توصيل اجهزه كهربائيه'} footer={'حي الامل'} status='2' />
+                    {
+                      this.state.orders.map((order,key) => <TouchableOpacity onPress ={()=>this.props.navigation.navigate('offers',{key:order.key})} ><ListCard header={order.giveShortAddress} footer={order.giveAddress} status={order.status} /></TouchableOpacity>)
+                    }
                     </View>
                 </View>
             </AppTemplate>
         );
     }
 }
+const mapStateToProps = ({ order,user }) => ({
+    order,
+    user
+});
+
+
+export default connect(
+    mapStateToProps,
+)(Talabaty);
