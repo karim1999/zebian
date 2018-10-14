@@ -92,7 +92,11 @@ export default class Offers extends Component {
 								}
 								data={this.state.offers}
 								renderItem={({item}) => (
-                  <TouchableOpacity onPress={()=>alert(JSON.stringify(item))} >
+                  <TouchableOpacity onPress={()=>{
+                    this.props.navigation.navigate("SingleChat", {
+                      key:this.props.navigation.state.params.key
+                    })
+                  }} >
 {
 }
 

@@ -16,7 +16,7 @@ const AppTabNavigator = createTabNavigator(
   {
     Home: HomeScreen,
     Orders: Orders,
-    // ChatList,
+     ChatList,
     AccountSetting: AccountSetting,
 
   },
