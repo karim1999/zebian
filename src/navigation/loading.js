@@ -21,10 +21,12 @@ class AuthLoadingScreen extends React.Component {
     componentDidMount() {
 	    firebase.auth().onAuthStateChanged(user => {
 	    	if(user){
-			    firebase.database().ref('/users/'+user.uid).on('value', data => {
-				    this.props.setUser(data.val());
+			    // firebase.database().ref('/users/'+user.uid).once('value').then ((data) => {
+				  //   this.props.setUser(data.val());
+            this.props.setUser(user);
 				    this.props.navigation.navigate('App')
-			    });
+			    // });
+          // firebase.database().ref('/users/'+user.uid).off("value");
 		    }else{
 			    this.props.navigation.navigate('Auth')
 		    }
