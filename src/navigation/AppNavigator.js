@@ -17,6 +17,8 @@ import DriverHome from "../screens/app/driver/driverHome";
 import Complains from "../screens/app/complainings";
 import Policy from "../screens/app/Policy";
 import AddComplain from "../screens/app/AddComplain";
+import Offers from "../screens/app/offers";
+
 const DriverNavigator= createStackNavigator(
 	{
 		DriverForm,

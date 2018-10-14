@@ -89,8 +89,8 @@ export default class Card2 extends Component {
         <CardItem style={{ borderRadius: 5 }}>
           <Left style={{ flex: 0.5 }} >
             {
-              (this.props.status != 3 ) ?
-                <Icon name="dot-single" type='Entypo'  style={{fontSize:50,color:(this.props.status == 1) ? '#ffb432' : 'green'}}/>
+              (this.props.status != 2 ) ?
+                <Icon name="dot-single" type='Entypo'  style={{fontSize:50,color:(this.props.status == 0) ? '#ffb432' : 'green'}}/>
                 :
                 <Icon name="check" type='MaterialIcons'  style={{fontSize:30,marginLeft:15,color:'green'}}/>
 

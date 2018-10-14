@@ -13,7 +13,7 @@ export default class Talabaty extends Component {
         return (
             <AppTemplate navigation={nav} name="طلباتي">
                 <View style={{flex: 1, flexDirection: 'row',justifyContent:'center' }}>
-                    <View style={{width:'90%'}}>
+                    <View style={{width:'95%'}}>
                         <ListCard header={'توصيل شاشه'} footer={'حي النصر- شارع الوحده'} status='1' />
                         <ListCard header={'توصيل اثاث منزلي'} footer={'شارع خالد بن الوليد'} status='3' />
                         <ListCard header={'توصيل اجهزه كهربائيه'} footer={'حي الامل'} status='2' />
