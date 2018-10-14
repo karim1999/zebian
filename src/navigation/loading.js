@@ -19,7 +19,6 @@ class AuthLoadingScreen extends React.Component {
     }
     // Fetch the token from storage then navigate to our appropriate place
     componentDidMount() {
-	    this.props.navigation.navigate('AddTalab')
 	    firebase.auth().onAuthStateChanged(user => {
 	    	if(user){
 			    firebase.database().ref('/users/'+user.uid).on('value', data => {
