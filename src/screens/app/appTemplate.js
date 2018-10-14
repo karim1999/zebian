@@ -35,9 +35,15 @@ export default class AppTemplate extends Component {
            </Button>
          </Right>
         </Header>
-       <Content  >
-              {this.props.children}
-       </Content>
+	      {
+		      (this.props.isChat) ? (
+				      this.props.children
+		      ): (
+			      <Content  >
+				      {this.props.children}
+			      </Content>
+		      )
+	      }
       </Container>
     );
   }

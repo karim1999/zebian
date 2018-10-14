@@ -9,7 +9,7 @@ export default class Policy extends Component {
   render() {
     const nav = this.props.navigation
     return (
-        <AppTemplate navigation={nav} name="سياسه الخصوصيه">
+        <AppTemplate back navigation={nav} name="سياسه الخصوصيه">
                 <View style={{flex:1, width:'90%', alignSelf:'center'}}>
                     <View style={{flexDirection:'row'}}>
                         <Text style={styles.text}>
@@ -30,14 +30,14 @@ export default class Policy extends Component {
                             </ScrollView>
                         </Card>
                     </View>
-                    <ListItem style={{borderBottomWidth:0, color:'#6E6E6E', alignSelf:'flex-end',marginRight:10}} >
-                        <Left style={{flex:0}} >
-                            <Text style={{color:'#6E6E6E'}} >قرات الشروط والاحكام واوفق عليها</Text>
-                        </Left>
-                        <Right>
-                            <CheckBox value={true} />
-                        </Right>
-                    </ListItem>
+                    {/*<ListItem style={{borderBottomWidth:0, color:'#6E6E6E', alignSelf:'flex-end',marginRight:10}} >*/}
+                        {/*<Left style={{flex:0}} >*/}
+                            {/*<Text style={{color:'#6E6E6E'}} >قرات الشروط والاحكام واوفق عليها</Text>*/}
+                        {/*</Left>*/}
+                        {/*<Right>*/}
+                            {/*<CheckBox value={true} />*/}
+                        {/*</Right>*/}
+                    {/*</ListItem>*/}
                 </View>   
         </AppTemplate>
     );
