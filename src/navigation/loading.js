@@ -10,31 +10,35 @@ import { SERVER_URL } from "../constants/config";
 import {connect} from "react-redux";
 import {setUser} from "../reducers";
 import firebase from 'react-native-firebase'
+import AccountSetting from "../screens/app/AccountSetting";
+import OffersLoading from "../screens/app/offersLoading";
 
 class AuthLoadingScreen extends React.Component {
     constructor(props) {
         super(props);
-        this._bootstrapAsync();
-    }
-    componentDidMount(){
-      // firebase.auth().signOut();
     }
     // Fetch the token from storage then navigate to our appropriate place
-    _bootstrapAsync = async () => {
-      firebase.auth().onAuthStateChanged(user => {
-  this.props.setUser(user);
-  this.props.navigation.navigate(user ? 'App' : 'Auth')
-})
-
+    componentDidMount() {
+	    this.props.navigation.navigate('AddTalab')
+	    firebase.auth().onAuthStateChanged(user => {
+	    	if(user){
+			    firebase.database().ref('/users/'+user.uid).on('value', data => {
+				    this.props.setUser(data.val());
+				    this.props.navigation.navigate('App')
+			    });
+		    }else{
+			    this.props.navigation.navigate('Auth')
+		    }
+	    })
     };
-
     // Render any loading content that you like here
     render() {
         return (
             <View style={[styles.container, styles.horizontal]}>
-                <ActivityIndicator size="large" color="#000000" />
+              <ActivityIndicator size="large" color="#000000" />
             </View>
         );
+
     }
 }
 const styles = StyleSheet.create({

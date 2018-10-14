@@ -16,9 +16,6 @@ class Check extends React.Component {
 		super(props);
 		this._bootstrapAsync();
 	}
-	componentDidMount(){
-		// firebase.auth().signOut();
-	}
 	// Fetch the token from storage then navigate to our appropriate place
 	_bootstrapAsync = async () => {
 		if(this.props.user.driver === true){
@@ -28,7 +25,6 @@ class Check extends React.Component {
 		}else{
 			this.props.navigation.navigate('AccountType');
 		}
-		alert(JSON.stringify(this.props.user));
 	};
 
 	// Render any loading content that you like here

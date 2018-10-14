@@ -34,12 +34,12 @@ export default class AddTalab extends Component {
                     <View style={{ position: 'absolute', width: '90%', bottom: 0, alignSelf: 'center' }}>
                         <Button onPress={this._toggleModal} iconLeft rounded style={{ alignSelf: 'center', height: 24, backgroundColor: '#15588D' }}>
                             <Icon style={{ marginLeft: 3 }}>
-                                <Image source={Cancel} />
+	                            <Image style={{width: 16, height: 16}} source={Cancel} />
                             </Icon>
                             <Text style={{ paddingHorizontal: 20, color: 'white', fontSize: 16 }}>الغاء الطلب</Text>
                         </Button>
-                        <ListCard header={'مكان الاستلام '} footer={'حي النصر - شارع الوحده'} rightIconSrc={MapMarker} />
-                        <ListCard header={'مكان التسليم'} footer={'حي النصر - شارع الوحده'} rightIconSrc={MapMarker} />
+                        <ListCard header={'مكان الاستلام '} footer={'حي النصر - شارع الوحده'} leftIconSrc={MapMarker} />
+                        <ListCard header={'مكان التسليم'} footer={'حي النصر - شارع الوحده'} leftIconSrc={MapMarker} />
                     </View>
                 </View>
                 <View style={{ width: '90%', alignSelf: 'center' }}>
