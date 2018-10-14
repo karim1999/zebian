@@ -87,7 +87,31 @@ class OrderNow extends Component {
       var time = (data.rows[0].elements[0].duration.value)/60; // time per minutes
       order.googleTime = time;
       order.googleDistance = distance;
+      if(true){
+        order.mm = 77;
+      }
+      if(order.deliveryType == 1){ // outside country
+        if(order.car == 'car'){ // sedan
+          order.maxPrice = 95;
+          order.minPrice = 75;
+        }
+        else { // pickup
+          order.maxPrice = 125;
+          order.minPrice = 95;
+        }
+      }
+      else { // inside country
+        if(order.car == 'car'){ // sedan normal
+          order.maxPrice = 13 + order.distance*1;
+          order.minPrice = 13 + order.distance*1;
+        }
+        else { // pickup
+          order.maxPrice = 15 + order.distance*2;
+          order.minPrice = 15 + order.distance*2;
+        }
+      }
     }).then(()=>{
+
       var addOrder=   firebase.database().ref('orders/').push(
           order
           );

@@ -21,13 +21,11 @@ class AuthLoadingScreen extends React.Component {
     }
     // Fetch the token from storage then navigate to our appropriate place
     _bootstrapAsync = async () => {
-	    firebase.auth().onAuthStateChanged(user => {
-		    let currentUser= firebase.database().ref('users/'+user.uid).once("value").then(snapshot => {
-			    this.props.setUser(snapshot.val());
-		    }).finally(()=> {
-			    this.props.navigation.navigate(user ? 'App' : 'Auth')
-		    });
-	    })
+      firebase.auth().onAuthStateChanged(user => {
+  this.props.setUser(user);
+  this.props.navigation.navigate(user ? 'App' : 'Auth')
+})
+
     };
 
     // Render any loading content that you like here
