@@ -9,15 +9,16 @@ import {TouchableOpacity} from 'react-native'
 import {_} from 'lodash'
 import {FlatList} from 'react-native'
 export default class Offers extends Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			offers:[],
-			users:[],
-			fetch:0,
-			isLoading:false
-		}
-	}
+  constructor(props){
+    super(props);
+    this.state = {
+      offers:[
+         ],
+         users:[],
+      fetch:0,
+      isLoading:false
+    }
+  }
 //   componentDidMount(){
 //
 //     const ref = firebase.database().ref('offers');
@@ -49,7 +50,7 @@ export default class Offers extends Component {
 //
 //
 //   }
-	async componentDidMount(){
+  async componentDidMount(){
 		this.setState({
 			isLoading: true
 		});
@@ -73,40 +74,38 @@ export default class Offers extends Component {
 			});
 		});
 	}
-	filter_user(offer){
-		// return _.filter(this.state.users, user=>{
-		//    return user.uid == offer.user_id
-		//  }).value();
-		alert(JSON.stringify(this.state.offers))
+  filter_user(offer){
+    return _.filter(this.state.users, user=>{
+       return user.uid == offer.user_id
+     });
 
-	}
-	render() {
-		const nav = this.props.navigation
+  }
+  render() {
+    const nav = this.props.navigation
 
-		return (
-			<AppTemplate back={true} navigation={nav} name="العروض">
-				<View style={{width: '95%', alignSelf:'center' , flexDirection:'column' }}>
-					<FlatList
-						ListEmptyComponent={
-							<Text style={{alignItems: "center", justifyContent: "center", flex: 1, textAlign: "center"}}>لا يوجد طلبات حاليا</Text>
-						}
-						data={this.state.offers}
-						renderItem={({item}) => (
-							<TouchableOpacity onPress={()=>alert(JSON.stringify(item))} >
-								{
-									alert(JSON.stringify(item))
+    return (
+      <AppTemplate back={true} navigation={nav} name="العروض">
+        <View style={{width: '95%', alignSelf:'center' , flexDirection:'column' }}>
+        <FlatList
+								ListEmptyComponent={
+									<Text style={{alignItems: "center", justifyContent: "center", flex: 1, textAlign: "center"}}>لا يوجد طلبات حاليا</Text>
 								}
+								data={this.state.offers}
+								renderItem={({item}) => (
+                  <TouchableOpacity onPress={()=>alert(JSON.stringify(item))} >
+{
+}
 
-								<ListCard rightIcon={User} rightIconWidth={60} header={
-									(item == {})? 'aa' : item.user.displayName
-								} stars={false} Price={item.price} leftIconSrc={Dollar} />
-							</TouchableOpacity>
-						)}
-						keyExtractor = { (item, index) => index.toString() }
-					/>
+                     <ListCard rightIcon={User} rightIconWidth={60} header={
+                       (item == {} )? 'aa' : item.user.displayName
+                     } stars={true} Price={item.price} leftIconSrc={Dollar} />
+                 </TouchableOpacity>
+								)}
+								keyExtractor = { (item, index) => index.toString() }
+							/>
 
-				</View>
-			</AppTemplate>
-		);
-	}
+        </View>
+      </AppTemplate>
+    );
+  }
 }
