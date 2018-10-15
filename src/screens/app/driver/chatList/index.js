@@ -23,7 +23,7 @@ class Chat extends Component {
 			let first= await _.filter(_.map(data.val(), (value, key)=> {
 				return {...value, key};
 			}), order=> {
-				return order.driver_id == this.props.user.uid || this.props.user.uid == order.user_id
+				return order.driver_id == this.props.user.uid || this.props.user.uid == order.user_id && order.driver_id
 			});
 
 			await first.forEach(async (result)=>{
