@@ -82,8 +82,8 @@ class talabDetails1 extends Component {
 	}
 	_toggleModal = () => this.setState({ isModalVisible: !this.state.isModalVisible });
 chat = (order,nav)=>{
-  nav.navigate('SingleChatUser',{user_id:order.driver_id})
-  // alert(JSON.stringify(nav))
+  nav.navigate('SingleChatUser',{key:order.key})
+   // alert(JSON.stringify(order.driver_id))
 }
 	render() {
 		const nav = this.props.navigation
