@@ -7,8 +7,7 @@ import AccountSetting from "../screens/app/AccountSetting";
 import { strings } from '../i18n';
 import Text2 from "../components/Text2";
 import Header2 from "../components/Header2";
-import ChatList from "../screens/app/driver/chatList";
-import SingleChat from "../screens/app/driver/singleChat";
+import ChatList from "../screens/app/chatList";
 
 import { Icon } from 'native-base'
 

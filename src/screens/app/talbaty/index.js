@@ -23,7 +23,7 @@ class Talabaty extends Component {
   componentWillMount(){
     const ref = firebase.database().ref('orders');
 var finished = [];
-ref.once('value',snapshot => {
+ref.on('value',snapshot => {
    this.setState({ orders:  _.map(snapshot.val(), (value, key)=> {
           if(value.user_id == this.props.user.uid){
 					    return {...value, key};
@@ -32,6 +32,14 @@ ref.once('value',snapshot => {
        });
   })
 
+  }
+  order_navigate = (order)=>{
+    if(order.status == 0){
+      this.props.navigation.navigate('offers',{key:order.key})
+    }
+    else {
+      this.props.navigation.navigate('talabDetails1',{order})
+    }
   }
 
     render() {
@@ -42,7 +50,7 @@ ref.once('value',snapshot => {
                 <View style={{flex: 1, flexDirection: 'row',justifyContent:'center' }}>
                     <View style={{width:'95%'}}>
                     {
-                      this.state.orders.map((order,key) => <TouchableOpacity onPress ={()=>this.props.navigation.navigate('offers',{key:order.key})} ><ListCard header={order.giveShortAddress} footer={order.giveAddress} status={order.status} /></TouchableOpacity>)
+                      this.state.orders.map((order,key) => <TouchableOpacity onPress ={()=>this.order_navigate(order)} ><ListCard header={order.giveShortAddress} footer={order.giveAddress} status={order.status} /></TouchableOpacity>)
                     }
                     </View>
                 </View>

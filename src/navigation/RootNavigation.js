@@ -8,7 +8,8 @@ import AuthLoadingScreen from './loading'
 import AuthStack from './authNavigation'
 import DrawerNavigator from './DrawerNavigator'
 import AppNavigator from './AppNavigator'
-
+import SingleChatUser from "../screens/app/singleChat";
+import talabDetails1 from "../screens/app/talabDetails1";
 import Header2 from "../components/Header2";
 
 const RootStack= createStackNavigator(
@@ -18,6 +19,8 @@ const RootStack= createStackNavigator(
         Auth:{
           screen:AuthStack,
         } ,
+        SingleChatUser,
+        talabDetails1
     },
     {
       headerMode:'none',

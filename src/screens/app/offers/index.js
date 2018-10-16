@@ -19,37 +19,7 @@ export default class Offers extends Component {
       isLoading:false
     }
   }
-//   componentDidMount(){
-//
-//     const ref = firebase.database().ref('offers');
-//     const ref2 = firebase.database().ref('users');
-//     ref2.once('value',users =>{
-//       this.setState({ users:  _.map(users.val(), (value, key)=> {
-//                  return {...value};
-//            })
-//     ,fetch:1})
-//   })
-// ref.once('value',snapshot => {
-//    this.setState({ offers:  _.map(snapshot.val(), (value, key)=> {
-//            if(value.order_id == this.props.navigation.state.params.key){
-//               return {...value, key};
-//           }
-//         })
-//        });
-// //       // alert(JSON.stringify(snapshot))
-//   })
-// // const ref = firebase.database().ref('offers');
-// // var finished = [];
-// // ref.once('value',snapshot => {
-// // this.setState({ orders:  _.map(snapshot.val(), (value, key)=> {
-// //           return {...value, key};
-// //     })
-// //    });
-// //
-// // })
-//
-//
-//   }
+
   async componentDidMount(){
 		this.setState({
 			isLoading: true
@@ -80,6 +50,21 @@ export default class Offers extends Component {
      });
 
   }
+  accept = (user_id,order_id,offer_id,nav)=>{
+      var now = new Date();
+      var orderData = {
+          status:1, //being delivered ----->
+          driver_id:user_id,
+          accepted_time:now
+      };
+
+      // var updates = {};
+      // updates['/orders/' + order_id] = orderData;
+       firebase.database().ref('/orders/' + order_id).update(orderData);
+      firebase.database().ref('/offers/' + offer_id).update({status:1});
+      nav.navigate('SingleChatUser',{user_id})
+
+  }
   render() {
     const nav = this.props.navigation
 
@@ -92,18 +77,14 @@ export default class Offers extends Component {
 								}
 								data={this.state.offers}
 								renderItem={({item}) => (
-                  <TouchableOpacity onPress={()=>{
-                    this.props.navigation.navigate("SingleChat", {
-                      key:this.props.navigation.state.params.key
-                    })
-                  }} >
-{
-}
 
-                     <ListCard rightIcon={User} rightIconWidth={60} header={
+                     <ListCard
+                     onPressAccept={()=>{
+                       this.accept(item.user.uid,this.props.navigation.state.params.key,item.key,nav)
+                     }}
+                     rightIcon={User} rightIconWidth={60} header={
                        (item == {} )? 'aa' : item.user.displayName
-                     } stars={true} Price={item.price} leftIconSrc={Dollar} />
-                 </TouchableOpacity>
+                     } stars={true} chat={true}  order_id={this.props.navigation.state.params.key} select={true} nav={nav} user_id={item.user.uid} Price={item.price} leftIconSrc={Dollar} />
 								)}
 								keyExtractor = { (item, index) => index.toString() }
 							/>

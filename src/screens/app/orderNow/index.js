@@ -52,7 +52,7 @@ class OrderNow extends Component {
       }
     })
   }
-  OrderNow = ()=>{
+  OrderNow = (nav)=>{
     user_id = this.props.user.uid
     desc = this.state.desc;
     deliveryType = this.state.deliveryType;
@@ -67,12 +67,12 @@ class OrderNow extends Component {
     else {
 
     order = this.props.order;
-    if(order.giveAddress == '' || order.car == '' || order.time == '' || order.recieveAddress == '' || desc == '',deliveryType == ''){
+    if(order.giveAddress == '' || order.car == '' || order.time == '' || order.recieveAddress == '' || desc == '' || deliveryType == undefined){
       Toast.show({
 				text: "الرجاء ملأ جميع البيانات",
 				buttonText: "موافق",
 				type: "danger",
-				duration: 5000
+				duration: 2000
 			});
     }
     else {
@@ -114,10 +114,13 @@ class OrderNow extends Component {
 
       var addOrder=   firebase.database().ref('orders/').push(
           order
-          );
-    });
+        )
+        nav.navigate('offers',{order_id:addOrder.key})
 
-          // this.props.navigation.navigate('offers',{order_id:addOrder.key})
+    }).then(()=>{
+      nav.navigate('offers',{order_id:addOrder.key})
+    })
+
     }
 
       }
@@ -172,7 +175,7 @@ class OrderNow extends Component {
                     </Form>
                 </View>
                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-                    <Button onPress={() => this.OrderNow()} rounded style={{ backgroundColor: '#15588D', alignSelf: 'center', alignItems: 'center', marginVertical: 30, paddingRight: 20, paddingLeft: 20 }}>
+                    <Button onPress={() => this.OrderNow(nav)} rounded style={{ backgroundColor: '#15588D', alignSelf: 'center', alignItems: 'center', marginVertical: 30, paddingRight: 20, paddingLeft: 20 }}>
                         <Text style={{ fontSize: 18, textAlign: 'center',fontFamily:'Droid Arabic Kufi' }}>اطلب الان !</Text>
                     </Button>
                 </View>

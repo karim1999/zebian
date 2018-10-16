@@ -57,6 +57,28 @@ export default class ListCard extends Component {
 			null
 		}
 	}
+	acceptButton() {
+		if (this.props.select) {
+			return (
+				<Button
+				onPress={()=>{this.props.onPressAccept()}} style={{margin:5}} success><Text style={{fontSize: 13,fontFamily:'Droid Arabic Kufi'}}> اختيار </Text></Button>
+			)
+		}
+	}
+	ignoreButton() {
+		if (this.props.chat) {
+			return (
+				<Button
+				onPress={()=>{
+					this.props.nav.navigate("SingleChat", {
+						key:this.props.user_id
+					})
+				}}
+				 style={{margin:5}} light><Text style={{fontSize: 13,fontFamily:'Droid Arabic Kufi'}}>تجاهل</Text></Button>
+			)
+		}
+	}
+
 
 	StarsComponent() {
 		if (this.props.stars) {
@@ -93,6 +115,7 @@ export default class ListCard extends Component {
 							{this.btn()}
 							{this.deliveryClock()}
 							{this.LeftText()}
+
 						</Left>
 						<Right style={{ flex: 1, alignContent: 'flex-end' }}>
 							<View style={{ flexDirection: 'row' }}>
@@ -104,7 +127,12 @@ export default class ListCard extends Component {
 							<View style={{ flexDirection: 'row' }}>
 								<View style={{ flexDirection: 'column' }}>
 									{this.StarsComponent()}
+									<View style={{flexDirection:'row'}}>
+									{this.acceptButton()}
+									{this.ignoreButton()}
+									</View>
 								</View>
+
 								{/*<View style={{ flexDirection: 'column' }}>*/}
 									{/*<Icon type="FontAwesome"  name={this.props.rightIcon? this.props.rightIcon:"map-marker"} style={{ color: 'black', marginLeft: 4 }} />*/}
 								{/*</View>*/}
