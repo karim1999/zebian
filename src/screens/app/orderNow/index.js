@@ -31,7 +31,7 @@ class OrderNow extends Component {
     });
   }
   componentDidMount(){
-    
+
   }
   OrderNow = (nav)=>{
     user_id = this.props.user.uid
@@ -118,7 +118,7 @@ class OrderNow extends Component {
                         }}footer={(this.props.order.giveAddress != '')?this.props.order.giveAddress :'اختر موقع تسليم الشحنه'} rightIcon={Navigation} rightIconWidth={40} />
                         <ListCard onPress={()=>{
                           nav.navigate('Time')
-                        }} header={'حددوقت التسليم'} footer={(this.props.order.time != '')?this.props.order.time :'اختر وقت تسليم الشحنه'} rightIcon={Clock} rightIconWidth={40} />
+                        }} header={'حدد وقت التسليم'} footer={(this.props.order.time != '')?this.props.order.time :'اختر وقت تسليم الشحنه'} rightIcon={Clock} rightIconWidth={40} />
                         <ListCard onPress={()=>{
                           nav.navigate('CarType')
                         }} header={'حدد نوع السياره'} footer={(this.props.order.car != '')?(this.props.order.car == 'car') ? 'سيدان ': 'بيك اب':'بيك أب - سيدان'} rightIcon={Car} rightIconWidth={40} />

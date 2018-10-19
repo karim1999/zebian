@@ -27,10 +27,10 @@ export default class ListCard extends Component {
 			return (
 				<View style={{ flexDirection: 'column', marginLeft: 5 }}>
 					<View style={{ flexDirection: 'row', alignSelf: 'center' }}>
-						<Text style={{ color: '#266A8F', fontSize: 20, fontWeight: 'bold' }}>وقت التوصيل</Text>
+						<Text style={{ color: '#266A8F', fontSize: 20, fontWeight: 'bold' ,fontFamily:'Droid Arabic Kufi'}}>وقت التوصيل</Text>
 					</View>
 					<View style={{ flexDirection: 'row', alignSelf: 'center' }}>
-						<Text note style={{ color: '#707070', fontSize: 15, fontWeight: 'bold' }}>{this.props.deliveryTime}</Text>
+						<Text note style={{ color: '#707070', fontSize: 15, fontWeight: 'bold' ,fontFamily:'Droid Arabic Kufi'}}>{this.props.deliveryTime}</Text>
 					</View>
 				</View>
 			)

@@ -53,7 +53,7 @@ class Time extends Component {
           <View style={{ flexDirection: 'column', alignSelf: 'center', height: 250, width: '50%',justifyContent:'flex-end' }}>
 
           <Button onPress={()=>this.accept()} rounded block style={{ backgroundColor: '#15588D',color:'white' }}>
-            <Text style={{fontSize:20}}>موافق</Text>
+            <Text style={{fontSize:18,fontFamily:'Droid Arabic Kufi',color:'white'}}>موافق</Text>
           </Button>
           </View>
         </View>

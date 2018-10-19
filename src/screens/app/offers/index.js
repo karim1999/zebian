@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View ,Text} from 'native-base';
+import { View ,Text,Card,CardItem,Body,Button} from 'native-base';
 import AppTemplate from '../appTemplate';
 import ListCard from '../../../components/common/card';
 import User from '../../../assets/images/png/user-circle.png';
@@ -8,6 +8,10 @@ import firebase from 'react-native-firebase'
 import {TouchableOpacity} from 'react-native'
 import {_} from 'lodash'
 import {FlatList} from 'react-native'
+import Alarm from '../../../assets/images/png/alarm.png'
+import Warning from '../../../assets/images/png/warning.png'
+import AutoHeightImage from 'react-native-auto-height-image';
+
 export default class Offers extends Component {
   constructor(props){
     super(props);
@@ -77,7 +81,42 @@ export default class Offers extends Component {
         <View style={{width: '95%', alignSelf:'center' , flexDirection:'column' }}>
         <FlatList
 								ListEmptyComponent={
-									<Text style={{alignItems: "center", justifyContent: "center", flex: 1, textAlign: "center"}}>لا يوجد طلبات حاليا</Text>
+                  <View style={{ justifyContent: 'center' }}>
+                    <Card style={{ width: '90%', alignSelf: 'center' }}>
+                      <CardItem header style={{ justifyContent: 'center' }}>
+                        <AutoHeightImage
+                          width={40}
+                          source={Warning}
+                          style={{ alignSelf: 'center' }}
+                        />
+                        <Text style={{ color: '#266A8F', fontSize: 20, marginHorizontal: 5,fontFamily:'Droid Arabic Kufi' }}>مازلنا نبحث عن مندوبين لك</Text>
+                      </CardItem>
+                      <CardItem style={{ justifyContent: 'center' }}>
+                        <Body style={{ justifyContent: 'center' }}>
+                          <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
+                            <AutoHeightImage
+                              width={100}
+                              source={Alarm}
+                              style={{ alignSelf: 'center', marginBottom: 10 }}
+                            />
+                          </View>
+                          <View style={{ flexDirection: 'column', alignSelf: 'center' }}>
+                            <Text style={{ fontFamily:'Droid Arabic Kufi',color: '#266A8F', fontSize: 23, fontWeight: 'bold' }}>
+                              جرب معنا خدمه ذيبان فذعه
+                            </Text>
+                            <Text style={{ color: 'gray',fontFamily:'Droid Arabic Kufi', fontSize: 12, fontWeight: 'bold',textAlign:'center' }}>
+                              يتضاعف السعر مع هذه الخدمه
+                            </Text>
+                          </View>
+                        </Body>
+                      </CardItem>
+                      <CardItem footer style={{ alignSelf: 'center', width: '60%' }}>
+                        <Button rounded block style={{ flex: 1, backgroundColor: '#266A8F' }}>
+                          <Text style={{ fontSize: 18,fontFamily:'Droid Arabic Kufi' }}>جرب ذلك</Text>
+                        </Button>
+                      </CardItem>
+                    </Card>
+                  </View>
 								}
 								data={this.state.offers}
 								renderItem={({item}) => (

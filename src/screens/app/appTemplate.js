@@ -13,14 +13,14 @@ export default class AppTemplate extends Component {
          {
            (this.props.back != true)&&
            <Body>
-           <Title style={[{ color: "white" }, {justifySelf: "flex-end", alignSelf: "flex-end"}]}>{this.props.name}</Title>
+           <Title style={[{ color: "white" }, {justifySelf: "flex-end",fontFamily:'Droid Arabic Kufi', alignSelf: "flex-end"}]}>{this.props.name}</Title>
            </Body>
          }
          <Right>
            {
              (this.props.back == true)&&
              <Body>
-             <Title style={[{ color: "white" }, (this.props.back == true) && {justifySelf: "flex-end", alignSelf: "flex-end"}]}>{this.props.name}</Title>
+             <Title style={[{ color: "white",fontFamily:'Droid Arabic Kufi' }, (this.props.back == true) && {justifySelf: "flex-end", alignSelf: "flex-end"}]}>{this.props.name}</Title>
              </Body>
            }
            <Button transparent>
