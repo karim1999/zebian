@@ -53,6 +53,7 @@ ref.on('value',snapshot => {
                       this.state.orders.map((order,key) => <TouchableOpacity onPress ={()=>this.order_navigate(order)} ><ListCard header={order.giveShortAddress} footer={order.giveAddress} status={order.status} /></TouchableOpacity>)
                     }
                     </View>
+
                 </View>
             </AppTemplate>
         );

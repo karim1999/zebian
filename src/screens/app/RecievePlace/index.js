@@ -85,7 +85,9 @@ componentDidMount(){
         pos: {
           long: position.coords.longitude,
           lat: position.coords.latitude
-        }      });
+        },
+        fetch:1
+      });
       // AsyncStorage.setItem('recieve_long',position.coords.longitude);
       // AsyncStorage.setItem('recieve_lat',position.coords.longitude);
 
@@ -105,8 +107,8 @@ componentDidMount(){
 
         this.setState({
           address:resJson.results[0].formatted_address,
-          short_address:resJson.results[1].address_components[1].long_name,
-          fetch:1
+          short_address:resJson.results[1].address_components[1].long_name
+
         })
       })
     })

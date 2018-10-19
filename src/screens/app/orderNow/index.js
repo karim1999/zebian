@@ -10,6 +10,7 @@ import Car from '../../../assets/images/png/car0.png'
 import {AsyncStorage} from 'react-native'
 import {connect} from "react-redux";
 import firebase from 'react-native-firebase'
+import {_} from 'lodash'
 
 class OrderNow extends Component {
   constructor(props){
@@ -20,8 +21,9 @@ class OrderNow extends Component {
       time:'',
       car:'',
       desc:'',
-      deliveryType: undefined
-
+      deliveryType: undefined,
+      cities:[],
+      city:''
     }
 
   }
@@ -32,6 +34,13 @@ class OrderNow extends Component {
   }
   componentDidMount(){
 
+    const ref = firebase.database().ref('cities');
+  ref.on('value',snapshot => {
+   this.setState({ cities: _.map(snapshot.val(), (value, key)=> {
+              return {...value, key};
+        })
+       });
+  })
   }
   OrderNow = (nav)=>{
     user_id = this.props.user.uid
@@ -48,7 +57,7 @@ class OrderNow extends Component {
     else {
 
     order = this.props.order;
-    if(order.giveAddress == '' || order.car == '' || order.time == '' || order.recieveAddress == '' || desc == '' || deliveryType == undefined){
+    if(order.giveAddress == '' || this.state.city == ''|| order.car == '' || order.time == '' || order.recieveAddress == '' || desc == '' || deliveryType == undefined){
       Toast.show({
 				text: "الرجاء ملأ جميع البيانات",
 				buttonText: "موافق",
@@ -62,6 +71,7 @@ class OrderNow extends Component {
       order.orderedTime = new Date();
       order.deliveryType = deliveryType;
       order.status = 0;
+      order.city = this.state.city;
       fetch('https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins='+order.recievePos.lat+','+order.recievePos.long+'&destinations='+order.givePos.lat+','+order.givePos.long+'&key=AIzaSyCxXoRqTcOTvsOLQPOiVtPnSxLUyGJBFqw').then((response) => response.json())
     .then((data) => {
       var distance = (data.rows[0].elements[0].distance.value)/1000; // Distanc by km
@@ -126,7 +136,7 @@ class OrderNow extends Component {
               <Picker
                 mode="dropdown"
                 iosIcon={<Icon name="ios-arrow-down-outline" />}
-                style={{ width: undefined ,backgroundColor:'white',textAlign:'center'}}
+                style={{ width: '100%' ,backgroundColor:'white',textAlign:'center'}}
                 placeholder="التوصيل"
                 placeholderStyle={{ color: "#bfc6ea" }}
                 placeholderIconColor="#007aff"
@@ -137,7 +147,30 @@ class OrderNow extends Component {
                 <Picker.Item label="توصيل خارجي" value="1" />
                 <Picker.Item label="توصيل داخلي" value="2" />
               </Picker>
+
             </Card>
+            <Card picker>
+
+            <Picker
+            mode="dropdown"
+            iosIcon={<Icon name="ios-arrow-down-outline" />}
+            style={{ width: '100%' ,backgroundColor:'white',textAlign:'center'}}
+            placeholder="مدينه الاستلام"
+            placeholderStyle={{ color: "#bfc6ea" }}
+            placeholderIconColor="#007aff"
+
+selectedValue={this.state.city}
+onValueChange={(itemValue, itemIndex) => this.setState({city: itemValue})}>
+{
+this.state.cities.map(
+(order,key) =>
+<Picker.Item label={order.name} value={order.key} />
+)
+}
+</Picker>
+</Card>
+
+
                     </View>
                 </View>
                 <View style={{ flexdirection: 'row' }}>
