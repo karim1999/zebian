@@ -25,6 +25,8 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		24E18DF00CDF4E78B0E957EE /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7235722902540F88029F736 /* libRNFirebase.a */; };
+		2944E875217A0CF80082901D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2944E84A217A0CF80082901D /* GoogleService-Info.plist */; };
+		2944E877217A0DA10082901D /* DroidKufi-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2944E876217A0DA10082901D /* DroidKufi-Regular.ttf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -38,7 +40,6 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* zebianTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* zebianTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
-		2E9A4182B730A7C1BBB11606 /* libPods-zebian-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4637129C7E55718491417F5 /* libPods-zebian-tvOSTests.a */; };
 		3141DEF35D854B1C8E07F5D4 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84A0519C981D491690CFB566 /* Foundation.ttf */; };
 		34C81C5691D84185BC525D2E /* libRNI18n-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1247F631E9C1468FBF63C5E3 /* libRNI18n-tvOS.a */; };
 		7AE8CDFE07374D8CB6232F12 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EFCE7DDAC1E41D4AB3F9309 /* Zocial.ttf */; };
@@ -64,7 +65,6 @@
 		F983641534EA404C98DBE161 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC9D91E1B084483A422A942 /* libz.tbd */; };
 		FBD9A7097E2844628218AED9 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1875E707FD3F42E8B88B28EE /* MaterialIcons.ttf */; };
 		FD077EE697524242AF0A5115 /* libRNI18n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA2BD55803C44FF0894B9BE2 /* libRNI18n.a */; };
-		FD7AEA8B495D8A030A5F90D4 /* libPods-zebianTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28C8B288DB0C2C935BBCB542 /* libPods-zebianTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -408,13 +408,13 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		1875E707FD3F42E8B88B28EE /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		28C8B288DB0C2C935BBCB542 /* libPods-zebianTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-zebianTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2944E84A217A0CF80082901D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "zebian/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2944E876217A0DA10082901D /* DroidKufi-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DroidKufi-Regular.ttf"; path = "../src/assets/fonts/DroidKufi-Regular.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* zebian-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "zebian-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* zebian-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "zebian-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		30C3075CE94C44F1898E8A7A /* SafariServices.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
-		3969F88BE9049E7E064FF5FE /* Pods-zebian-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zebian-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zebian-tvOSTests/Pods-zebian-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3D704B916B064A74B069F326 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; };
-		4BEA223096F4DEBAB2A25A9B /* Pods-zebianTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zebianTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zebianTests/Pods-zebianTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4E52CA21BDF1489DB1316AE3 /* AddressBook.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		62D3F6312E7343238EC2336C /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
@@ -425,7 +425,6 @@
 		83B7490FE9294962BBF3E9A7 /* RNI18n.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNI18n.xcodeproj; path = "../node_modules/react-native-i18n/ios/RNI18n.xcodeproj"; sourceTree = "<group>"; };
 		84A0519C981D491690CFB566 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		8EFCE7DDAC1E41D4AB3F9309 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
-		97856628557247B9F20B1A11 /* Pods-zebian-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zebian-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-zebian-tvOSTests/Pods-zebian-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		98E1E11905E881212E334302 /* Pods-zebian-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zebian-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-zebian-tvOS/Pods-zebian-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		9E3D168D3BC243B6BE83C9A3 /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
 		A176E32AE2854CC5A5FBF42B /* libRNGoogleSignin.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGoogleSignin.a; sourceTree = "<group>"; };
@@ -442,7 +441,6 @@
 		EE99A642A6A149A0B29E7F66 /* libRCTFBSDK.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTFBSDK.a; sourceTree = "<group>"; };
 		F634841F8E5C4BC7B744CB06 /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
 		F78DD4D8BBED4A5B800507C5 /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
-		FACD0D574146F66A76E22998 /* Pods-zebianTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zebianTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-zebianTests/Pods-zebianTests.release.xcconfig"; sourceTree = "<group>"; };
 		FF79949666574E799AA1945D /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -452,7 +450,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
-				FD7AEA8B495D8A030A5F90D4 /* libPods-zebianTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,7 +503,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */,
-				2E9A4182B730A7C1BBB11606 /* libPods-zebian-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +595,7 @@
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				2944E84A217A0CF80082901D /* GoogleService-Info.plist */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
@@ -764,6 +761,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				2944E876217A0DA10082901D /* DroidKufi-Regular.ttf */,
 				13B07FAE1A68108700A75B9A /* zebian */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* zebianTests */,
@@ -805,10 +803,6 @@
 				C385CBF10E589C793BC5D5E0 /* Pods-zebian.release.xcconfig */,
 				7740FE55E4DCCBB06EF5F66F /* Pods-zebian-tvOS.debug.xcconfig */,
 				98E1E11905E881212E334302 /* Pods-zebian-tvOS.release.xcconfig */,
-				3969F88BE9049E7E064FF5FE /* Pods-zebian-tvOSTests.debug.xcconfig */,
-				97856628557247B9F20B1A11 /* Pods-zebian-tvOSTests.release.xcconfig */,
-				4BEA223096F4DEBAB2A25A9B /* Pods-zebianTests.debug.xcconfig */,
-				FACD0D574146F66A76E22998 /* Pods-zebianTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -820,7 +814,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "zebianTests" */;
 			buildPhases = (
-				9DC31695132BE1DF66C50314 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -844,6 +837,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				87B0728B2526E8AD0BEEED59 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -877,7 +871,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "zebian-tvOSTests" */;
 			buildPhases = (
-				3A1B4CE01F684FE3B47DFC39 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -1321,9 +1314,11 @@
 				3141DEF35D854B1C8E07F5D4 /* Foundation.ttf in Resources */,
 				8AED094459674B009D7C9ADB /* Ionicons.ttf in Resources */,
 				89C8D24AEAB14156BE9FC9F7 /* MaterialCommunityIcons.ttf in Resources */,
+				2944E877217A0DA10082901D /* DroidKufi-Regular.ttf in Resources */,
 				FBD9A7097E2844628218AED9 /* MaterialIcons.ttf in Resources */,
 				7D5CFACF7961429790457081 /* Octicons.ttf in Resources */,
 				8258D99B09B540AE8A8E1A6B /* Roboto_medium.ttf in Resources */,
+				2944E875217A0CF80082901D /* GoogleService-Info.plist in Resources */,
 				D45A750BED3C40638E12807C /* Roboto.ttf in Resources */,
 				EC314FC2C2D84A429DFF5449 /* rubicon-icon-font.ttf in Resources */,
 				F6378D67C8514B92AFBFA32F /* SimpleLineIcons.ttf in Resources */,
@@ -1377,24 +1372,6 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		3A1B4CE01F684FE3B47DFC39 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-zebian-tvOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6DE379EABAA4006ABB29436E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1413,22 +1390,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9DC31695132BE1DF66C50314 /* [CP] Check Pods Manifest.lock */ = {
+		87B0728B2526E8AD0BEEED59 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
+				"${SRCROOT}/Pods/Target Support Files/Pods-zebian/Pods-zebian-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
+				"${PODS_ROOT}/GTMOAuth2/Source/Touch/GTMOAuth2ViewTouch.xib",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-zebianTests-checkManifestLockResult.txt",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GTMOAuth2ViewTouch.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-zebian/Pods-zebian-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FC0C0B644100B2546C9D2850 /* [CP] Check Pods Manifest.lock */ = {
@@ -1516,7 +1497,6 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4BEA223096F4DEBAB2A25A9B /* Pods-zebianTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1553,7 +1533,6 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FACD0D574146F66A76E22998 /* Pods-zebianTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -1724,7 +1703,6 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3969F88BE9049E7E064FF5FE /* Pods-zebian-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1765,7 +1743,6 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 97856628557247B9F20B1A11 /* Pods-zebian-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
