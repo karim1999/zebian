@@ -7,8 +7,9 @@ import Coupon from '../../../assets/images/png/coupon.png'
 import Listitem from '../../../components/common/ListItem'
 import Twon from '../../../components/common/twon'
 import firebase from 'react-native-firebase'
+import {connect} from "react-redux";
 
-export default class Settings extends Component {
+class Settings extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -36,22 +37,8 @@ export default class Settings extends Component {
 
                 <View style={{ flex: 1, flexDirection: 'column', width: '95%', alignSelf: 'center' }}>
                     <List>
-                        <Listitem RightData='نوع الحساب' Label='سائق' Label2='مستخدم' />
-                        <Listitem RightData='رقم العضويه' LeftData='506654' />
-                        <Listitem RightData='استقبال الطلبات' Switch={true} />
-                        <Listitem RightData='تغيير نوع السياره' Label='سيدان' Label2='بيك أب' />
-                        <ListItem selected>
-                            <Left style={{ flex: 1 }}>
-                                <Button onPress={this._toggleModal} rounded style={{ backgroundColor: '#266A8F', height: 30 }}>
-                                    <Text style={{ fontSize: 16, paddingHorizontal: 10 }}>
-                                        اختيار
-                                    </Text>
-                                </Button>
-                            </Left>
-                            <Right style={{ flex: 1 }}>
-                                <Text style={{ color: '#727272', fontSize: 16,fontFamily:'Droid Arabic Kufi' }}>المدن المفضله لي</Text>
-                            </Right>
-                        </ListItem>
+                        <Listitem RightData='رقم العضويه' LeftData={this.props.user.uid} />
+
                         <Listitem press={true} onPress={()=>{
                           nav.navigate('Complains')
                         }} RightData='الشكاوي' />
@@ -93,6 +80,15 @@ export default class Settings extends Component {
         );
     }
 }
+const mapStateToProps = ({ order,user }) => ({
+    order,
+    user
+});
+
+
+export default connect(
+    mapStateToProps,
+)(Settings);
 
 const styles = {
 

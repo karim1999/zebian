@@ -17,6 +17,7 @@ import firebase from "react-native-firebase";
 import _ from "lodash";
 import {connect} from "react-redux";
 import {setUser} from "../../../reducers";
+import Stars from 'react-native-stars';
 
 let { width, height } = Dimensions.get('window');
 
@@ -29,40 +30,12 @@ class talabDetails1 extends Component {
 			price: 0,
 			order: this.props.navigation.state.params.order,
 			isSubmitted: false,
-			isLoading: false
+			isLoading: false,
+			driver:[],
+			stars:5
 		}
 	}
-	submit(){
-		if(!this.state.isLoading){
-			if(this.state.price >= this.state.order.minPrice && this.state.price <= this.state.order.maxPrice){
-				this.setState({
-					isLoading: true
-				});
-				firebase.database().ref('/offers').push({
-					user_id: this.props.user.uid,
-					price: this.state.price,
-					order_id: this.state.order.key,
-					status: 0
-				}, error=>{
-					Toast.show({
-						text: "تم اضافة عرضك بنجاح",
-						buttonText: "موافق",
-						type: "success"
-					});
-					this.setState({
-						isLoading: false
-					})
-				});
-				this.props.navigation.goBack();
-			}else{
-				Toast.show({
-					text: "يجب ان يكون السعر اكبر من القيمة الصغري واقل من القيمة العظمي",
-					buttonText: "موافق",
-					type: "danger"
-				});
-			}
-		}
-	}
+
 	componentDidMount(){
 		firebase.database().ref('/orders/'+this.state.order.key).on('value', data => {
 			this.setState({
@@ -79,8 +52,49 @@ class talabDetails1 extends Component {
 				});
 			}
 		});
+		const ref = firebase.database().ref('users/'+this.state.order.driver_id);
+ref.once('value',snapshot => {
+	 this.setState({ driver: snapshot
+			 });
+	})
 	}
 	_toggleModal = () => this.setState({ isModalVisible: !this.state.isModalVisible });
+	arrived = (order,nav)=>{
+
+
+		order_id = order.key;
+		price = order.price;
+		fees = price*.15;
+		var driver_id = this.state.driver.key;
+		var	balance = this.state.driver.val().balance;
+		var	stars = this.state.driver.val().stars;
+		var orders = this.state.driver.val().orders;
+
+		if(balance == undefined){
+			balance = 0;
+		}
+		if(stars == undefined){
+			stars = 0;
+		}
+		if(orders == undefined){
+			orders = 0;
+		}
+		if(orders == 0 || orders == undefined){
+			new_orders = 1;
+		}
+		var new_stars = (stars + this.state.stars)/new_orders
+		var new_balance = balance - fees;
+		orderData= {
+			status : 2
+		}
+		driverData = {
+			balance:new_balance,
+			stars:new_stars
+		}
+		firebase.database().ref('/orders/' + order_id).update(orderData);
+		firebase.database().ref('/users/' + driver_id).update(driverData);
+		nav.navigate('Home')
+	}
 chat = (order,nav)=>{
   nav.navigate('SingleChatUser',{key:order.key})
    // alert(JSON.stringify(order.driver_id))
@@ -116,41 +130,60 @@ chat = (order,nav)=>{
 
 					</View>
 				</View>
-					<View style={{ width: '95%', alignSelf: 'center' }}>
+				{
+					(this.state.order.status == 2)?
 
-						<View style={{ width: '60%', alignSelf: 'center' }}>
-							<Button onPress={()=> this.chat(this.state.order,nav)} block rounded style={{ backgroundColor: '#15588D', alignSelf: 'center', marginTop: 15 }}>
-								<Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white' }}>محادثه السائق</Text>
-								{this.state.isLoading && (
-									<ActivityIndicator style={{}} size="small" color="#000000" />
-								)}
-							</Button>
-						</View>
-					</View>
+					<Text style={{ textAlign:'center', fontWeight: 'bold', color: 'green',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>تم توصيل الطلب</Text>
+
+					:
+
+						<View style={{ width: '95%', alignSelf: 'center' }}>
+
+							<View style={{ width: '100%', alignSelf: 'center',justifyContent:'center',flexDirection:'row' }}>
+								<Button onPress={()=> this.chat(this.state.order,nav)} block rounded style={{ backgroundColor: '#15588D', alignSelf: 'center', marginTop: 15,margin:10,padding:10 }}>
+									<Text style={{fontWeight: 'bold', color: 'white',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>محادثه السائق</Text>
+									{this.state.isLoading && (
+										<ActivityIndicator style={{}} size="small" color="#000000" />
+									)}
+								</Button>
+								<Button onPress={()=> this._toggleModal()} block rounded style={{ backgroundColor: 'green', alignSelf: 'center', marginTop: 15,margin:10,padding:10, }}>
+									<Text style={{  fontWeight: 'bold', color: 'white',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>وصل الطلب</Text>
+									{this.state.isLoading && (
+										<ActivityIndicator style={{}} size="small" color="#000000" />
+									)}
+								</Button>
+							</View>
+							</View>
+
+				}
+
+
 
 				<Modal
 					isVisible={this.state.isModalVisible}
 					onBackdropPress={() => this.setState({ isModalVisible: false })}
 				>
-					<View style={{ height: '60%', width: '90%', backgroundColor: 'white', alignSelf: 'center', justifyContent: 'space-evenly', flexDirection: 'column' }}>
-						<View style={{ flex: .1, flexDirection: 'row', alignSelf: 'center', justifyContent: 'center' }}>
-							<Text style={{ fontSize: 25, color: '#236C8E', textAlign: 'center', fontWeight: 'bold' }}>
-								سبب الغاء الطلب
-							</Text>
-						</View>
-						<View style={{ flex: .5, flexDirection: 'row', alignSelf: 'center', justifyContent: 'center', }}>
-							<View style={{ flex: 1, flexDirection: 'column', width: '90%' }}>
-								<ModalListItem text='تاخر السائق عن الوصول' />
-								<ModalListItem text='تاخر السائق في الاستلام' />
-								<ModalListItem text='لم اعد اريد التوصيله' />
-								<ModalListItem text='اخري' />
-							</View>
-						</View>
-						<View style={{ flex: .2, flexDirection: 'row', width: '60%', justifyContent: 'center', alignSelf: 'center' }}>
-							<Button rounded block onPress={this._toggleModal} style={{ flex: 1, alignSelf: 'center', backgroundColor: '#15588D' }}>
-								<Text style={{ color: 'white', fontSize: 25, }}>الغاء الطلب</Text>
-							</Button>
-						</View>
+					<View style={{ height: '30%', width: '90%', backgroundColor: 'white', alignSelf: 'center',alignItems:'center', justifyContent: 'center', flexDirection: 'column',borderRadius:10 }}>
+						<Text style={{fontWeight: 'bold',  color: '#266A8F',fontSize: 13,fontFamily:'Droid Arabic Kufi'}}>قيم السائق </Text>
+						<Stars
+							default={this.state.stars}
+							count={5}
+							half={true}
+							starSize={50}
+							update={(stars)=>{this.setState({stars})}}
+
+							fullStar={<Icon type='MaterialCommunityIcons' name={'star'} style={[styles.myStarStyle]} />}
+							emptyStar={<Icon type='MaterialCommunityIcons' name={'star-outline'} style={[styles.myStarStyle, styles.myEmptyStarStyle]} />}
+							halfStar={<Icon type='MaterialCommunityIcons' name={'star-half'} style={[styles.myStarStyle]} />}
+						/>
+
+						<Button onPress={()=> 	this.arrived(this.state.order,nav)} block rounded style={{ backgroundColor: 'green', alignSelf: 'center', marginTop: 15,margin:10,padding:10, }}>
+							<Text style={{  fontWeight: 'bold', color: 'white',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>قيم السائق</Text>
+							{this.state.isLoading && (
+								<ActivityIndicator style={{}} size="small" color="#000000" />
+							)}
+						</Button>
+
 					</View>
 				</Modal>
 			</AppTemplate>
@@ -168,3 +201,15 @@ export default connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(talabDetails1);
+const styles = StyleSheet.create({
+	myStarStyle: {
+		color: '#FAC819',
+		backgroundColor: 'transparent',
+		textShadowColor: 'black',
+		textShadowOffset: { width: 1, height: 1 },
+		textShadowRadius: 2,
+	},
+	myEmptyStarStyle: {
+		color: '#FAC819',
+	}
+});

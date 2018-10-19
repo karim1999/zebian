@@ -31,26 +31,7 @@ class OrderNow extends Component {
     });
   }
   componentDidMount(){
-    AsyncStorage.getItem('recieve_address').then(address=>{
-      if(address.length != 0){
-        this.setState({recieve_address:address})
-      }
-    })
-    AsyncStorage.getItem('give_address').then(address=>{
-      if(address.length != 0){
-        this.setState({give_address:address})
-      }
-    })
-    AsyncStorage.getItem('time').then(time=>{
-      if(time.length != 0){
-        this.setState({time:time})
-      }
-    })
-    AsyncStorage.getItem('car').then(car=>{
-      if(car.length != 0){
-        this.setState({car:car})
-      }
-    })
+    
   }
   OrderNow = (nav)=>{
     user_id = this.props.user.uid
@@ -87,9 +68,7 @@ class OrderNow extends Component {
       var time = (data.rows[0].elements[0].duration.value)/60; // time per minutes
       order.googleTime = time;
       order.googleDistance = distance;
-      if(true){
-        order.mm = 77;
-      }
+       order.fake = 'fake'
       if(order.deliveryType == 1){ // outside country
         if(order.car == 'car'){ // sedan
           order.maxPrice = 95;
@@ -102,12 +81,12 @@ class OrderNow extends Component {
       }
       else { // inside country
         if(order.car == 'car'){ // sedan normal
-          order.maxPrice = 13 + order.distance*1;
-          order.minPrice = 13 + order.distance*1;
+          order.maxPrice = 13 + order.googleDistance*1;
+          order.minPrice = 13 + order.googleDistance*1;
         }
         else { // pickup
-          order.maxPrice = 15 + order.distance*2;
-          order.minPrice = 15 + order.distance*2;
+          order.maxPrice = 15 + order.googleDistance*2;
+          order.minPrice = 15 + order.googleDistance*2;
         }
       }
     }).then(()=>{

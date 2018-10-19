@@ -21,7 +21,10 @@ export default class Offers extends Component {
   }
 
   async componentDidMount(){
-		this.setState({
+		this.fetch_data();
+	}
+  async fetch_data(){
+    this.setState({
 			isLoading: true
 		});
 		await firebase.database().ref('/offers/').on('value', async data => {
@@ -32,7 +35,7 @@ export default class Offers extends Component {
 				return offer.order_id == this.props.navigation.state.params.key
 			});
 			await second.forEach(async (result)=>{
-				await firebase.database().ref('/users/'+result.user_id).once('value', data2 => {
+				await firebase.database().ref('/users/'+result.user_id).on('value', data2 => {
 					this.setState({
 						offers: _.concat(this.state.offers, [{user: data2.val(), ...result}]),
 						isLoading: false
@@ -43,26 +46,27 @@ export default class Offers extends Component {
 				isLoading: false
 			});
 		});
-	}
+  }
   filter_user(offer){
     return _.filter(this.state.users, user=>{
        return user.uid == offer.user_id
      });
 
   }
-  accept = (user_id,order_id,offer_id,nav)=>{
+  accept = (user_id,order_id,offer_id,nav,offer_price)=>{
       var now = new Date();
       var orderData = {
           status:1, //being delivered ----->
           driver_id:user_id,
-          accepted_time:now
+          accepted_time:now,
+          price:offer_price
       };
 
       // var updates = {};
       // updates['/orders/' + order_id] = orderData;
        firebase.database().ref('/orders/' + order_id).update(orderData);
       firebase.database().ref('/offers/' + offer_id).update({status:1});
-      nav.navigate('SingleChatUser',{user_id})
+      nav.navigate('SingleChatUser',{key:order_id})
 
   }
   render() {
@@ -80,7 +84,7 @@ export default class Offers extends Component {
 
                      <ListCard
                      onPressAccept={()=>{
-                       this.accept(item.user.uid,this.props.navigation.state.params.key,item.key,nav)
+                       this.accept(item.user.uid,this.props.navigation.state.params.key,item.key,nav,item.price)
                      }}
                      rightIcon={User} rightIconWidth={60} header={
                        (item == {} )? 'aa' : item.user.displayName
