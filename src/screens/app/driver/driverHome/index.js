@@ -21,7 +21,9 @@ export default class Home extends Component {
 		firebase.database().ref('/orders/').on('value', data => {
 			this.setState({
 				orders: _.map(data.val(), (value, key)=> {
-					return {...value, key};
+					if(value.status == 0 ){
+						return {...value, key};
+					}
 				}),
 				isLoading: false
 			});
