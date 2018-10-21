@@ -19,15 +19,15 @@ class Chat extends Component {
 		this.setState({
 			isLoading: true
 		});
-		await firebase.database().ref('/orders/').on('value', async data => {
+		await firebase.database().ref('/offers/').on('value', async data => {
 			let first= await _.filter(_.map(data.val(), (value, key)=> {
 				return {...value, key};
-			}), order=> {
-				return order.driver_id == this.props.user.uid || this.props.user.uid == order.user_id && order.driver_id
+			}), offer=> {
+				return offer.chat && (offer.client_id == this.props.user.uid || this.props.user.uid == offer.user_id)
 			});
 
 			await first.forEach(async (result)=>{
-				await firebase.database().ref('/users/'+(this.props.user.driver ? result.user_id : result.driver_id)).once('value', data2 => {
+				await firebase.database().ref('/users/'+(this.props.user.driver ? result.client_id : result.user_id)).once('value', data2 => {
 					this.setState({
 						orders: _.concat(this.state.orders, [{user: data2.val(), ...result}]),
 						isLoading: false

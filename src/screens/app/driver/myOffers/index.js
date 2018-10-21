@@ -44,7 +44,7 @@ class Offers extends Component {
 	render() {
 		const nav = this.props.navigation
 		return (
-			<AppTemplate navigation={nav} name="طلبات التوصيل">
+			<AppTemplate navigation={nav} name="طلباتي">
 				<View style={{flex: 1, flexDirection: 'row',justifyContent:'center' }}>
 					<View style={{width:'90%'}}>
 						{this.state.isLoading? (

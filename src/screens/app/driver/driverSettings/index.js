@@ -7,8 +7,10 @@ import Coupon from '../../../../assets/images/png/coupon.png'
 import Listitem from '../../../../components/common/ListItem'
 import Twon from '../../../../components/common/twon'
 import firebase from 'react-native-firebase'
+import {setUser} from "../../../../reducers";
+import {connect} from "react-redux";
 
-export default class Settings extends Component {
+class Settings extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -37,7 +39,8 @@ export default class Settings extends Component {
 				<View style={{ flex: 1, flexDirection: 'column', width: '95%', alignSelf: 'center' }}>
 					<List>
 						{/*<Listitem RightData='نوع الحساب' Label='سائق' Label2='مستخدم' />*/}
-						<Listitem RightData='رقم العضويه' LeftData='506654' />
+						<Listitem RightData='رقم العضويه' LeftData={this.props.user.uid} />
+						<Listitem RightData='الرصيد' LeftData={this.props.user.balance ? this.props.user.balance : 0} />
 						{/*<Listitem RightData='استقبال الطلبات' Switch={true} />*/}
 						{/*<Listitem RightData='تغيير نوع السياره' Label='سيدان' Label2='بيك أب' />*/}
 						<ListItem selected>
@@ -97,3 +100,14 @@ export default class Settings extends Component {
 const styles = {
 
 }
+const mapStateToProps = ({ user }) => ({
+    user
+});
+
+const mapDispatchToProps = {
+    setUser
+};
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Settings);

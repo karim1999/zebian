@@ -34,6 +34,9 @@ class SingleChat extends Component {
 		let newPostKey = firebase.database().ref('/chat/').child(this.state.key).push(data[0]);
 	}
 	componentDidMount(){
+        firebase.database().ref('/chat/'+this.state.key).update({
+            chat: true
+        });
 		firebase.database().ref('/chat/').child(this.state.key).on('value', data => {
 			this.setState({
 				logs: _.values(data.val())
@@ -52,6 +55,7 @@ class SingleChat extends Component {
 					alwaysShowSend={true}
 					placeholder="Send a message..."
 					isAnimated={true}
+                    inverted={true}
 					showUserAvatar={true}
 					renderBubble={(props) => this.renderBubble(props)}
 					user={{

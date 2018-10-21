@@ -39,7 +39,14 @@ class SignUp extends Component {
 
 			// login with credential
 			const currentUser = await firebase.auth().signInAndRetrieveDataWithCredential(credential);
-			Toast.show({
+            let user= firebase.database().ref('users/'+currentUser.user.uid);
+            user.once("value").then(snapshot => {
+                if(!snapshot.exists()){
+                    user.set(currentUser.user);
+                }
+            });
+
+            Toast.show({
 				text: "You have signed in successfully",
 				buttonText: "OK",
 				type: "success",

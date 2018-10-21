@@ -25,6 +25,7 @@ class AddTalab extends Component {
 	constructor(props){
 		super(props);
 		this.state= {
+			maximumAmount: -200,
 			isModalVisible: false,
 			price: 0,
 			order: {...this.props.navigation.state.params},
@@ -33,6 +34,14 @@ class AddTalab extends Component {
 		}
 	}
 	submit(){
+		if(this.props.user.balance && this.props.user.balance <= this.state.maximumAmount){
+            Toast.show({
+                text: "يجب سداد عمولة ذبيان اولا",
+                buttonText: "موافق",
+                type: "danger"
+            });
+            return false;
+		}
 		if(!this.state.isLoading){
 			if(this.state.price >= this.state.order.minPrice && this.state.price <= this.state.order.maxPrice){
 				this.setState({
@@ -42,7 +51,9 @@ class AddTalab extends Component {
 					user_id: this.props.user.uid,
 					price: this.state.price,
 					order_id: this.state.order.key,
-					status: 0
+					client_id: this.state.order.user_id,
+					status: 0,
+					chat: false
 				}, error=>{
 					Toast.show({
 						text: "تم اضافة عرضك بنجاح",
@@ -90,6 +101,13 @@ class AddTalab extends Component {
 					<Button
 						style={{width: "100%", alignItems: "center"}} light={true}><Text style={[{flex: 1}, {textAlign: "right"}]}> لقد قمت بوضع عرض علي هذا الطلب </Text>
 						<Icon name="ios-information-circle-outline" style={{color: "#000000", fontSize: 25}}/>
+					</Button>
+				)
+				}
+				{(this.props.user.balance && this.props.user.balance <= this.state.maximumAmount) && (
+					<Button
+						style={{width: "100%", alignItems: "center"}} warning={true}><Text style={[{flex: 1}, {textAlign: "right"}]}> يجب سداد عمولة ذبيان اولا</Text>
+						<Icon name="ios-information-circle-outline" style={{color: "white", fontSize: 25}}/>
 					</Button>
 				)
 				}

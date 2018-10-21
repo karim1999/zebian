@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Text, Button, Icon, View, Input, Item, Toast } from 'native-base';
+import {Form, Text, Button, Icon, View, Input, Item, Toast, DatePicker} from 'native-base';
 import AppTemplate from '../appTemplate';
 import FormInput from '../../../components/common/input';
 import Square from '../../../components/common/square';
@@ -12,7 +12,7 @@ import {connect} from "react-redux";
 import {setUser} from "../../../reducers";
 import firebase from 'react-native-firebase'
 import ImagePicker from 'react-native-image-picker';
-
+var moment = require('moment');
 
 class AccountType extends Component {
 	constructor(props){
@@ -23,7 +23,7 @@ class AccountType extends Component {
 			selected:'pickup',
 			name: this.props.user.displayName,
 			phone: "",
-			birth: "",
+			birth: moment(),
 			licenseImg: "",
 			carImg: "",
 			isSubmitting: false
@@ -104,7 +104,7 @@ class AccountType extends Component {
 							firebase.database().ref('/users/'+this.props.user.uid).update({
 								displayName: this.state.name,
 								phone: this.state.phone,
-								birth: this.state.birth,
+								birth: this.state.birth.format("DD/MM/YYYY"),
 								car: this.state.selected,
 								drivingStatus: 1
 							});
@@ -157,8 +157,21 @@ class AccountType extends Component {
 							<Text style={{ textAlign: 'center', color: '#266A8F', fontSize: 18, marginTop: 5, marginBottom: 5,fontFamily:'Droid Arabic Kufi' }}>تاريخ الميلاد</Text>
 						</View>
 						<Item>
-							<View style={{ flexDirection: 'row' }}>
-								<Input placeholder='' value={this.state.birth} onChangeText={(birth)=> this.setState({birth})} style={{ borderWidth: 0.5, borderRadius: 7,height:40,textAlign:'center', borderColor: '#266A8F' }} />
+							<View style={{ flexDirection: 'row', justifyContent: "center", alignItems: "center" }}>
+                                <DatePicker
+                                    defaultDate={new Date(2018, 4, 4)}
+                                    minimumDate={new Date(1900, 1, 1)}
+                                    maximumDate={new Date(2018, 12, 31)}
+                                    locale={"en"}
+                                    timeZoneOffsetInMinutes={undefined}
+                                    modalTransparent={false}
+                                    animationType={"fade"}
+                                    androidMode={"default"}
+                                    placeHolderText={this.state.birth.format("DD/MM/YYYY")}
+                                    textStyle={{ color: "black", marginLeft: "40%"}}
+                                    placeHolderTextStyle={{ color: "#d3d3d3", marginLeft: "40%" }}
+                                    onDateChange={(birth)=> this.setState({birth: moment(birth)})}
+                                />
 							</View>
 						</Item>
 					</View>
