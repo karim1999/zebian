@@ -17,6 +17,8 @@ import firebase from "react-native-firebase";
 import _ from "lodash";
 import {connect} from "react-redux";
 import {setUser} from "../../../reducers";
+import {SERVER_KEY} from "../../../constants/config";
+import axios from "axios/index";
 
 let { width, height } = Dimensions.get('window');
 
@@ -32,6 +34,11 @@ class AddTalab extends Component {
 			isSubmitted: false,
 			isLoading: false
 		}
+	}
+	async getUserToken(uid){
+		await firebase.database().ref('/users/'+uid).on('value', data => {
+            return data.val().token
+        });
 	}
 	submit(){
 		if(this.props.user.balance && this.props.user.balance <= this.state.maximumAmount){
@@ -54,7 +61,7 @@ class AddTalab extends Component {
 					client_id: this.state.order.user_id,
 					status: 0,
 					chat: false
-				}, error=>{
+				}, response=>{
 					Toast.show({
 						text: "تم اضافة عرضك بنجاح",
 						buttonText: "موافق",
@@ -62,8 +69,34 @@ class AddTalab extends Component {
 					});
 					this.setState({
 						isLoading: false
-					})
-				});
+					});
+                    axios.post("https://fcm.googleapis.com/fcm/send", {
+                        data: {
+                            type: "offer",
+                            toast: true,
+                            toast_type: "success",
+                            toast_text: "New offer from " + this.props.user.displayName,
+                            navigation: true,
+                            navigation_data: {key: this.state.order.key},
+                            navigation_name: "offers"
+                        },
+                        notification: {
+                            title: this.props.user.displayName,
+                            text: "New offer on your order"
+                        },
+                        to: this.getUserToken(this.state.order.user_id)
+                    }, {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'key=' + SERVER_KEY
+                        }
+                    }).then(response => {
+                        // alert("done")
+                    }).catch(error => {
+                        // alert("error1")
+                    });
+
+                });
 				this.props.navigation.goBack();
 			}else{
 				Toast.show({

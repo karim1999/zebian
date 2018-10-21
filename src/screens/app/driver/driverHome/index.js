@@ -5,8 +5,12 @@ import ListCard from '../../../../components/common/Card2';
 import firebase from "react-native-firebase";
 import {ActivityIndicator, FlatList, TouchableOpacity} from "react-native";
 import _ from "lodash";
+import axios from "axios";
+import {SERVER_KEY} from "../../../../constants/config";
+import {setUser} from "../../../../reducers";
+import {connect} from "react-redux";
 
-export default class Home extends Component {
+class Home extends Component {
 	constructor(props){
 		super(props);
 		this.state= {
@@ -15,17 +19,17 @@ export default class Home extends Component {
 		}
 	}
 	componentDidMount(){
-        const notification = new firebase.notifications.Notification()
-            .setNotificationId('notificationId')
-            .setTitle('My notification title')
-            .setBody('My notification body')
-            .android.setChannelId('notification-action')
-            .android.setPriority(firebase.notifications.Android.Priority.Max)
-            .setData({
-                key1: 'value1',
-                key2: 'value2',
-            });
-        firebase.notifications().displayNotification(notification)
+        // const notification = new firebase.notifications.Notification()
+        //     .setNotificationId('notificationId')
+        //     .setTitle('My notification title')
+        //     .setBody('My notification body')
+        //     .android.setChannelId('notification-action')
+        //     .android.setPriority(firebase.notifications.Android.Priority.Max)
+        //     .setData({
+        //         key1: 'value1',
+        //         key2: 'value2',
+        //     });
+        // firebase.notifications().displayNotification(notification)
         this.setState({
 			isLoading: true
 		});
@@ -70,3 +74,14 @@ export default class Home extends Component {
 		);
 	}
 }
+const mapStateToProps = ({ user }) => ({
+    user,
+});
+
+const mapDispatchToProps = {
+    setUser
+};
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Home);

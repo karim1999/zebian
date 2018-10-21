@@ -11,7 +11,7 @@ import {connect} from "react-redux";
 import {setUser} from "../reducers";
 import firebase from 'react-native-firebase'
 import {Toast} from "native-base";
-import type { Notification } from 'react-native-firebase';
+import type { Notification, NotificationOpen } from 'react-native-firebase';
 
 class AuthLoadingScreen extends React.Component {
 	constructor(props) {
@@ -52,11 +52,28 @@ class AuthLoadingScreen extends React.Component {
         this.notificationDisplayedListener = firebase.notifications().onNotificationDisplayed((notification: Notification) => {
             // Process your notification as required
             // ANDROID: Remote notifications do not contain the channel ID. You will have to specify this manually if you'd like to re-display the notification.
-			alert("notification1")
+			alert("notification displayed")
         });
         this.notificationListener = firebase.notifications().onNotification((notification: Notification) => {
             // Process your notification as required
-            alert("notification2")
+            if(notification._data.toast){
+                let toast_type= notification._data.toast ? notification._data.toast : "success";
+                Toast.show({
+                    text: notification._data.toast_text,
+                    buttonText: "موافق",
+                    type: toast_type
+                })
+            }
+        });
+        this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen: NotificationOpen) => {
+            // Get the action triggered by the notification being opened
+            const action = notificationOpen.action;
+            // Get information about the notification that was opened
+            const notification: Notification = notificationOpen.notification;
+            if(notification._data.navigation){
+                let navigation_data= notification._data.navigation_data ? notification._data.navigation_data : {};
+                this.props.navigation.navigate(notification._data.navigation_name, navigation_data);
+            }
         });
 	}
 	// Fetch the token from storage then navigate to our appropriate place
@@ -95,6 +112,7 @@ class AuthLoadingScreen extends React.Component {
     componentWillUnmount() {
         this.onTokenRefreshListener();
         this.notificationDisplayedListener();
+        this.notificationOpenedListener();
         this.notificationListener();
     }
 	// Render any loading content that you like here

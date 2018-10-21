@@ -60,7 +60,8 @@ class Chat extends Component {
 									          key={item.key}
 									          onPress={() => this.props.navigation.navigate("SingleChat", {
 										          ...item,
-												  title: item.user.displayName
+												  title: item.user.displayName,
+												  token: item.user.token
 									          })}
 									          style={{padding: 10, marginLeft: 0}}
 									>
