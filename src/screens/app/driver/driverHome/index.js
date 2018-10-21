@@ -20,10 +20,10 @@ export default class Home extends Component {
 		});
 		firebase.database().ref('/orders/').on('value', data => {
 			this.setState({
-				orders: _.map(data.val(), (value, key)=> {
-					if(value.status == 0 ){
-						return {...value, key};
-					}
+				orders: _.filter(_.map(data.val(), (value, key)=> {
+                    return {...value, key};
+				}), order => {
+					return order.status == 0
 				}),
 				isLoading: false
 			});
