@@ -59,26 +59,26 @@ class AuthLoadingScreen extends React.Component {
 	}
 	// Fetch the token from storage then navigate to our appropriate place
 	async componentDidMount() {
-		await this.askForNotificationPermission();
+		// this.askForNotificationPermission();
 		await firebase.auth().onAuthStateChanged(user => {
 			if(user){
-				if(this.state.notificationEnabled){
-                    firebase.messaging().getToken()
-                        .then(fcmToken => {
-                            if (fcmToken) {
-                                firebase.database().ref('/users/'+user.uid).update({
-                                    token: fcmToken,
-                                });
-                            } else {
-                                // user doesn't have a device token yet
-                            }
-                        });
-                    this.onTokenRefreshListener = firebase.messaging().onTokenRefresh(fcmToken => {
-                        firebase.database().ref('/users/'+user.uid).update({
-                            token: fcmToken,
-                        });
-                    });
-				}
+				// if(this.state.notificationEnabled){
+                 //    firebase.messaging().getToken()
+                 //        .then(fcmToken => {
+                 //            if (fcmToken) {
+                 //                firebase.database().ref('/users/'+user.uid).update({
+                 //                    token: fcmToken,
+                 //                });
+                 //            } else {
+                 //                // user doesn't have a device token yet
+                 //            }
+                 //        });
+                 //    this.onTokenRefreshListener = firebase.messaging().onTokenRefresh(fcmToken => {
+                 //        firebase.database().ref('/users/'+user.uid).update({
+                 //            token: fcmToken,
+                 //        });
+                 //    });
+				// }
 				firebase.database().ref('/users/'+user.uid).once('value').then ((data) => {
 					this.props.setUser(data.val());
 					// this.props.setUser(user);
