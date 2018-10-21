@@ -34,7 +34,7 @@ class SingleChat extends Component {
 		let newPostKey = firebase.database().ref('/chat/').child(this.state.key).push(data[0]);
 	}
 	componentDidMount(){
-        firebase.database().ref('/chat/'+this.state.key).update({
+        firebase.database().ref('/offers/'+this.state.key).update({
             chat: true
         });
 		firebase.database().ref('/chat/').child(this.state.key).on('value', data => {
