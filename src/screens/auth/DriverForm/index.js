@@ -111,7 +111,8 @@ class AccountType extends Component {
 							this.setState({
 								isSubmitting: false
 							})
-							Toast.show({
+                            this.props.navigation.navigate('DriverTabNavigator')
+                            Toast.show({
 								text: "تم",
 								buttonText: "موافق",
 								type: "success"

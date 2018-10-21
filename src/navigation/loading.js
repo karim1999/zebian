@@ -78,8 +78,7 @@ class AuthLoadingScreen extends React.Component {
 	}
 	// Fetch the token from storage then navigate to our appropriate place
 	async componentDidMount() {
-		await this.askForNotificationPermission();
-		await firebase.auth().onAuthStateChanged(user => {
+		await firebase.auth().onAuthStateChanged(async user => {
 			if(user){
 				if(this.state.notificationEnabled){
                     firebase.messaging().getToken()
@@ -98,10 +97,11 @@ class AuthLoadingScreen extends React.Component {
                         });
                     });
 				}
-				firebase.database().ref('/users/'+user.uid).once('value').then ((data) => {
+				await firebase.database().ref('/users/'+user.uid).on('value').then (async data => {
 					this.props.setUser(data.val());
 					// this.props.setUser(user);
-					this.props.navigation.navigate('App')
+                    await this.askForNotificationPermission();
+                    this.props.navigation.navigate('App')
 				});
 				// firebase.database().ref('/users/'+user.uid).off("value");
 			}else{

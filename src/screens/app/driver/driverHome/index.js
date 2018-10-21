@@ -48,8 +48,12 @@ class Home extends Component {
                     });
                 });
             });
+            this.setState({
+                isLoading: false
+            });
         });
-		// firebase.database().ref('/orders/').on('value', data => {
+
+        // firebase.database().ref('/orders/').on('value', data => {
 		// 	this.setState({
 		// 		orders: _.filter(_.map(data.val(), (value, key)=> {
          //            return {...value, key};
