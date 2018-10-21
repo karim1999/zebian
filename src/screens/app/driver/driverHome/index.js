@@ -15,7 +15,18 @@ export default class Home extends Component {
 		}
 	}
 	componentDidMount(){
-		this.setState({
+        const notification = new firebase.notifications.Notification()
+            .setNotificationId('notificationId')
+            .setTitle('My notification title')
+            .setBody('My notification body')
+            .android.setChannelId('notification-action')
+            .android.setPriority(firebase.notifications.Android.Priority.Max)
+            .setData({
+                key1: 'value1',
+                key2: 'value2',
+            });
+        firebase.notifications().displayNotification(notification)
+        this.setState({
 			isLoading: true
 		});
 		firebase.database().ref('/orders/').on('value', data => {

@@ -52,33 +52,35 @@ class AuthLoadingScreen extends React.Component {
         this.notificationDisplayedListener = firebase.notifications().onNotificationDisplayed((notification: Notification) => {
             // Process your notification as required
             // ANDROID: Remote notifications do not contain the channel ID. You will have to specify this manually if you'd like to re-display the notification.
+			alert("notification1")
         });
         this.notificationListener = firebase.notifications().onNotification((notification: Notification) => {
             // Process your notification as required
+            alert("notification2")
         });
 	}
 	// Fetch the token from storage then navigate to our appropriate place
 	async componentDidMount() {
-		// this.askForNotificationPermission();
+		await this.askForNotificationPermission();
 		await firebase.auth().onAuthStateChanged(user => {
 			if(user){
-				// if(this.state.notificationEnabled){
-                 //    firebase.messaging().getToken()
-                 //        .then(fcmToken => {
-                 //            if (fcmToken) {
-                 //                firebase.database().ref('/users/'+user.uid).update({
-                 //                    token: fcmToken,
-                 //                });
-                 //            } else {
-                 //                // user doesn't have a device token yet
-                 //            }
-                 //        });
-                 //    this.onTokenRefreshListener = firebase.messaging().onTokenRefresh(fcmToken => {
-                 //        firebase.database().ref('/users/'+user.uid).update({
-                 //            token: fcmToken,
-                 //        });
-                 //    });
-				// }
+				if(this.state.notificationEnabled){
+                    firebase.messaging().getToken()
+                        .then(fcmToken => {
+                            if (fcmToken) {
+                                firebase.database().ref('/users/'+user.uid).update({
+                                    token: fcmToken,
+                                });
+                            } else {
+                                // user doesn't have a device token yet
+                            }
+                        });
+                    this.onTokenRefreshListener = firebase.messaging().onTokenRefresh(fcmToken => {
+                        firebase.database().ref('/users/'+user.uid).update({
+                            token: fcmToken,
+                        });
+                    });
+				}
 				firebase.database().ref('/users/'+user.uid).once('value').then ((data) => {
 					this.props.setUser(data.val());
 					// this.props.setUser(user);
