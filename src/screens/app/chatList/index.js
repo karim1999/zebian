@@ -59,8 +59,10 @@ class Chat extends Component {
 								renderItem={({item}) => (
 									<ListItem avatar
 									          key={item.key}
-									          onPress={() => this.props.navigation.navigate("SingleChat", {
-										          ...item
+									          onPress={() => this.props.navigation.navigate("SingleChatUser", {
+										          ...item,
+												  title: item.user.displayName,
+												  token: item.user.token
 									          })}
 									          style={{padding: 10, marginLeft: 0}}
 									>
