@@ -48,7 +48,7 @@ class SingleChat extends Component {
 	// }
 	render() {
 		return (
-			<AppTemplate isChat back navigation={this.props.navigation} name="عنوان">
+			<AppTemplate isChat back navigation={this.props.navigation} name={this.state.title}>
 				<GiftedChat
 					messages={this.state.logs}
 					onSend={data => this.addNewMessage(data)}
