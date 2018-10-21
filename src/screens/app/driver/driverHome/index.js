@@ -18,7 +18,7 @@ class Home extends Component {
 			orders: []
 		}
 	}
-	componentDidMount(){
+	async componentDidMount(){
         // const notification = new firebase.notifications.Notification()
         //     .setNotificationId('notificationId')
         //     .setTitle('My notification title')
@@ -31,18 +31,34 @@ class Home extends Component {
         //     });
         // firebase.notifications().displayNotification(notification)
         this.setState({
-			isLoading: true
-		});
-		firebase.database().ref('/orders/').on('value', data => {
-			this.setState({
-				orders: _.filter(_.map(data.val(), (value, key)=> {
-                    return {...value, key};
-				}), order => {
-					return order.status == 0
-				}),
-				isLoading: false
-			});
-		});
+            isLoading: true
+        });
+        await firebase.database().ref('/orders/').on('value', async data => {
+            let first= await _.filter(_.map(data.val(), (value, key)=> {
+                return {...value, key};
+            }), order=> {
+                return order.status == 0
+            });
+
+            await first.forEach(async (result)=>{
+                await firebase.database().ref('/users/'+(result.user_id)).once('value', data2 => {
+                    this.setState({
+                        orders: _.concat(this.state.orders, [{user: data2.val(), ...result}]),
+                        isLoading: false
+                    });
+                });
+            });
+        });
+		// firebase.database().ref('/orders/').on('value', data => {
+		// 	this.setState({
+		// 		orders: _.filter(_.map(data.val(), (value, key)=> {
+         //            return {...value, key};
+		// 		}), order => {
+		// 			return order.status == 0
+		// 		}),
+		// 		isLoading: false
+		// 	});
+		// });
 	}
 	render() {
 		const nav = this.props.navigation
@@ -61,7 +77,7 @@ class Home extends Component {
 								}
 								data={_.reverse(this.state.orders)}
 								renderItem={({item}) => (
-									<TouchableOpacity onPress={()=> this.props.navigation.navigate("AddTalab", {...item})}>
+									<TouchableOpacity onPress={()=> this.props.navigation.navigate("AddTalab", {...item, token: item.user.token})}>
 										<ListCard header={item.giveShortAddress} footer={_.truncate(item.desc)} status={item.status} />
 									</TouchableOpacity>
 								)}

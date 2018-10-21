@@ -84,7 +84,7 @@ class AddTalab extends Component {
                             title: this.props.user.displayName,
                             text: "New offer on your order"
                         },
-                        to: this.getUserToken(this.state.order.user_id)
+                        to: this.state.order.token
                     }, {
                         headers: {
                             'Content-Type': 'application/json',
