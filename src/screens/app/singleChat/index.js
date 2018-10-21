@@ -4,9 +4,9 @@ import { Button, Container, Icon, List, ListItem } from "native-base";
 import _ from "lodash";
 import {Bubble, GiftedChat} from 'react-native-gifted-chat';
 import {connect} from "react-redux";
-import {setUser} from "../../../reducers";
 import firebase from "react-native-firebase";
 import AppTemplate from '../appTemplate';
+import {setUser} from "../../../reducers";
 
 class SingleChatUser extends Component {
 	constructor(props) {
@@ -34,6 +34,9 @@ class SingleChatUser extends Component {
 		let newPostKey = firebase.database().ref('/chat/').child(this.state.key).push(data[0]);
 	}
 	componentDidMount(){
+        firebase.database().ref('/offers/'+this.state.key).update({
+            chat: true
+        });
 		firebase.database().ref('/chat/').child(this.state.key).on('value', data => {
 			this.setState({
 				logs: _.values(data.val())
@@ -45,13 +48,14 @@ class SingleChatUser extends Component {
 	// }
 	render() {
 		return (
-			<AppTemplate isChat back navigation={this.props.navigation} name={this.state.user_name}>
+			<AppTemplate isChat back navigation={this.props.navigation} name="عنوان">
 				<GiftedChat
 					messages={this.state.logs}
 					onSend={data => this.addNewMessage(data)}
 					alwaysShowSend={true}
 					placeholder="Send a message..."
 					isAnimated={true}
+                    inverted={true}
 					showUserAvatar={true}
 					renderBubble={(props) => this.renderBubble(props)}
 					user={{

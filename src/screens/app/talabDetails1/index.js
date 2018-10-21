@@ -54,7 +54,7 @@ class talabDetails1 extends Component {
 		});
 		const ref = firebase.database().ref('users/'+this.state.order.driver_id);
 ref.once('value',snapshot => {
-	 this.setState({ driver: snapshot
+	 this.setState({ driver: snapshot.val(),
 			 });
 	})
 	}
@@ -96,7 +96,7 @@ ref.once('value',snapshot => {
 		nav.navigate('Home')
 	}
 chat = (order,nav)=>{
-  nav.navigate('SingleChatUser',{key:order.key})
+  nav.navigate('SingleChatUser',{key:order.offer_id,title:this.state.driver.displayName,token:this.state.driver.token})
    // alert(JSON.stringify(order.driver_id))
 }
 	render() {

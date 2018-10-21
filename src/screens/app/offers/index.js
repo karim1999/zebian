@@ -63,14 +63,15 @@ export default class Offers extends Component {
           status:1, //being delivered ----->
           driver_id:user_id,
           accepted_time:now,
-          price:offer_price
+          price:offer_price,
+          offer_id:offer_id
       };
 
       // var updates = {};
       // updates['/orders/' + order_id] = orderData;
        firebase.database().ref('/orders/' + order_id).update(orderData);
       firebase.database().ref('/offers/' + offer_id).update({status:1});
-      nav.navigate('SingleChatUser',{key:order_id})
+      nav.navigate('SingleChatUser',{key:offer_id})
 
   }
   render() {
