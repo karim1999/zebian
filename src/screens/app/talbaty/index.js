@@ -27,7 +27,7 @@ class Talabaty extends Component {
             this.setState({ orders:  _.filter(_.map(snapshot.val(), (value, key)=> {
                     return {...value, key};
                 }), order => {
-                    return value.user_id == this.props.user.uid
+                    return order.user_id == this.props.user.uid
                 })
             });
         })
