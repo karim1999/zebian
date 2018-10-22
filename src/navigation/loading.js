@@ -9,24 +9,20 @@ import axios from 'axios';
 import { SERVER_URL } from "../constants/config";
 import {connect} from "react-redux";
 import {setUser} from "../reducers";
-import firebase from 'react-native-firebase'
+import firebase, {Notification, NotificationOpen} from 'react-native-firebase'
 import {Toast} from "native-base";
-import type { Notification, NotificationOpen } from 'react-native-firebase';
 
 class AuthLoadingScreen extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state= {
-			notificationEnabled: false
-		}
 	}
-	async askForNotificationPermission(){
-        await firebase.messaging().hasPermission()
+    askForNotificationPermission(){
+        firebase.messaging().hasPermission()
             .then(enabled => {
                 if (!enabled) {
                     firebase.messaging().requestPermission()
                         .then(() => {
-                            this.notificationListener();
+                            // this.notificationListener2();
                             Toast.show({
                                 text: "تم تفعيل خاصية الاشعارات",
                                 buttonText: "موافق",
@@ -40,19 +36,21 @@ class AuthLoadingScreen extends React.Component {
                                 type: "danger"
                             })
                         });
-                }else{
-                    this.notificationListener();
                 }
+                // else{
+                //     this.notificationListener2();
+                // }
             });
-	}
-	notificationListener(){
-        this.setState({
-            notificationEnabled: true
-        })
+        return true;
+    }
+
+    // Fetch the token from storage then navigate to our appropriate place
+	async componentDidMount() {
+        await this.askForNotificationPermission();
         this.notificationDisplayedListener = firebase.notifications().onNotificationDisplayed((notification: Notification) => {
             // Process your notification as required
             // ANDROID: Remote notifications do not contain the channel ID. You will have to specify this manually if you'd like to re-display the notification.
-			alert("notification displayed")
+            alert("notification displayed")
         });
         this.notificationListener = firebase.notifications().onNotification((notification: Notification) => {
             // Process your notification as required
@@ -75,35 +73,25 @@ class AuthLoadingScreen extends React.Component {
                 this.props.navigation.navigate(notification._data.navigation_name, navigation_data);
             }
         });
-	}
-	// Fetch the token from storage then navigate to our appropriate place
-	async componentDidMount() {
-		await firebase.auth().onAuthStateChanged(async user => {
+		firebase.auth().onAuthStateChanged(user => {
 			if(user){
-				if(this.state.notificationEnabled){
-                    firebase.messaging().getToken()
-                        .then(fcmToken => {
-                            if (fcmToken) {
-                                firebase.database().ref('/users/'+user.uid).update({
-                                    token: fcmToken,
-                                });
-                            } else {
-                                // user doesn't have a device token yet
-                            }
-                        });
-                    this.onTokenRefreshListener = firebase.messaging().onTokenRefresh(fcmToken => {
-                        firebase.database().ref('/users/'+user.uid).update({
-                            token: fcmToken,
-                        });
+				firebase.database().ref('/users/'+user.uid).on('value', data => {
+                    this.props.setUser(data.val());
+                    firebase.messaging().getToken().then(fcmToken => {
+                        if (fcmToken) {
+                            firebase.database().ref('/users/'+user.uid).update({
+                                token: fcmToken,
+                            });
+                        }
                     });
-				}
-				await firebase.database().ref('/users/'+user.uid).on('value').then (async data => {
-					this.props.setUser(data.val());
-					// this.props.setUser(user);
-                    await this.askForNotificationPermission();
-                    this.props.navigation.navigate('App')
+                    // this.onTokenRefreshListener = firebase.messaging().onTokenRefresh(fcmToken => {
+                    //     firebase.database().ref('/users/'+user.uid).update({
+                    //         token: fcmToken,
+                    //     });
+                    // });
+					if(this.props.user && this.props.user.displayName)
+	                    this.props.navigation.navigate('App')
 				});
-				// firebase.database().ref('/users/'+user.uid).off("value");
 			}else{
 				this.props.navigation.navigate('Auth')
 			}
@@ -115,6 +103,7 @@ class AuthLoadingScreen extends React.Component {
         this.notificationOpenedListener();
         this.notificationListener();
     }
+
 	// Render any loading content that you like here
 	render() {
 		return (
