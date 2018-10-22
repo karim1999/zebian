@@ -41,7 +41,7 @@ class SignUp extends Component {
 			const currentUser = await firebase.auth().signInAndRetrieveDataWithCredential(credential);
             let user= firebase.database().ref('users/'+currentUser.user.uid);
             user.once("value").then(snapshot => {
-                if(!snapshot.exists()){
+                if(!snapshot.val().displayName){
                     user.set(currentUser.user);
                 }
             });
@@ -74,7 +74,7 @@ class SignUp extends Component {
 			const currentUser = await firebase.auth().signInAndRetrieveDataWithCredential(credential);
 			let user= firebase.database().ref('users/'+currentUser.user.uid);
 			user.once("value").then(snapshot => {
-				if(!snapshot.exists()){
+				if(!snapshot.val().displayName){
 					user.set(currentUser.user);
 				}
 			});
