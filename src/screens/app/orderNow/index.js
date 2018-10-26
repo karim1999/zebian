@@ -103,7 +103,7 @@ class OrderNow extends Component {
       var addOrder=   firebase.database().ref('orders/').push(
           order
         )
-        nav.navigate('offers',{order_id:addOrder.key})
+        nav.navigate('offers',{key:addOrder.key})
 
     }).then(()=>{
       nav.navigate('offers',{order_id:addOrder.key})

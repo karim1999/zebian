@@ -28,7 +28,9 @@ import {_} from 'lodash';
        complain = {
          title: this.state.title,
          desc: this.state.desc,
-         user_id: this.props.user.uid
+         user_id: this.props.user.uid,
+         user_name:this.props.user.displayName,
+         user_email:this.props.user.email
        }
        var addComplain=   firebase.database().ref('complains/').push(
            complain

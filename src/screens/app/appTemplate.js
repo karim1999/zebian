@@ -27,7 +27,12 @@ export default class AppTemplate extends Component {
              {
                (this.props.back == true)&&
                  <Icon onPress={() => {
-                   this.props.navigation.goBack();
+                   if(this.props.customBack ){
+                     this.props.navigation.navigate(this.props.customBack);
+                   }
+                   else {
+                     this.props.navigation.goBack();
+                   }
                  }} name='ios-arrow-forward'
                        type='Ionicons' color="white" style={{ color: 'white' }} />
              }

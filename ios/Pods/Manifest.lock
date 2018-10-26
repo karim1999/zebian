@@ -24,6 +24,9 @@ PODS:
   - Firebase/Database (5.9.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (= 5.0.3)
+  - Firebase/Messaging (5.9.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (= 3.1.2)
   - FirebaseAnalytics (5.2.0):
     - FirebaseCore (~> 5.1)
     - FirebaseInstanceID (~> 3.2)
@@ -48,6 +51,11 @@ PODS:
     - FirebaseCore (~> 5.1)
     - GoogleUtilities/Environment (~> 5.3)
     - GoogleUtilities/UserDefaults (~> 5.3)
+  - FirebaseMessaging (3.1.2):
+    - FirebaseCore (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
+    - GoogleUtilities/Reachability (~> 5.2)
+    - Protobuf (~> 3.1)
   - Folly (2016.10.31.00):
     - boost-for-react-native
     - DoubleConversion
@@ -103,6 +111,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - Protobuf (3.6.1)
   - React (0.57.1):
     - React/Core (= 0.57.1)
   - react-native-maps (0.21.0):
@@ -162,6 +171,7 @@ DEPENDENCIES:
   - Firebase/Auth (~> 5.9.0)
   - Firebase/Core (~> 5.9.0)
   - Firebase/Database (~> 5.9.0)
+  - Firebase/Messaging (~> 5.9.0)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - GoogleSignIn
@@ -196,6 +206,7 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseDatabase
     - FirebaseInstanceID
+    - FirebaseMessaging
     - GoogleAppMeasurement
     - GoogleSignIn
     - GoogleToolboxForMac
@@ -204,6 +215,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - Protobuf
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -235,6 +247,7 @@ SPEC CHECKSUMS:
   FirebaseCore: 2a84b6b325792a4319ef71ee18819dcba08d2fd7
   FirebaseDatabase: e2bcbc106adc4b11a2da3ec2eb63c0c4a44f2f54
   FirebaseInstanceID: 78ba376fcd5b94c001f9999b2cbd3d1f1e56e78d
+  FirebaseMessaging: d6feeb06218d2675b4149b0ada925a6b707a74cf
   Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
   glog: e8acf0ebbf99759d3ff18c86c292a5898282dcde
   GoogleAppMeasurement: 2b3a023a61239c8d002e6e4fcf4abce8eddce0e0
@@ -245,10 +258,11 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
   react-native-maps: 066c2afcc89e18726377bcc685315f989ca22449
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: 81df6244b247eda0e1dd830853700146f9ab25e3
+PODFILE CHECKSUM: cee7451d7bd142b9dad7857f0e29c27c806e76ce
 
 COCOAPODS: 1.5.3

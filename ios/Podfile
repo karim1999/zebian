@@ -12,6 +12,7 @@ rn_maps_path = '../node_modules/react-native-maps'
 pod 'FBSDKShareKit'
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
+pod 'Firebase/Messaging', '~> 5.9.0'
 pod 'Firebase/Database', '~> 5.9.0'
 # See http://facebook.github.io/react-native/docs/integration-with-existing-apps.html#configuring-cocoapods-dependencies
 pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"

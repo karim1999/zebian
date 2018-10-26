@@ -42,10 +42,17 @@ class Home extends Component {
 
             await first.forEach(async (result)=>{
                 await firebase.database().ref('/users/'+(result.user_id)).once('value', data2 => {
-                    this.setState({
+									if(this.state.order.length == _.concat(this.state.orders, [{user: data2.val(), ...result}]).length){
+
+									}
+									else {
+										this.setState({orders:[]})
+										this.setState({
                         orders: _.concat(this.state.orders, [{user: data2.val(), ...result}]),
                         isLoading: false
                     });
+									}
+
                 });
             });
             this.setState({

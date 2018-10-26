@@ -75,7 +75,7 @@ class SingleChatUser extends Component {
 	// }
 	render() {
 		return (
-			<AppTemplate isChat back navigation={this.props.navigation} name={this.state.title}>
+			<AppTemplate isChat back navigation={this.props.navigation} customBack="ChatUser" name={this.state.title}>
 				<GiftedChat
 					messages={this.state.logs}
 					onSend={data => this.addNewMessage(data)}

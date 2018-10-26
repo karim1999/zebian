@@ -7,7 +7,7 @@ import AccountSetting from "../screens/app/AccountSetting";
 import { strings } from '../i18n';
 import Text2 from "../components/Text2";
 import Header2 from "../components/Header2";
-import ChatList from "../screens/app/chatList";
+import ChatUser from "../screens/app/chatList";
 
 import { Icon } from 'native-base'
 
@@ -15,7 +15,7 @@ const AppTabNavigator = createTabNavigator(
   {
     Home: HomeScreen,
     Orders: Orders,
-     ChatList,
+     ChatUser,
     AccountSetting: AccountSetting,
 
   },
@@ -34,7 +34,7 @@ const AppTabNavigator = createTabNavigator(
         else if (routeName === 'AccountSetting') {
           iconName = `ios-settings${focused ? '' : '-outline'}`;
         }
-        else if (routeName === 'ChatList') {
+        else if (routeName === 'ChatUser') {
           iconName = `chat-bubble${focused ? '' : '-outline'}`;
           type= "MaterialIcons";
         }

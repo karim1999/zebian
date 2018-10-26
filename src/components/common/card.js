@@ -69,12 +69,8 @@ export default class ListCard extends Component {
 		if (this.props.chat) {
 			return (
 				<Button
-				onPress={()=>{
-					this.props.nav.navigate("SingleChat", {
-						key:this.props.user_id
-					})
-				}}
-				 style={{margin:5}} light><Text style={{fontSize: 13,fontFamily:'Droid Arabic Kufi'}}>تجاهل</Text></Button>
+				onPress={()=>{this.props.onPressMessage()}}
+				 style={{margin:5}} light><Text style={{fontSize: 13,fontFamily:'Droid Arabic Kufi'}}>رسالة</Text></Button>
 			)
 		}
 	}

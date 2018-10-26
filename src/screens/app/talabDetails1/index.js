@@ -54,7 +54,7 @@ class talabDetails1 extends Component {
 		});
 		const ref = firebase.database().ref('users/'+this.state.order.driver_id);
 ref.once('value',snapshot => {
-	 this.setState({ driver: snapshot.val(),
+	 this.setState({ driver: snapshot,
 			 });
 	})
 	}

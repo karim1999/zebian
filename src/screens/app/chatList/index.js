@@ -8,7 +8,7 @@ import _ from "lodash";
 import SingleChatUser from "../singleChat";
 import {setUser} from "../../../reducers";
 
-class Chat extends Component {
+class ChatUser extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -97,4 +97,4 @@ const mapDispatchToProps = {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(Chat);
+)(ChatUser);
