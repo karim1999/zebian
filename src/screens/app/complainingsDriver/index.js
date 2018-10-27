@@ -7,7 +7,7 @@ import firebase from 'react-native-firebase'
 import {_} from 'lodash';
 import {TouchableOpacity} from 'react-native';
 
- class Complains extends Component {
+ class ComplainsDriver extends Component {
 
       constructor(props){
         super(props);
@@ -62,7 +62,7 @@ import {TouchableOpacity} from 'react-native';
                         style={{ backgroundColor: '#5067FF' }}
                         position="bottomLeft"
                         onPress={() => {
-                          nav.navigate('AddComplain')
+                          nav.navigate('AddComplainDriver')
                         }}>
                         <Icon name="add" />
                     </Fab>
@@ -79,4 +79,4 @@ const mapStateToProps = ({ user }) => ({
 
 export default connect(
     mapStateToProps,
-)(Complains);
+)(ComplainsDriver);

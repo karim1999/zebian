@@ -100,7 +100,7 @@ class Settings extends Component {
 							</Right>
 						</ListItem>
 						<Listitem press={true} onPress={()=>{
-							nav.navigate('Complains')
+							nav.navigate('ComplainsDriver')
 						}} RightData='الشكاوي' />
 						<Listitem press={true} onPress={()=>{
 							nav.navigate('Policy')

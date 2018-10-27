@@ -23,7 +23,7 @@ class OrderNow extends Component {
       desc:'',
       deliveryType: undefined,
       cities:[],
-      city:''
+      city:0
     }
 
   }
@@ -57,7 +57,7 @@ class OrderNow extends Component {
     else {
 
     order = this.props.order;
-    if(order.giveAddress == '' || this.state.city == ''|| order.car == '' || order.time == '' || order.recieveAddress == '' || desc == '' || deliveryType == undefined){
+    if(order.giveAddress == '' || this.state.city == 0|| order.car == '' || order.time == '' || order.recieveAddress == '' || desc == '' || deliveryType == undefined){
       Toast.show({
 				text: "الرجاء ملأ جميع البيانات",
 				buttonText: "موافق",
@@ -103,7 +103,7 @@ class OrderNow extends Component {
       var addOrder=   firebase.database().ref('orders/').push(
           order
         )
-        nav.navigate('offers',{key:addOrder.key})
+        nav.navigate('offers',{key:addOrder.key,order})
 
     }).then(()=>{
       nav.navigate('offers',{order_id:addOrder.key})
@@ -160,6 +160,8 @@ class OrderNow extends Component {
 
 selectedValue={this.state.city}
 onValueChange={(itemValue, itemIndex) => this.setState({city: itemValue})}>
+<Picker.Item label={'مدينه التسليم'} value={0} />
+
 {
 this.state.cities.map(
 (order,key) =>
