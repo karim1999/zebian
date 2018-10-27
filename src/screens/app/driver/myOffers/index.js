@@ -30,10 +30,12 @@ class Offers extends Component {
 			});
 			await second.forEach(async (result)=>{
 				await firebase.database().ref('/orders/'+result.order_id).once('value', data2 => {
-					this.setState({
-						offers: _.concat(this.state.offers, [{order: data2.val(), ...result}]),
-						isLoading: false
-					});
+                    if(this.state.offers.length != second.length){
+                        this.setState({
+                            offers: _.concat(this.state.offers, [{order: data2.val(), ...result}]),
+                            isLoading: false
+                        });
+					}
 				});
 			});
 			this.setState({
