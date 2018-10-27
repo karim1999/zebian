@@ -76,8 +76,8 @@ class OrderNow extends Component {
     .then((data) => {
       var distance = (data.rows[0].elements[0].distance.value)/1000; // Distanc by km
       var time = (data.rows[0].elements[0].duration.value)/60; // time per minutes
-      order.googleTime = time;
-      order.googleDistance = distance;
+      order.googleTime = Math.round(time);
+      order.googleDistance = Math.round(distance);
       if(order.deliveryType == 1){ // outside country
         if(order.car == 'car'){ // sedan
           order.maxPrice = 95;
