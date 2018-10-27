@@ -107,6 +107,7 @@ class AccountType extends Component {
 								birth: this.state.birth.format("DD/MM/YYYY"),
 								car: this.state.selected,
 								cities: false,
+                                allow: true,
 								drivingStatus: 1
 							});
 							this.setState({

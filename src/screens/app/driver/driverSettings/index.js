@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, Text, View, List, ListItem, Left, Right, CheckBox, Toast} from 'native-base';
+import {Button, Text, View, List, ListItem, Left, Right, CheckBox, Toast, Switch} from 'native-base';
 import AppTemplate from '../../appTemplate';
 import Modal from "react-native-modal";
 import ModalListItem from '../../../../components/common/modalListItem';
@@ -18,7 +18,8 @@ class Settings extends Component {
 		this.state = {
 			selected: this.props.Label,
 			cities: [],
-			chosen: this.props.user.cities ? this.props.user.cities : []
+			chosen: this.props.user.cities ? this.props.user.cities : [],
+			allow: this.props.user.allow
 		};
 	}
 
@@ -54,6 +55,12 @@ class Settings extends Component {
 			})
 		});
 	}
+	setAllow(){
+        firebase.database().ref('/users/'+this.props.user.uid+'/allow/').set(this.props.user.allow == 1 ? 0 : 1);
+        this.setState({
+			allow: this.state.allow == 1 ? 0 : 1
+		})
+	}
 	render() {
 		const nav = this.props.navigation
 		return (
@@ -64,6 +71,20 @@ class Settings extends Component {
 						{/*<Listitem RightData='نوع الحساب' Label='سائق' Label2='مستخدم' />*/}
 						<Listitem RightData='رقم العضويه' LeftData={this.props.user.uid} />
 						<Listitem RightData='الرصيد' LeftData={this.props.user.balance ? this.props.user.balance : 0} />
+                        <ListItem selected>
+                            <Left style={{flex: 1}}>
+                                <Switch onValueChange={()=> this.setAllow()} value={this.state.allow == 1} />
+								<Text style={{color: '#B1B1B1', fontFamily: 'Droid Arabic Kufi'}}></Text>
+                            </Left>
+                            <Right style={{flex: 1}}>
+                                <Text style={{
+                                    color: '#727272',
+                                    fontSize: 16,
+                                    fontFamily: 'Droid Arabic Kufi'
+                                }}>استقبال الطلبات</Text>
+                            </Right>
+                        </ListItem>
+
 						{/*<Listitem RightData='استقبال الطلبات' Switch={true} />*/}
 						{/*<Listitem RightData='تغيير نوع السياره' Label='سيدان' Label2='بيك أب' />*/}
 						<ListItem selected>
