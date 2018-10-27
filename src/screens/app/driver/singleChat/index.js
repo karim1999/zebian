@@ -64,7 +64,7 @@ class SingleChat extends Component {
         firebase.database().ref('/offers/'+this.state.key).update({
             chat: true
         });
-		firebase.database().ref('/chat/').child(this.state.key).on('value', data => {
+		firebase.database().ref('/chat/').child(this.state.key).orderByChild("createdAt").on('value', data => {
 			this.setState({
 				logs: _.values(data.val())
 			})
@@ -77,12 +77,11 @@ class SingleChat extends Component {
 		return (
 			<AppTemplate isChat back navigation={this.props.navigation} name={this.state.title}>
 				<GiftedChat
-					messages={this.state.logs}
+					messages={_.reverse(this.state.logs)}
 					onSend={data => this.addNewMessage(data)}
 					alwaysShowSend={true}
 					placeholder="Send a message..."
 					isAnimated={true}
-                    inverted={true}
 					showUserAvatar={true}
 					renderBubble={(props) => this.renderBubble(props)}
 					user={{
