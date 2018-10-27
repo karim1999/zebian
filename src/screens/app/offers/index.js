@@ -5,9 +5,12 @@ import ListCard from '../../../components/common/card';
 import User from '../../../assets/images/png/user-circle.png';
 import Dollar from '../../../assets/images/png/dollar-coin.png';
 import firebase from 'react-native-firebase'
-import {TouchableOpacity} from 'react-native'
-import {_} from 'lodash'
-import {FlatList,Modal} from 'react-native'
+import {TouchableOpacity,ActivityIndicator} from 'react-native'
+import {_} from 'lodash';
+import {FlatList} from 'react-native'
+
+import Modal from "react-native-modal";
+
 import axios from 'axios';
 import Alarm from '../../../assets/images/png/alarm.png'
 import Warning from '../../../assets/images/png/warning.png'
@@ -137,7 +140,7 @@ ref.on('value',snapshot => {
   var offerData = {
     chat:false,
     client_id:order.user_id,
-    order_id:order.key,
+    order_id:this.props.navigation.state.params.key,
     price:order.maxPrice*2,
     status:0,
     user_id:driver.key
@@ -146,12 +149,12 @@ ref.on('value',snapshot => {
       offerData
     )
     var now = new Date();
+ 
 
-    var orderData = {
+this._toggleModal()
+    firebase.database().ref('/orders/' + this.props.navigation.state.params.key).update({
         zeban:true
-    };
-
-    firebase.database().ref('/orders/' + order.key).update(orderData);
+    });
     axios.post("https://fcm.googleapis.com/fcm/send", {
         data: {
             type: "msg",
@@ -217,7 +220,7 @@ ref.on('value',snapshot => {
                       </CardItem>
                       <CardItem footer style={{ alignSelf: 'center', width: '60%' }}>
                         <Button onPress={()=>{
-                          this.argent()
+                          this._toggleModal()
                         }} rounded block style={{ flex: 1, backgroundColor: '#266A8F' }}>
                           <Text style={{ fontSize: 18,fontFamily:'Droid Arabic Kufi' }}>جرب ذلك</Text>
                         </Button>
@@ -262,7 +265,7 @@ ref.on('value',snapshot => {
               )}
             </Button>
             <Button onPress={()=> 	this._toggleModal()} block rounded style={{ backgroundColor: 'green', alignSelf: 'center', marginTop: 15,margin:10,padding:10, }}>
-              <Text style={{  fontWeight: 'bold', color: 'white',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>موافق</Text>
+              <Text style={{  fontWeight: 'bold', color: 'white',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>الغاء</Text>
               {this.state.isLoading && (
                 <ActivityIndicator style={{}} size="small" color="#000000" />
               )}

@@ -102,9 +102,9 @@ android {
         applicationId "com.zebian"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
+        versionCode 20
         multiDexEnabled true
-        versionName "1.0"
+        versionName "20.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
