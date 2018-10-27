@@ -18,7 +18,7 @@ class Settings extends Component {
 		this.state = {
 			selected: this.props.Label,
 			cities: [],
-			chosen: this.props.user.cities
+			chosen: this.props.user.cities ? this.props.user.cities : []
 		};
 	}
 
