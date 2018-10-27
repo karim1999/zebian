@@ -28,10 +28,13 @@ class Chat extends Component {
 
 			await first.forEach(async (result)=>{
 				await firebase.database().ref('/users/'+(this.props.user.driver ? result.client_id : result.user_id)).once('value', data2 => {
-					this.setState({
-						orders: _.concat(this.state.orders, [{user: data2.val(), ...result}]),
-						isLoading: false
-					});
+                    if(this.state.orders.length != first.length){
+                        this.setState({
+                            orders: _.concat(this.state.orders, [{user: data2.val(), ...result}]),
+                            isLoading: false
+                        });
+					}
+
 				});
 			});
 			this.setState({

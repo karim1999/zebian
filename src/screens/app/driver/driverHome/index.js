@@ -11,14 +11,14 @@ import {setUser} from "../../../../reducers";
 import {connect} from "react-redux";
 
 class Home extends Component {
-	constructor(props){
-		super(props);
-		this.state= {
-			isLoading: false,
-			orders: []
-		}
-	}
-	async componentDidMount(){
+    constructor(props){
+        super(props);
+        this.state= {
+            isLoading: false,
+            orders: []
+        }
+    }
+    async componentDidMount(){
         // const notification = new firebase.notifications.Notification()
         //     .setNotificationId('notificationId')
         //     .setTitle('My notification title')
@@ -37,21 +37,21 @@ class Home extends Component {
             let first= await _.filter(_.map(data.val(), (value, key)=> {
                 return {...value, key};
             }), order=> {
-                return order.status == 0
+                return order.status == 0 && (!this.props.user.cities || this.props.user.cities[order.city])
             });
 
             await first.forEach(async (result)=>{
                 await firebase.database().ref('/users/'+(result.user_id)).once('value', data2 => {
-									if(this.state.order.length == _.concat(this.state.orders, [{user: data2.val(), ...result}]).length){
-
-									}
-									else {
-										this.setState({orders:[]})
-										this.setState({
-                        orders: _.concat(this.state.orders, [{user: data2.val(), ...result}]),
-                        isLoading: false
-                    });
-									}
+                    if(this.state.orders.length != first.length){
+                    //
+                    // }
+                    // else {
+                        // this.setState({orders:[]})
+                        this.setState({
+                            orders: _.concat(this.state.orders, [{user: data2.val(), ...result}]),
+                            isLoading: false
+                        });
+                    }
 
                 });
             });
@@ -61,45 +61,45 @@ class Home extends Component {
         });
 
         // firebase.database().ref('/orders/').on('value', data => {
-		// 	this.setState({
-		// 		orders: _.filter(_.map(data.val(), (value, key)=> {
-         //            return {...value, key};
-		// 		}), order => {
-		// 			return order.status == 0
-		// 		}),
-		// 		isLoading: false
-		// 	});
-		// });
-	}
-	render() {
-		const nav = this.props.navigation
-		return (
-			<AppTemplate navigation={nav} name="طلبات التوصيل">
-				<View style={{flex: 1, flexDirection: 'row',justifyContent:'center' }}>
-					<View style={{width:'90%'}}>
-						{this.state.isLoading? (
-							<View>
-								<ActivityIndicator size="large" color="#000000" />
-							</View>
-						) : (
-							<FlatList
-								ListEmptyComponent={
-									<Text style={{alignItems: "center", justifyContent: "center", flex: 1, textAlign: "center"}}>لا يوجد طلبات حاليا</Text>
-								}
-								data={_.reverse(this.state.orders)}
-								renderItem={({item}) => (
-									<TouchableOpacity onPress={()=> this.props.navigation.navigate("AddTalab", {...item, token: item.user.token})}>
-										<ListCard header={item.giveShortAddress} footer={_.truncate(item.desc)} status={item.status} />
-									</TouchableOpacity>
-								)}
-								keyExtractor = { (item, index) => index.toString() }
-							/>
-						)}
-					</View>
-				</View>
-			</AppTemplate>
-		);
-	}
+        // 	this.setState({
+        // 		orders: _.filter(_.map(data.val(), (value, key)=> {
+        //            return {...value, key};
+        // 		}), order => {
+        // 			return order.status == 0
+        // 		}),
+        // 		isLoading: false
+        // 	});
+        // });
+    }
+    render() {
+        const nav = this.props.navigation
+        return (
+            <AppTemplate navigation={nav} name="طلبات التوصيل">
+                <View style={{flex: 1, flexDirection: 'row',justifyContent:'center' }}>
+                    <View style={{width:'90%'}}>
+                        {this.state.isLoading? (
+                            <View>
+                                <ActivityIndicator size="large" color="#000000" />
+                            </View>
+                        ) : (
+                            <FlatList
+                                ListEmptyComponent={
+                                    <Text style={{alignItems: "center", justifyContent: "center", flex: 1, textAlign: "center"}}>لا يوجد طلبات حاليا</Text>
+                                }
+                                data={_.reverse(this.state.orders)}
+                                renderItem={({item}) => (
+                                    <TouchableOpacity onPress={()=> this.props.navigation.navigate("AddTalab", {...item, token: item.user.token})}>
+                                        <ListCard header={item.giveShortAddress} footer={_.truncate(item.desc)} status={item.status} zeban={item.zeban} />
+                                    </TouchableOpacity>
+                                )}
+                                keyExtractor = { (item, index) => index.toString() }
+                            />
+                        )}
+                    </View>
+                </View>
+            </AppTemplate>
+        );
+    }
 }
 const mapStateToProps = ({ user }) => ({
     user,

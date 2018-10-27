@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Text, View, List, ListItem, Left, Right, CheckBox } from 'native-base';
+import {Button, Text, View, List, ListItem, Left, Right, CheckBox, Toast} from 'native-base';
 import AppTemplate from '../../appTemplate';
 import Modal from "react-native-modal";
 import ModalListItem from '../../../../components/common/modalListItem';
@@ -9,12 +9,16 @@ import Twon from '../../../../components/common/twon'
 import firebase from 'react-native-firebase'
 import {setUser} from "../../../../reducers";
 import {connect} from "react-redux";
+import _ from "lodash";
+import {FlatList} from "react-native";
 
 class Settings extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			selected: this.props.Label
+			selected: this.props.Label,
+			cities: [],
+			chosen: this.props.user.cities
 		};
 	}
 
@@ -30,7 +34,26 @@ class Settings extends Component {
 	};
 
 	_toggleModal = () => this.setState({ isModalVisible: !this.state.isModalVisible });
+	changeCities(){
+        firebase.database().ref('/users/'+this.props.user.uid+'/cities/').set(this.state.chosen);
+        Toast.show({
+            text: "تم تغيير المدن بنجاح",
+            buttonText: "OK",
+            type: "success",
+            duration: 5000
+        });
 
+        this._toggleModal()
+	}
+	componentDidMount(){
+        firebase.database().ref('/cities/').on('value', data => {
+        	this.setState({
+				cities: _.map(data.val(), (value, key)=> {
+                    return {...value, key};
+                })
+			})
+		});
+	}
 	render() {
 		const nav = this.props.navigation
 		return (
@@ -72,21 +95,22 @@ class Settings extends Component {
 				>
 					<View style={{ height: '50%', width: '90%', backgroundColor: 'white', alignSelf: 'center', justifyContent: 'space-evenly' }}>
 						<View style={{ flex: .8, width: '90%', margin: 10, flexDirection: 'row', alignSelf: 'center', justifyContent: 'space-between', flexWrap: 'wrap', padding:10 }}>
-							<Twon text='الرياض' />
-							<Twon text='جده' />
-							<Twon text='الدمام' />
-							<Twon text='المدينه' />
-							<Twon text='بريده' />
-							<Twon text='الطائف' />
-							<Twon text='الرياض' />
-							<Twon text='جده' />
-							<Twon text='الدمام' />
-							<Twon text='المدينه' />
-							<Twon text='بريده' />
-							<Twon text='الطائف' />
+                            <FlatList
+                                ListEmptyComponent={
+                                    <Text style={{alignItems: "center", justifyContent: "center", flex: 1, textAlign: "center"}}>لا يوجد مدن حاليا</Text>
+                                }
+                                data={this.state.cities}
+                                renderItem={({item}) => (
+                                    <View style={{ margin: 5, flexDirection: 'row', justifyContent: 'space-evenly', alignItems:'center' }}>
+                                        <Text style={{color:'#707070', fontSize:15}}>{item.name}</Text>
+                                        <CheckBox checked={this.state.chosen[item.key]} onPress={()=> this.setState({chosen: {...this.state.chosen, [item.key]: (this.state.chosen[item.key]? false : true)}})} />
+                                    </View>
+                                )}
+                                keyExtractor = { (item, index) => index.toString() }
+                            />
 						</View>
 						<View style={{ flex: .2, flexDirection: 'row', width: '60%', justifyContent: 'center', alignSelf: 'center' }}>
-							<Button rounded block onPress={this._toggleModal} style={{ flex: 1, alignSelf: 'center', backgroundColor: '#15588D' }}>
+							<Button rounded block onPress={()=>this.changeCities()} style={{ flex: 1, alignSelf: 'center', backgroundColor: '#15588D' }}>
 								<Text style={{ color: 'white', fontSize: 25, }}>حفظ المدن</Text>
 							</Button>
 						</View>
