@@ -11,36 +11,42 @@ import {connect} from "react-redux";
 import {TouchableOpacity} from 'react-native';
 import {_} from 'lodash';
 class Talabaty extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      orders:[
-         { test1: { giveShortAddress: 'FirstHeader', giveAddress: 'FirstText' } }
-         , { test2: { giveShortAddress: 'SecondSub', giveAddress: 'SecondSub' } }],
-      fetch:0
+    constructor(props){
+        super(props);
+        this.state = {
+            orders:[
+                { test1: { giveShortAddress: 'FirstHeader', giveAddress: 'FirstText' } }
+                , { test2: { giveShortAddress: 'SecondSub', giveAddress: 'SecondSub' } }],
+            fetch:0
+        }
     }
-  }
-  componentWillMount(){
-    const ref = firebase.database().ref('orders');
-var finished = [];
-ref.on('value',snapshot => {
-   this.setState({ orders:  _.map(snapshot.val(), (value, key)=> {
-          if(value.user_id == this.props.user.uid){
-					    return {...value, key};
-          }
-				})
-       });
-  })
+    componentWillMount(){
+        const ref = firebase.database().ref('orders');
+        var finished = [];
+        ref.on('value',snapshot => {
+            // this.setState({ orders:  _.map(snapshot.val(), (value, key)=> {
+            //         if(value.user_id == this.props.user.uid){
+            //             return {...value, key};
+            //         }
+            //     })
+            // });
+            this.setState({ orders:  _.filter(_.map(data.val(), (value, key)=> {
+                    return {...value, key};
+                }), order=> {
+                    return order.user_id == this.props.user.uid
+                })
+            })
+        })
 
-  }
-  order_navigate = (order)=>{
-    if(order.status == 0){
-      this.props.navigation.navigate('offers',{key:order.key,order})
     }
-    else {
-      this.props.navigation.navigate('talabDetails1',{order})
+    order_navigate = (order)=>{
+        if(order.status == 0){
+            this.props.navigation.navigate('offers',{key:order.key,order})
+        }
+        else {
+            this.props.navigation.navigate('talabDetails1',{order})
+        }
     }
-  }
 
     render() {
         const nav = this.props.navigation
@@ -49,12 +55,12 @@ ref.on('value',snapshot => {
             <AppTemplate navigation={nav} name="طلباتي">
                 <View style={{flex: 1, flexDirection: 'row',justifyContent:'center' }}>
                     <View style={{width:'95%'}}>
-                    {
-                      this.state.orders.map((order,key) =>
-                       <TouchableOpacity onPress ={()=>this.order_navigate(order)} >
-                      <ListCard header={order.giveShortAddress} footer={order.giveAddress} status={order.status} />
-                      </TouchableOpacity>)
-                    }
+                        {
+                            this.state.orders.map((order,key) =>
+                                <TouchableOpacity onPress ={()=>this.order_navigate(order)} >
+                                    <ListCard header={order.giveShortAddress} footer={order.giveAddress} status={order.status} />
+                                </TouchableOpacity>)
+                        }
                     </View>
 
                 </View>
