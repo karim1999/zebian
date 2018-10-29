@@ -70,12 +70,24 @@ class SingleChatUser extends Component {
 			})
 		});
 	}
-	// componentDidUnMount() {
+    toggleMenu() {
+        this.setState({
+            menu: !this.state.menu
+        })
+    }
+    // componentDidUnMount() {
 	//     this.state.ref.off('value');
 	// }
 	render() {
 		return (
-			<AppTemplate isChat back navigation={this.props.navigation} customBack="ChatUser" name={this.state.title}>
+			<AppTemplate right={true} toggleMenu={() => this.toggleMenu()} isChat back navigation={this.props.navigation} customBack="ChatUser" name={this.state.title}>
+                {this.state.menu && (
+                    <List style={{backgroundColor: "#FFFFFF", right: 0}}>
+                        <ListItem onPress={alert("working")} style={{justifyContent: "flex-end"}}>
+                            <Text style={{textAlign: "right"}}>اختار</Text>
+                        </ListItem>
+                    </List>
+                )}
 				<GiftedChat
 					messages={this.state.logs}
 					onSend={data => this.addNewMessage(data)}

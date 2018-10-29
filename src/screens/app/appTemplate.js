@@ -4,58 +4,66 @@ import{Header,Left,Button,Icon,Right,Body,Title,Container,Content } from 'native
 
 
 export default class AppTemplate extends Component {
-  render() {
-    return (
-      <Container style={{backgroundColor:'#f0f3f3'}}>
-       <Header androidStatusBarColor="#266a8f" style={{backgroundColor:'#266a8f',color:'#',fontFamily:'Droid Arabic Kufi'}}>
-          <Left >
-          </Left>
-         {
-           (this.props.back != true)&&
-           <Body>
-           <Title style={[{ color: "#fbfefe" }, {justifySelf: "flex-end",fontWeight:'bold',fontSize:20,fontFamily:'Droid Arabic Kufi', alignSelf: "flex-end"}]}>{this.props.name}</Title>
-           </Body>
-         }
-         <Right>
-           {
-             (this.props.back == true)&&
-             <Body>
-             <Title style={[{ color: "white",fontFamily:'Droid Arabic Kufi' }, (this.props.back == true) && {justifySelf: "flex-end", alignSelf: "flex-end"}]}>{this.props.name}</Title>
-             </Body>
-           }
-           <Button onPress={() => {
-             if(this.props.customBack ){
-               this.props.navigation.navigate(this.props.customBack);
-             }
-             else {
-               this.props.navigation.goBack();
-             }
-           }} transparent>
-             {
-               (this.props.back == true)&&
-                 <Icon  name='ios-arrow-forward'
-                       type='Ionicons' color="white" style={{ color: 'white' }} />
-             }
+    render() {
+        return (
+            <Container style={{backgroundColor:'#F1F1F1'}}>
+                <Header androidStatusBarColor="#266a8f" style={{backgroundColor:'#266a8f',color:'white'}}>
+                    <Left >
+                        {
+                            this.props.right && (
 
-           </Button>
-         </Right>
-        </Header>
-	      {
-		      (this.props.isChat) ? (
-				      this.props.children
-		      ): (
-			      <Content  >
-				      {this.props.children}
-			      </Content>
-		      )
-	      }
-      </Container>
-    );
-  }
+                                <Button transparent onPress={() => this.props.toggleMenu()}>
+                                    <Icon type="Entypo" name="dots-three-vertical" style={{color: "#000000", fontSize: 28}}/>
+                                </Button>
+                            )
+                        }
+                    </Left>
+                    {
+                        (this.props.back != true)&&
+                        <Body>
+                        <Title style={[{ color: "white" }, {justifySelf: "flex-end",fontFamily:'Droid Arabic Kufi',fontSize:18,fontWeight:'bold', alignSelf: "flex-end"}]}>{this.props.name}</Title>
+                        </Body>
+                    }
+                    <Right>
+                        {
+                            (this.props.back == true)&&
+                            <Body>
+                            <Title style={[{ color: "white",fontFamily:'Droid Arabic Kufi' }, (this.props.back == true) && {justifySelf: "flex-end", alignSelf: "flex-end"}]}>{this.props.name}</Title>
+                            </Body>
+                        }
+                        <Button onPress={() => {
+                            if(this.props.customBack ){
+                                this.props.navigation.navigate(this.props.customBack);
+                            }
+                            else {
+                                this.props.navigation.goBack();
+                            }
+                        }} transparent>
+                            {
+                                (this.props.back == true)&&
+                                <Icon  name='ios-arrow-forward'
+                                      type='Ionicons' color="white" style={{ color: 'white' }} />
+                            }
+
+                        </Button>
+                    </Right>
+                </Header>
+                {
+                    (this.props.isChat) ? (
+                        this.props.children
+                    ): (
+                        <Content  >
+                            {this.props.children}
+                        </Content>
+                    )
+                }
+            </Container>
+        );
+    }
 }
 
 const styles = {
-  box:{
+    box:{
         flexDirection:'row',
         marginTop:'2%',
         marginRight:20,
@@ -66,32 +74,32 @@ const styles = {
         backgroundColor: '#FFFFFF',
         shadowColor: "#000",
         shadowOffset: {
-          width: 0,
-          height: 4,
+            width: 0,
+            height: 4,
         },
         shadowOpacity: 0.30,
         shadowRadius: 4.65,
         elevation: 8,
         alignItems:'center',
         justifyContent:'center'
-  },
-  image:{
-    marginTop:10,
-    marginLeft:10,
+    },
+    image:{
+        marginTop:10,
+        marginLeft:10,
         width: '90%',
         height: '90%',
         alignSelf:'center',
         color:'#1B5686'
-        },
+    },
     text:{
-      marginTop:'9%',
-      color:'#266A8F',
-      fontSize:18
-      },
+        marginTop:'9%',
+        color:'#266A8F',
+        fontSize:18
+    },
     btn:{
-      alignSelf:'center',
-      backgroundColor:'#15588D',
-      paddingRight:'18%',
-      paddingLeft:'18%'
+        alignSelf:'center',
+        backgroundColor:'#15588D',
+        paddingRight:'18%',
+        paddingLeft:'18%'
     }
 }
