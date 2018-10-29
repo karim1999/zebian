@@ -51,7 +51,7 @@ class OrderNow extends Component {
 				text: "تحتاج الي تسجيل الدخول اولا",
 				buttonText: "OK",
 				type: "danger",
-				duration: 5000
+        duration: 100000
 			});
     }
     else {
@@ -62,7 +62,7 @@ class OrderNow extends Component {
 				text: "الرجاء ملأ جميع البيانات",
 				buttonText: "موافق",
 				type: "danger",
-				duration: 2000
+				duration: 100000
 			});
     }
     else {
@@ -90,12 +90,12 @@ class OrderNow extends Component {
       }
       else { // inside country
         if(order.car == 'car'){ // sedan normal
-          order.maxPrice = 13 + order.googleDistance*1;
-          order.minPrice = 13 + order.googleDistance*1;
+          order.maxPrice = (13 + order.googleDistance*1)-5;
+          order.minPrice = (13 + order.googleDistance*1)+5;
         }
         else { // pickup
-          order.maxPrice = 15 + order.googleDistance*2;
-          order.minPrice = 15 + order.googleDistance*2;
+          order.maxPrice = (15 + order.googleDistance*2)-5;
+          order.minPrice = (15 + order.googleDistance*2)+5;
         }
       }
     }).then(()=>{
@@ -137,12 +137,12 @@ class OrderNow extends Component {
                 iosIcon={<Icon name="ios-arrow-down-outline" />}
                 style={{ width: '100%' ,backgroundColor:'white',textAlign:'center'}}
                 placeholder="التوصيل"
-                placeholderStyle={{ color: "#bfc6ea" }}
+                placeholderStyle={{ color: '#bfc6ea' }}
                 placeholderIconColor="#007aff"
                 selectedValue={this.state.deliveryType}
                 onValueChange={this.onValueChange2.bind(this)}
               >
-              <Picker.Item label="نوع التوصيل" value="0" />
+              <Picker.Item style={{color:'red'}} label="نوع التوصيل" value="0" />
                 <Picker.Item label="توصيل خارجي" value="1" />
                 <Picker.Item label="توصيل داخلي" value="2" />
               </Picker>
@@ -177,8 +177,8 @@ this.state.cities.map(
                 <View style={{ flexdirection: 'row' }}>
                     <Form style={{ marginHorizontal: 14 }}>
                         <View style={{ width: '80%', alignSelf: 'center' }}>
-                            <Text style={{ color: '#266A8F', fontSize: 18, textAlign: 'center',fontFamily:'Droid Arabic Kufi' }}>تفاصيل الطلب</Text>
-                            <Text style={{ textAlign: 'center', fontSize: 15,fontFamily:'Droid Arabic Kufi' }} note>اكتب هنا تفاصيل الغرض الذي ترغب في ارساله مثلا ما هو وكيف حجمه</Text>
+                            <Text style={{ color: '#266A8F', fontSize: 20,fontWeight:'bold', textAlign: 'center',fontFamily:'Droid Arabic Kufi' }}>تفاصيل الطلب</Text>
+                            <Text style={{ textAlign: 'center',fontWeight:'bold', fontSize: 17,fontFamily:'Droid Arabic Kufi' }} note>اكتب هنا تفاصيل الغرض الذي ترغب في ارساله مثلا ما هو وكيف حجمه</Text>
                         </View>
                         <Textarea  onChangeText={
                           (text)=>{
@@ -189,7 +189,7 @@ this.state.cities.map(
                 </View>
                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
                     <Button onPress={() => this.OrderNow(nav)} rounded style={{ backgroundColor: '#15588D', alignSelf: 'center', alignItems: 'center', marginVertical: 30, paddingRight: 20, paddingLeft: 20 }}>
-                        <Text style={{ fontSize: 18, textAlign: 'center',fontFamily:'Droid Arabic Kufi' }}>اطلب الان !</Text>
+                        <Text style={{ fontSize: 20,fontWeight:'bold', textAlign: 'center',fontFamily:'Droid Arabic Kufi' }}>اطلب الان !</Text>
                     </Button>
                 </View>
             </AppTemplate>

@@ -6,14 +6,14 @@ import{Header,Left,Button,Icon,Right,Body,Title,Container,Content } from 'native
 export default class AppTemplate extends Component {
   render() {
     return (
-      <Container style={{backgroundColor:'#F1F1F1'}}>
-       <Header androidStatusBarColor="#266a8f" style={{backgroundColor:'#266a8f',color:'white'}}>
+      <Container style={{backgroundColor:'#f0f3f3'}}>
+       <Header androidStatusBarColor="#266a8f" style={{backgroundColor:'#266a8f',color:'#',fontFamily:'Droid Arabic Kufi'}}>
           <Left >
           </Left>
          {
            (this.props.back != true)&&
            <Body>
-           <Title style={[{ color: "white" }, {justifySelf: "flex-end",fontFamily:'Droid Arabic Kufi', alignSelf: "flex-end"}]}>{this.props.name}</Title>
+           <Title style={[{ color: "#fbfefe" }, {justifySelf: "flex-end",fontWeight:'bold',fontSize:20,fontFamily:'Droid Arabic Kufi', alignSelf: "flex-end"}]}>{this.props.name}</Title>
            </Body>
          }
          <Right>
@@ -23,17 +23,17 @@ export default class AppTemplate extends Component {
              <Title style={[{ color: "white",fontFamily:'Droid Arabic Kufi' }, (this.props.back == true) && {justifySelf: "flex-end", alignSelf: "flex-end"}]}>{this.props.name}</Title>
              </Body>
            }
-           <Button transparent>
+           <Button onPress={() => {
+             if(this.props.customBack ){
+               this.props.navigation.navigate(this.props.customBack);
+             }
+             else {
+               this.props.navigation.goBack();
+             }
+           }} transparent>
              {
                (this.props.back == true)&&
-                 <Icon onPress={() => {
-                   if(this.props.customBack ){
-                     this.props.navigation.navigate(this.props.customBack);
-                   }
-                   else {
-                     this.props.navigation.goBack();
-                   }
-                 }} name='ios-arrow-forward'
+                 <Icon  name='ios-arrow-forward'
                        type='Ionicons' color="white" style={{ color: 'white' }} />
              }
 

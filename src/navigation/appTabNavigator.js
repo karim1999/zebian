@@ -69,16 +69,18 @@ const AppTabNavigator = createTabNavigator(
 
     tabBarOptions: {
       showIcon: true,
-      showLabel: false,
-      activeTintColor: 'black',
+      showLabel: true,
+      activeTintColor: '#005993',
       inactiveTintColor: 'gray',
       labelStyle: {
-        fontSize: 12,
+        fontSize: 15,
+        fontFamily:'Droid Arabic Kufi',
+
       },
       tabStyle: {
       },
       style: {
-        backgroundColor: '#ededed',
+        backgroundColor: '#ffffff',
       },
     },
 

@@ -85,7 +85,7 @@ export default class Card2 extends Component {
 
     render() {
         return (
-            <Card style={{ flex: 1, borderRadius: 5 }} >
+            <Card style={{ flex: 1, borderRadius: 5,backgroundColor:'#fff' }} >
                 <CardItem style={{ borderRadius: 5 }}>
                     <Left style={{ flex: 0.5 }} >
                         {
@@ -101,11 +101,11 @@ export default class Card2 extends Component {
                     </Left>
                     <Right style={{ flex: 1, alignContent: 'flex-end' }}>
                         <View style={{ flexDirection: 'row' }}>
-                            <Text style={{ color: '#266A8F', fontSize: 15,fontFamily:'Droid Arabic Kufi' }} >{this.props.header} <Text style={{color: "red"}}>{this.props.zeban? "عاجل" : ""}</Text></Text>
+                            <Text style={{ color: '#266A8F', fontSize: 20,fontWeight:'bold',fontFamily:'Droid Arabic Kufi' }} >{this.props.header} <Text style={{color: "red"}}>{this.props.zeban? "عاجل" : ""}</Text></Text>
                         </View>
                         <View style={{ flexDirection: 'row' }}>
                             <View style={{ flexDirection: 'column' }}>
-                                <Text note style={{ color: '#707070', fontSize: 13,fontFamily:'Droid Arabic Kufi' }} >{this.props.footer}</Text>
+                                <Text note style={{ color: '#868686', paddingHorizontal:10,fontSize: 15,fontWeight:'bold',fontFamily:'Droid Arabic Kufi' }} >{this.props.footer}</Text>
                             </View>
                             <View style={{ flexDirection: 'column' }}>
                                 <Icon style={{ color: '#707070', marginLeft: 4 }} name='marker' type='Foundation' />

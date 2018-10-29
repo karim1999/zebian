@@ -109,8 +109,8 @@ ref.on('value',snapshot => {
           data: {
               type: "msg",
               toast: true,
-      toast_type: "success",
-      toast_text: "تم اختيارك لطلب جديد",
+              toast_type: "success",
+              toast_text: "تم اختيارك لطلب جديد",
               navigation: true,
           },
           notification: {
@@ -129,8 +129,8 @@ ref.on('value',snapshot => {
           // alert("error1")
       });
   }
-  message = (offer_id,nav,user)=>{
-    nav.navigate('SingleChatUser',{key:offer_id,token:user.token,title:user.displayName})
+  message = (offer_id,nav,user,offer)=>{
+    nav.navigate('SingleChatUser',{key:offer_id,token:user.token,title:user.displayName,order_id:offer.order_id})
 
   }
   argent = ()=>{
@@ -149,7 +149,7 @@ ref.on('value',snapshot => {
       offerData
     )
     var now = new Date();
- 
+
 
 this._toggleModal()
     firebase.database().ref('/orders/' + this.props.navigation.state.params.key).update({
@@ -237,7 +237,7 @@ this._toggleModal()
                      }}
                      onPressMessage={
                        ()=>{
-                         this.message(item.key,nav,item.user)
+                         this.message(item.key,nav,item.user,item)
                        }
                      }
                      rightIcon={User} rightIconWidth={60} header={

@@ -30,7 +30,7 @@ class Talabaty extends Component {
             //         }
             //     })
             // });
-            this.setState({ orders:  _.filter(_.map(data.val(), (value, key)=> {
+            this.setState({ orders:  _.filter(_.map(snapshot.val(), (value, key)=> {
                     return {...value, key};
                 }), order=> {
                     return order.user_id == this.props.user.uid

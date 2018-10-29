@@ -107,7 +107,6 @@ export default class ListCard extends Component {
 				<Card  style={{ flex: 1, borderRadius: 5 }} >
 					<CardItem style={{ borderRadius: 5 }}>
 						<Left style={{ flex: 0.5 }} >
-							<Icon type="FontAwesome" style={{ color: this.props.LeftIconColor }} name={this.props.leftIcon? this.props.leftIcon:"map-marker"} />
 							{this.btn()}
 							{this.deliveryClock()}
 							{this.LeftText()}
@@ -115,10 +114,10 @@ export default class ListCard extends Component {
 						</Left>
 						<Right style={{ flex: 1, alignContent: 'flex-end' }}>
 							<View style={{ flexDirection: 'row' }}>
-								<Text style={{ color: '#266A8F', fontSize: 16, fontFamily:'Droid Arabic Kufi' }} >{this.props.header}</Text>
+								<Text style={{ color: '#175a8f',opacity:.8, fontSize: 20,fontWeight:'bold', fontFamily:'Droid Arabic Kufi' }} >{this.props.header}</Text>
 							</View>
 							<View style={{width:'140%'}}>
-								<Text style={{ color: '#707070', fontSize: 13,fontFamily:'Droid Arabic Kufi', textAlign: "right" }} >{this.props.footer}</Text>
+								<Text style={{ color: '#707070', fontSize: 15,fontFamily:'Droid Arabic Kufi', textAlign: "right" }} >{this.props.footer}</Text>
 							</View>
 							<View style={{ flexDirection: 'row' }}>
 								<View style={{ flexDirection: 'column' }}>

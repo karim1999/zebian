@@ -24,6 +24,8 @@ import Policy from "../screens/app/Policy";
 import AddComplain from "../screens/app/AddComplain";
 import Offers from "../screens/app/offers";
 import Text2 from "../components/Text2";
+import AppTabNavigator from './appTabNavigator'
+
 const Orders = createStackNavigator({
 	DriverHome,
 	AddTalab,
@@ -121,8 +123,8 @@ const DriverNavigator= createStackNavigator(
 );
 const ClientNavigator= createStackNavigator(
 	{
-		Drawer:{
-			screen:DrawerNavigator,
+		AppTabNavigator:{
+			screen:AppTabNavigator,
 		} ,
 		RecievePlace:
 			{
@@ -158,7 +160,7 @@ const ClientNavigator= createStackNavigator(
 	},
 	{
 		headerMode:'none',
-		initialRouteName: 'Drawer',
+		initialRouteName: 'AppTabNavigator',
 	}
 );
 const AppNavigator= createSwitchNavigator(
