@@ -185,10 +185,10 @@ class SingleChatUser extends Component {
                     <List style={{backgroundColor: "#FFFFFF", right: 0}}>
 										{
 											(this.state.order.val().status == 0 ) ?
-											(<ListItem  style={{justifyContent: "flex-end"}}>
-													<TouchableOpacity onPress={()=>{
-														 this.accept(this.state.user.uid,this.state.order_id,this.state.key,this.props.navigation,this.state.price,this.state.user);
-													}}><Text style={{textAlign: "right"}}>اختار</Text></TouchableOpacity>
+											(<ListItem onPress={()=>{
+												 this.accept(this.state.user.uid,this.state.order_id,this.state.key,this.props.navigation,this.state.price,this.state.user);
+											}} style={{justifyContent: "flex-end"}}>
+													<TouchableOpacity ><Text style={{textAlign: "right"}}>اختار</Text></TouchableOpacity>
 											</ListItem>)
 											:
 											(this.state.order.val().status == 1)?
@@ -210,7 +210,7 @@ class SingleChatUser extends Component {
 													this.props.navigation.navigate('offers',{key:this.state.order_id,order:this.state.order})
 											}
 											else {
-													this.props.navigation.navigate('talabDetails1',{order:this.state.order})
+													this.props.navigation.navigate('talabDetails1',{order:this.state.order.val()})
 											}
 										}} style={{justifyContent: "flex-end"}}>
 												<TouchableOpacity
@@ -231,7 +231,7 @@ class SingleChatUser extends Component {
 								</View>)
 								:
 								(<View style={{backgroundColor:'green',height:30}}>
-									<Text style={{fontFamily:'Droid Arabic Kufi',fontSize:20,fontWeight:'bold',color:'white',textAlign:'center'}}>تم التوصيل {this.state.order.status}</Text>
+									<Text style={{fontFamily:'Droid Arabic Kufi',fontSize:20,fontWeight:'bold',color:'white',textAlign:'center'}}>تم التوصيل </Text>
 								</View>)):null
 
 							}

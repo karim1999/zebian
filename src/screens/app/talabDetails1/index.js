@@ -37,7 +37,6 @@ class talabDetails1 extends Component {
 	}
 
 	componentDidMount(){
-		alert(JSON.stringify(this.state.order))
 		firebase.database().ref('/orders/'+this.state.order.key).on('value', data => {
 			this.setState({
 				orders: data.val(),
