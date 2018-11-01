@@ -29,10 +29,12 @@ const AppTabNavigator = createTabNavigator(
         if (routeName === 'Home') {
           iconName = `ios-list-box${focused ? '' : '-outline'}`;
         } else if (routeName === 'Orders') {
-          iconName = `ios-briefcase${focused ? '' : '-outline'}`;
+          iconName = `ios-cart${focused ? '' : '-outline'}`;
+          type="Ionicons"
         }
         else if (routeName === 'AccountSetting') {
-          iconName = `ios-settings${focused ? '' : '-outline'}`;
+          iconName = `user-circle${focused ? '-o' : ''}`;
+          type = "FontAwesome"
         }
         else if (routeName === 'ChatUser') {
           iconName = `chat-bubble${focused ? '' : '-outline'}`;
@@ -44,22 +46,22 @@ const AppTabNavigator = createTabNavigator(
 
         // You can return any component that you like here! We usually use an
         // icon component from react-native-vector-icons
-        return <Icon name={iconName} type={type} size={23} style={{color:'#175a8f'}}  />;
+        return <Icon name={iconName} type={type}  style={{color:'#005e95',fontSize:25}}  />;
       },
       tabBarLabel: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         switch (routeName) {
           case 'Home':
-            return <Text2 style={{ fontSize: 15,fontFamily:'Droid Arabic Kufi' }} text="navigator.order" />;
+            return <Text2 style={{ fontSize: 18,fontFamily:'Droid Arabic Kufi',color:'#5c5f5f' }} text="navigator.order" />;
             break;
           case 'Orders':
-            return <Text2 style={{ fontSize: 15,fontFamily:'Droid Arabic Kufi' }} text="navigator.orders" />;
+            return <Text2 style={{ fontSize: 18,fontFamily:'Droid Arabic Kufi',color:'#5c5f5f' }} text="navigator.orders" />;
             break;
           case 'ChatUser':
-              return <Text2 style={{ fontSize: 15,fontFamily:'Droid Arabic Kufi' }} text="navigator.chat" />;
+              return <Text2 style={{ fontSize: 18,fontFamily:'Droid Arabic Kufi',color:'#5c5f5f' }} text="navigator.chat" />;
               break;
           case 'AccountSetting':
-            return <Text2 style={{ fontSize: 15,fontFamily:'Droid Arabic Kufi'}} text="navigator.settings" />;
+            return <Text2 style={{ fontSize: 18,fontFamily:'Droid Arabic Kufi',color:'#5c5f5f'}} text="navigator.settings" />;
             break;
 
 
@@ -80,6 +82,9 @@ const AppTabNavigator = createTabNavigator(
         fontFamily:'Droid Arabic Kufi',
 
       },
+      indicatorStyle: {
+            backgroundColor: '#175a8f',
+        },
       tabStyle: {
         color:'red'
       },

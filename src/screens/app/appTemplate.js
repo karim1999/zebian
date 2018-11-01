@@ -6,14 +6,14 @@ import{Header,Left,Button,Icon,Right,Body,Title,Container,Content } from 'native
 export default class AppTemplate extends Component {
     render() {
         return (
-            <Container style={{backgroundColor:'#F1F1F1'}}>
+            <Container style={{backgroundColor:'#f0f3f3'}}>
                 <Header androidStatusBarColor="#266a8f" style={{backgroundColor:'#266a8f',color:'white'}}>
                     <Left >
                         {
                             this.props.right && (
 
                                 <Button transparent onPress={() => this.props.toggleMenu()}>
-                                    <Icon type="Entypo" name="dots-three-vertical" style={{color: "#000000", fontSize: 28}}/>
+                                    <Icon type="Entypo" name="dots-three-vertical" style={{color: "#ffffff", fontSize: 28}}/>
                                 </Button>
                             )
                         }

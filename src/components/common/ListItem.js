@@ -86,13 +86,14 @@ export default class Listitem extends Component {
                   {this.PickerBtn()}
                   {this.Switch()}
                   {this.Btn()}
-                  <Text style={{color: '#B1B1B1', fontFamily: 'Droid Arabic Kufi'}}>{this.props.LeftData}</Text>
+                  <Text style={{color: '#B1B1B1', fontFamily: 'Droid Arabic Kufi',fontSize:18,fontWeight:'bold'}}>{this.props.LeftData}</Text>
                 </Left>
                 <Right style={{flex: 1}}>
                   <Text style={{
                     color: '#727272',
-                    fontSize: 16,
-                    fontFamily: 'Droid Arabic Kufi'
+                    fontSize: 18,
+                    fontFamily: 'Droid Arabic Kufi',
+                    fontWeight:'bold'
                   }}>{this.props.RightData}</Text>
                 </Right>
 
@@ -104,13 +105,14 @@ export default class Listitem extends Component {
                 {this.PickerBtn()}
                 {this.Switch()}
                 {this.Btn()}
-                <Text style={{color: '#B1B1B1', fontFamily: 'Droid Arabic Kufi'}}>{this.props.LeftData}</Text>
+                <Text style={{color: '#B1B1B1', fontFamily: 'Droid Arabic Kufi',fontWeight:'bold',fontSize:18}}>{this.props.LeftData}</Text>
               </Left>
               <Right style={{flex: 1}}>
                 <Text style={{
                   color: '#727272',
-                  fontSize: 16,
-                  fontFamily: 'Droid Arabic Kufi'
+                  fontSize: 18,
+                  fontFamily: 'Droid Arabic Kufi',
+                  fontWeight:'bold'
                 }}>{this.props.RightData}</Text>
               </Right>
             </ListItem>
@@ -118,4 +120,3 @@ export default class Listitem extends Component {
         );
     }
 }
-

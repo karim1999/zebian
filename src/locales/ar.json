@@ -23,7 +23,8 @@
   "navigator":{
     "order":"طلب الان",
     "orders":"طلباتي",
-    "settings":"الاعدادات",
+    "settings":"حسابي",
+    "chat":"الدردشات"
   },
   "test":{
     "email":"محظور",

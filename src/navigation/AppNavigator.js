@@ -98,12 +98,17 @@ const DriverTabNavigator= createTabNavigator(
 			activeTintColor: 'black',
 			inactiveTintColor: 'gray',
 			labelStyle: {
-				fontSize: 12,
+				fontSize: 20,
+        fontFamily:'Droid Arabic Kufi',
 			},
+			indicatorStyle: {
+						backgroundColor: '#175a8f',
+				},
+
 			tabStyle: {
 			},
 			style: {
-				backgroundColor: '#ededed',
+				backgroundColor: '#ffffff',
 			},
 		},
 

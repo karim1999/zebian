@@ -130,7 +130,7 @@ ref.on('value',snapshot => {
       });
   }
   message = (offer_id,nav,user,offer)=>{
-    nav.navigate('SingleChatUser',{key:offer_id,token:user.token,title:user.displayName,order_id:offer.order_id})
+    nav.navigate('SingleChatUser',{key:offer_id,token:user.token,title:user.displayName,order_id:offer.order_id,price:offer.price,user})
 
   }
   argent = ()=>{

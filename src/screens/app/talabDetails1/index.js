@@ -37,6 +37,7 @@ class talabDetails1 extends Component {
 	}
 
 	componentDidMount(){
+		alert(JSON.stringify(this.state.order))
 		firebase.database().ref('/orders/'+this.state.order.key).on('value', data => {
 			this.setState({
 				orders: data.val(),
@@ -82,6 +83,9 @@ ref.once('value',snapshot => {
 		if(orders == 0 || orders == undefined){
 			new_orders = 1;
 		}
+		else {
+			new_orders = Number(orders)+1
+		}
 		var new_stars = (stars + this.state.stars)/new_orders
 		var new_balance = balance - fees;
 		orderData= {
@@ -89,14 +93,15 @@ ref.once('value',snapshot => {
 		}
 		driverData = {
 			balance:new_balance,
-			stars:new_stars
+			stars:new_stars,
+			orders:new_orders
 		}
 		firebase.database().ref('/orders/' + order_id).update(orderData);
 		firebase.database().ref('/users/' + driver_id).update(driverData);
 		nav.navigate('Home')
 	}
 chat = (order,nav)=>{
-  nav.navigate('SingleChatUser',{key:order.offer_id,title:this.state.driver.displayName,token:this.state.driver.token})
+  nav.navigate('SingleChatUser',{key:order.offer_id,title:this.state.driver.displayName,token:this.state.driver.token,user:this.state.driver,order:this.state.order,order_id:this.state.order.key})
    // alert(JSON.stringify(order.driver_id))
 }
 	render() {
