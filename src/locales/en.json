@@ -21,9 +21,10 @@
   },
   "navigator":{
     "home":"Home",
-    "chat":"Chat",
+    "chat":"الدردشات",
     "likes":"Likes",
-    "search":"Search"
+    "search":"Search",
+
   },
   "test":{
     "email":"blocked",

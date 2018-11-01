@@ -44,19 +44,22 @@ const AppTabNavigator = createTabNavigator(
 
         // You can return any component that you like here! We usually use an
         // icon component from react-native-vector-icons
-        return <Icon name={iconName} type={type} size={23} color={tintColor} />;
+        return <Icon name={iconName} type={type} size={23} style={{color:'#175a8f'}}  />;
       },
       tabBarLabel: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         switch (routeName) {
           case 'Home':
-            return <Text2 style={{ fontSize: 11 }} text="navigator.order" />;
+            return <Text2 style={{ fontSize: 15,fontFamily:'Droid Arabic Kufi' }} text="navigator.order" />;
             break;
           case 'Orders':
-            return <Text2 style={{ fontSize: 11 }} text="navigator.orders" />;
+            return <Text2 style={{ fontSize: 15,fontFamily:'Droid Arabic Kufi' }} text="navigator.orders" />;
             break;
+          case 'ChatUser':
+              return <Text2 style={{ fontSize: 15,fontFamily:'Droid Arabic Kufi' }} text="navigator.chat" />;
+              break;
           case 'AccountSetting':
-            return <Text2 style={{ fontSize: 11 }} text="navigator.settings" />;
+            return <Text2 style={{ fontSize: 15,fontFamily:'Droid Arabic Kufi'}} text="navigator.settings" />;
             break;
 
 
@@ -70,14 +73,15 @@ const AppTabNavigator = createTabNavigator(
     tabBarOptions: {
       showIcon: true,
       showLabel: true,
-      activeTintColor: '#005993',
-      inactiveTintColor: 'gray',
+      activeTintColor: '#175a8f',
+      inactiveTintColor: '#175a8f',
       labelStyle: {
-        fontSize: 15,
+        fontSize: 20,
         fontFamily:'Droid Arabic Kufi',
 
       },
       tabStyle: {
+        color:'red'
       },
       style: {
         backgroundColor: '#ffffff',
