@@ -80,6 +80,7 @@ export default class ListCard extends Component {
 		if (this.props.stars) {
 			return (
 				<Stars
+				disabled={true}
 					default={2.5}
 					count={5}
 					half={true}
@@ -95,7 +96,7 @@ export default class ListCard extends Component {
 	LeftText() {
 		if (this.props.Price) {
 			return (
-				<Text style={{ color: '#CCCCCC', fontSize: 25, fontWeight: 'bold' }}>{this.props.Price}</Text>
+				<Text style={{ color: '#CCCCC', fontSize: 23, fontWeight: 'bold' }}>{this.props.Price}</Text>
 			)
 		}
 	}
@@ -106,6 +107,7 @@ export default class ListCard extends Component {
 			<TouchableOpacity activeOpacity={.9} onPress={this.props.onPress}>
 				<Card  style={{ flex: 1, borderRadius: 5 }} >
 					<CardItem style={{ borderRadius: 5 }}>
+					<Text style={{color: '#175a8f', fontSize: 15, fontWeight: 'bold' ,fontFamily:'Droid Arabic Kufi'}}>ريال</Text>
 						<Left style={{ flex: 0.5 }} >
 							{this.btn()}
 							{this.deliveryClock()}

@@ -182,13 +182,13 @@ class SingleChatUser extends Component {
 		return (
 			<AppTemplate right={true} toggleMenu={() => this.toggleMenu()} isChat back navigation={this.props.navigation} customBack="ChatUser" name={this.state.title}>
                 {this.state.menu && (
-                    <List style={{backgroundColor: "#FFFFFF", right: 0}}>
+                    <List style={{backgroundColor: "#ffffff", right: 0}}>
 										{
 											(this.state.order.val().status == 0 ) ?
 											(<ListItem onPress={()=>{
 												 this.accept(this.state.user.uid,this.state.order_id,this.state.key,this.props.navigation,this.state.price,this.state.user);
 											}} style={{justifyContent: "flex-end"}}>
-													<TouchableOpacity ><Text style={{textAlign: "right"}}>اختار</Text></TouchableOpacity>
+													<TouchableOpacity ><Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17,borderColor:'#266a8f',borderWidth:1,padding:10,borderRadius:10,color:'#266a8f'}}>اختر هذا السائق</Text></TouchableOpacity>
 											</ListItem>)
 											:
 											(this.state.order.val().status == 1)?
@@ -197,7 +197,7 @@ class SingleChatUser extends Component {
 												 this._toggleModal()
 											 }}  style={{justifyContent: "flex-end"}}>
 														<TouchableOpacity
-														 ><Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17,color:'green',textAlign:'center'}}>وصل الطلب</Text></TouchableOpacity>
+														 ><Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17,color:'green',textAlign:'center',borderColor:'#266a8f',borderWidth:1,padding:10,borderRadius:10,color:'#266a8f'}}>وصل الطلب</Text></TouchableOpacity>
 												</ListItem>
 											)
 											:
@@ -214,7 +214,7 @@ class SingleChatUser extends Component {
 											}
 										}} style={{justifyContent: "flex-end"}}>
 												<TouchableOpacity
-												 ><Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17,color:'green',textAlign:'center'}}>بيانات الطلب</Text></TouchableOpacity>
+												 ><Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17,color:'green',textAlign:'center',borderColor:'#266a8f',borderWidth:1,padding:10,borderRadius:10,color:'#266a8f'}}>بيانات الطلب</Text></TouchableOpacity>
 										</ListItem>
                     </List>
                 )}

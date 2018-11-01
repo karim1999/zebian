@@ -230,19 +230,16 @@ this._toggleModal()
 								}
 								data={this.state.offers}
 								renderItem={({item}) => (
-
+                  <TouchableOpacity >
                      <ListCard
-                     onPressAccept={()=>{
-                       this.accept(item.user.uid,this.props.navigation.state.params.key,item.key,nav,item.price,item.user,axios)
+                     onPress={()=>{
+                       this.message(item.key,nav,item.user,item)
                      }}
-                     onPressMessage={
-                       ()=>{
-                         this.message(item.key,nav,item.user,item)
-                       }
-                     }
+
                      rightIcon={User} rightIconWidth={60} header={
                        (item == {} )? 'aa' : item.user.displayName
-                     } stars={true} chat={true}  order_id={this.props.navigation.state.params.key} select={true} nav={nav} user_id={item.user.uid} Price={item.price} leftIconSrc={Dollar} />
+                     } stars={true} stars_status={true} dolar={true}   order_id={this.props.navigation.state.params.key}  nav={nav} user_id={item.user.uid} Price={item.price} leftIconSrc={Dollar} />
+                     </TouchableOpacity>
 								)}
 								keyExtractor = { (item, index) => index.toString() }
 							/>
