@@ -6,6 +6,7 @@ import {setUser} from "../../../../reducers";
 import {connect} from "react-redux";
 import firebase from "react-native-firebase";
 import _ from "lodash";
+var moment = require('moment');
 
 class Chat extends Component {
 	constructor(props) {
@@ -23,7 +24,11 @@ class Chat extends Component {
 			let first= await _.filter(_.map(data.val(), (value, key)=> {
 				return {...value, key};
 			}), offer=> {
-				return offer.chat && (offer.client_id == this.props.user.uid || this.props.user.uid == offer.user_id)
+				let now= moment();
+				if(offer.end_date){
+                    let time= moment(offer.end_date);
+				}
+				return offer.chat && (offer.client_id == this.props.user.uid || this.props.user.uid == offer.user_id) && (!offer.end_date || now.diff(time, 'hours', true) >= 24)
 			});
 
 			await first.forEach(async (result)=>{

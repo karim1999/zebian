@@ -15,10 +15,20 @@ class Home extends Component {
         super(props);
         this.state= {
             isLoading: false,
-            orders: []
+            orders: [],
+            long: this.props.user.long,
+            lat: this.props.user.lat
         }
     }
     async componentDidMount(){
+        navigator.geolocation.getCurrentPosition((position) => {
+            this.setState({
+                long: position.coords.longitude,
+                lat: position.coords.latitude
+            })
+            firebase.database().ref('/users/'+this.props.user.uid+'/lat/').set(position.coords.longitude);
+            firebase.database().ref('/users/'+this.props.user.uid+'/long/').set(position.coords.latitude);
+        });
         // const notification = new firebase.notifications.Notification()
         //     .setNotificationId('notificationId')
         //     .setTitle('My notification title')
@@ -37,11 +47,20 @@ class Home extends Component {
             let first= await _.filter(_.map(data.val(), (value, key)=> {
                 return {...value, key};
             }), order=> {
-                return order.status == 0 && (!this.props.user.cities || this.props.user.cities[order.city])
+                fetch('https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins='+order.recievePos.lat+','+order.recievePos.long+'&destinations='+this.state.lat+','+this.state.long+'&key=AIzaSyCxXoRqTcOTvsOLQPOiVtPnSxLUyGJBFqw').then((response) => response.json())
+                    .then((data) => {
+                        let distance = (data.rows[0].elements[0].distance.value)/1000; // Distanc by km
+                        return order.status == 0 && (!this.props.user.cities || this.props.user.cities[order.city]) && distance <= 40
+                    });
             });
+            if(first.length == 0){
+                this.setState({
+                    isLoading: false
+                });
+            }
 
             await first.forEach(async (result)=>{
-                await firebase.database().ref('/users/'+(result.user_id)).once('value', data2 => {
+                await firebase.database().ref('/users/'+(result.user_id)).once('value', async data2 => {
                     if(this.state.orders.length != first.length){
                     //
                     // }
@@ -55,9 +74,7 @@ class Home extends Component {
 
                 });
             });
-            this.setState({
-                isLoading: false
-            });
+
         });
 
         // firebase.database().ref('/orders/').on('value', data => {

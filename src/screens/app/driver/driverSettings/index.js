@@ -19,7 +19,8 @@ class Settings extends Component {
 			selected: this.props.Label,
 			cities: [],
 			chosen: this.props.user.cities ? this.props.user.cities : [],
-			allow: this.props.user.allow
+			allow: this.props.user.allow,
+			driver: this.props.user.driver
 		};
 	}
 
@@ -61,6 +62,13 @@ class Settings extends Component {
 			allow: this.state.allow == 1 ? 0 : 1
 		})
 	}
+	async setDriver(){
+        this.setState({
+            driver: !this.props.user.driver
+        });
+        await firebase.database().ref('/users/'+this.props.user.uid+'/driver/').set(!this.props.user.driver);
+        this.props.navigation.navigate("Check");
+	}
 	render() {
 		const nav = this.props.navigation
 		return (
@@ -70,6 +78,19 @@ class Settings extends Component {
 					<List>
 						{/*<Listitem RightData='نوع الحساب' Label='سائق' Label2='مستخدم' />*/}
 						<Listitem RightData='رقم العضويه' LeftData={this.props.user.uid} />
+                        <ListItem selected>
+                            <Left style={{flex: 1}}>
+                                <Switch onValueChange={()=> this.setDriver()} value={this.state.driver} />
+                                <Text style={{color: '#B1B1B1', fontFamily: 'Droid Arabic Kufi'}}></Text>
+                            </Left>
+                            <Right style={{flex: 1}}>
+                                <Text style={{
+                                    color: '#727272',
+                                    fontSize: 16,
+                                    fontFamily: 'Droid Arabic Kufi'
+                                }}>سائق</Text>
+                            </Right>
+                        </ListItem>
 						<Listitem RightData='الرصيد' LeftData={this.props.user.balance ? this.props.user.balance : 0} />
                         <ListItem selected>
                             <Left style={{flex: 1}}>

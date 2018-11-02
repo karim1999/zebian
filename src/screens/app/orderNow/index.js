@@ -13,106 +13,106 @@ import firebase from 'react-native-firebase'
 import {_} from 'lodash'
 
 class OrderNow extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      recieve_address : '',
-      give_address:'',
-      time:'',
-      car:'',
-      desc:'',
-      deliveryType: undefined,
-      cities:[],
-      city:0
+    constructor(props){
+        super(props);
+        this.state = {
+            recieve_address : '',
+            give_address:'',
+            time:'',
+            car:'',
+            desc:'',
+            deliveryType: undefined,
+            cities:[],
+            city:0
+        }
+
     }
+    onValueChange2(value: string) {
+        this.setState({
+            deliveryType: value
+        });
+    }
+    componentDidMount(){
 
-  }
-  onValueChange2(value: string) {
-    this.setState({
-      deliveryType: value
-    });
-  }
-  componentDidMount(){
-
-    const ref = firebase.database().ref('cities');
-  ref.on('value',snapshot => {
-   this.setState({ cities: _.map(snapshot.val(), (value, key)=> {
-              return {...value, key};
+        const ref = firebase.database().ref('cities');
+        ref.on('value',snapshot => {
+            this.setState({ cities: _.map(snapshot.val(), (value, key)=> {
+                    return {...value, key};
+                })
+            });
         })
-       });
-  })
-  }
-  OrderNow = (nav)=>{
-    user_id = this.props.user.uid
-    desc = this.state.desc;
-    deliveryType = this.state.deliveryType;
-    if(user_id == null){
-      Toast.show({
-				text: "تحتاج الي تسجيل الدخول اولا",
-				buttonText: "OK",
-				type: "danger",
-        duration: 100000
-			});
     }
-    else {
+    OrderNow = (nav)=>{
+        user_id = this.props.user.uid
+        desc = this.state.desc;
+        deliveryType = this.state.deliveryType;
+        if(user_id == null){
+            Toast.show({
+                text: "تحتاج الي تسجيل الدخول اولا",
+                buttonText: "OK",
+                type: "danger",
+                duration: 100000
+            });
+        }
+        else {
 
-    order = this.props.order;
-    if(order.giveAddress == '' || this.state.city == 0|| order.car == '' || order.time == '' || order.recieveAddress == '' || desc == '' || deliveryType == undefined){
-      Toast.show({
-				text: "الرجاء ملأ جميع البيانات",
-				buttonText: "موافق",
-				type: "danger",
-				duration: 100000
-			});
+            order = this.props.order;
+            if(order.giveAddress == '' || this.state.city == 0|| order.car == '' || order.time == '' || order.recieveAddress == '' || desc == '' || deliveryType == undefined){
+                Toast.show({
+                    text: "الرجاء ملأ جميع البيانات",
+                    buttonText: "موافق",
+                    type: "danger",
+                    duration: 100000
+                });
+            }
+            else {
+                order.desc = desc;
+                order.user_id = user_id;
+                order.orderedTime = new Date();
+                order.deliveryType = deliveryType;
+                order.status = 0;
+                order.city = this.state.city;
+                fetch('https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins='+order.recievePos.lat+','+order.recievePos.long+'&destinations='+order.givePos.lat+','+order.givePos.long+'&key=AIzaSyCxXoRqTcOTvsOLQPOiVtPnSxLUyGJBFqw').then((response) => response.json())
+                    .then((data) => {
+                        var distance = (data.rows[0].elements[0].distance.value)/1000; // Distanc by km
+                        var time = (data.rows[0].elements[0].duration.value)/60; // time per minutes
+                        order.googleTime = Math.round(Number(time));
+                        order.googleDistance = Number(distance).toFixed(2);
+                        if(order.deliveryType == 1){ // outside country
+                            if(order.car == 'car'){ // sedan
+                                order.maxPrice = 95;
+                                order.minPrice = 75;
+                            }
+                            else { // pickup
+                                order.maxPrice = 125;
+                                order.minPrice = 95;
+                            }
+                        }
+                        else { // inside country
+                            if(order.car == 'car'){ // sedan normal
+                                order.maxPrice = (13 + order.googleDistance*1)-5;
+                                order.minPrice = (13 + order.googleDistance*1)+5;
+                            }
+                            else { // pickup
+                                order.maxPrice = (15 + order.googleDistance*2)-5;
+                                order.minPrice = (15 + order.googleDistance*2)+5;
+                            }
+                        }
+                    }).then(()=>{
+
+                    var addOrder=   firebase.database().ref('orders/').push(
+                        order
+                    )
+                    nav.navigate('offers',{key:addOrder.key,order})
+
+                }).then(()=>{
+                    nav.navigate('offers',{order_id:addOrder.key})
+                })
+
+            }
+
+        }
     }
-    else {
-      order.desc = desc;
-      order.user_id = user_id;
-      order.orderedTime = new Date();
-      order.deliveryType = deliveryType;
-      order.status = 0;
-      order.city = this.state.city;
-      fetch('https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins='+order.recievePos.lat+','+order.recievePos.long+'&destinations='+order.givePos.lat+','+order.givePos.long+'&key=AIzaSyCxXoRqTcOTvsOLQPOiVtPnSxLUyGJBFqw').then((response) => response.json())
-    .then((data) => {
-      var distance = (data.rows[0].elements[0].distance.value)/1000; // Distanc by km
-      var time = (data.rows[0].elements[0].duration.value)/60; // time per minutes
-      order.googleTime = Math.round(Number(time));
-      order.googleDistance = Number(distance).toFixed(2);
-      if(order.deliveryType == 1){ // outside country
-        if(order.car == 'car'){ // sedan
-          order.maxPrice = 95;
-          order.minPrice = 75;
-        }
-        else { // pickup
-          order.maxPrice = 125;
-          order.minPrice = 95;
-        }
-      }
-      else { // inside country
-        if(order.car == 'car'){ // sedan normal
-          order.maxPrice = (13 + order.googleDistance*1)-5;
-          order.minPrice = (13 + order.googleDistance*1)+5;
-        }
-        else { // pickup
-          order.maxPrice = (15 + order.googleDistance*2)-5;
-          order.minPrice = (15 + order.googleDistance*2)+5;
-        }
-      }
-    }).then(()=>{
-
-      var addOrder=   firebase.database().ref('orders/').push(
-          order
-        )
-        nav.navigate('offers',{key:addOrder.key,order})
-
-    }).then(()=>{
-      nav.navigate('offers',{order_id:addOrder.key})
-    })
-
-    }
-
-      }
-  }
     render() {
         const nav = this.props.navigation
         return (
@@ -123,53 +123,53 @@ class OrderNow extends Component {
                             nav.navigate('RecievePlace')
                         }} rightIconWidth={40} />
                         <ListCard header={'حدد مكان التسليم'} onPress={()=>{
-                          nav.navigate('GivePlace')
+                            nav.navigate('GivePlace')
                         }}footer={(this.props.order.giveAddress != '')?this.props.order.giveAddress :'اختر موقع تسليم الشحنه'} rightIcon={Navigation} rightIconWidth={40} />
                         <ListCard onPress={()=>{
-                          nav.navigate('Time')
+                            nav.navigate('Time')
                         }} header={'حدد وقت التسليم'} footer={(this.props.order.time != '')?this.props.order.time :'اختر وقت تسليم الشحنه'} rightIcon={Clock} rightIconWidth={40} />
                         <ListCard onPress={()=>{
-                          nav.navigate('CarType')
+                            nav.navigate('CarType')
                         }} header={'حدد نوع السياره'} footer={(this.props.order.car != '')?(this.props.order.car == 'car') ? 'سيدان ': 'بيك اب':'بيك أب - سيدان'} rightIcon={Car} rightIconWidth={40} />
                         <Card picker>
-              <Picker
-                mode="dropdown"
-                iosIcon={<Icon name="ios-arrow-down-outline" />}
-                style={{ width: '100%' ,backgroundColor:'white',textAlign:'center'}}
-                placeholder="التوصيل"
-                placeholderStyle={{ color: '#bfc6ea' }}
-                placeholderIconColor="#007aff"
-                selectedValue={this.state.deliveryType}
-                onValueChange={this.onValueChange2.bind(this)}
-              >
-              <Picker.Item style={{color:'red'}} label="نوع التوصيل" value="0" />
-                <Picker.Item label="توصيل خارجي" value="1" />
-                <Picker.Item label="توصيل داخلي" value="2" />
-              </Picker>
+                            <Picker
+                                mode="dropdown"
+                                iosIcon={<Icon name="ios-arrow-down-outline" />}
+                                style={{ width: '100%' ,backgroundColor:'white',textAlign:'center'}}
+                                placeholder="التوصيل"
+                                placeholderStyle={{ color: '#bfc6ea' }}
+                                placeholderIconColor="#007aff"
+                                selectedValue={this.state.deliveryType}
+                                onValueChange={this.onValueChange2.bind(this)}
+                            >
+                                <Picker.Item style={{color:'red'}} label="نوع التوصيل" value="0" />
+                                <Picker.Item label="توصيل خارجي" value="1" />
+                                <Picker.Item label="توصيل داخلي" value="2" />
+                            </Picker>
 
-            </Card>
-            <Card picker>
+                        </Card>
+                        <Card picker>
 
-            <Picker
-            mode="dropdown"
-            iosIcon={<Icon name="ios-arrow-down-outline" />}
-            style={{ width: '100%' ,backgroundColor:'white',textAlign:'center'}}
-            placeholder="مدينه الاستلام"
-            placeholderStyle={{ color: "#bfc6ea" }}
-            placeholderIconColor="#007aff"
+                            <Picker
+                                mode="dropdown"
+                                iosIcon={<Icon name="ios-arrow-down-outline" />}
+                                style={{ width: '100%' ,backgroundColor:'white',textAlign:'center'}}
+                                placeholder="مدينه الاستلام"
+                                placeholderStyle={{ color: "#bfc6ea" }}
+                                placeholderIconColor="#007aff"
 
-selectedValue={this.state.city}
-onValueChange={(itemValue, itemIndex) => this.setState({city: itemValue})}>
-<Picker.Item label={'مدينه التسليم'} value={0} />
+                                selectedValue={this.state.city}
+                                onValueChange={(itemValue, itemIndex) => this.setState({city: itemValue})}>
+                                <Picker.Item label={'مدينه التسليم'} value={0} />
 
-{
-this.state.cities.map(
-(order,key) =>
-<Picker.Item label={order.name} value={order.key} />
-)
-}
-</Picker>
-</Card>
+                                {
+                                    this.state.cities.map(
+                                        (order,key) =>
+                                            <Picker.Item label={order.name} value={order.key} />
+                                    )
+                                }
+                            </Picker>
+                        </Card>
 
 
                     </View>
@@ -181,9 +181,9 @@ this.state.cities.map(
                             <Text style={{ textAlign: 'center',fontWeight:'bold', fontSize: 17,fontFamily:'Droid Arabic Kufi' }} note>اكتب هنا تفاصيل الغرض الذي ترغب في ارساله مثلا ما هو وكيف حجمه</Text>
                         </View>
                         <Textarea  onChangeText={
-                          (text)=>{
-                            this.setState({desc:text})
-                          }
+                            (text)=>{
+                                this.setState({desc:text})
+                            }
                         } value={this.state.desc} style={{ borderRadius: 14, backgroundColor: 'white',textAlign:'center',fontFamily:'Droid Arabic Kufi' }} rowSpan={4} bordered placeholder=""  />
                     </Form>
                 </View>

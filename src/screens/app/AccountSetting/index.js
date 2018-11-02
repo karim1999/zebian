@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Text, View, List, ListItem, Left, Right, CheckBox } from 'native-base';
+import {Button, Text, View, List, ListItem, Left, Right, CheckBox, Switch} from 'native-base';
 import AppTemplate from '../appTemplate';
 import Modal from "react-native-modal";
 import ModalListItem from '../../../components/common/modalListItem';
@@ -13,7 +13,8 @@ class Settings extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selected: this.props.Label
+            selected: this.props.Label,
+            driver: this.props.user.driver
         };
     }
 
@@ -27,6 +28,13 @@ class Settings extends Component {
     state = {
         isModalVisible: false
     };
+    async setDriver(){
+        this.setState({
+            driver: !this.props.user.driver
+        });
+        await firebase.database().ref('/users/'+this.props.user.uid+'/driver/').set(!this.props.user.driver);
+        this.props.navigation.navigate("Check");
+    }
 
     _toggleModal = () => this.setState({ isModalVisible: !this.state.isModalVisible });
 
@@ -38,6 +46,19 @@ class Settings extends Component {
                 <View style={{ flex: 1, flexDirection: 'column', width: '95%', alignSelf: 'center' }}>
                     <List>
                         <Listitem RightData='رقم العضويه' LeftData={this.props.user.uid} />
+                        <ListItem selected>
+                            <Left style={{flex: 1}}>
+                                <Switch onValueChange={()=> this.setDriver()} value={this.state.driver} />
+                                <Text style={{color: '#B1B1B1', fontFamily: 'Droid Arabic Kufi'}}></Text>
+                            </Left>
+                            <Right style={{flex: 1}}>
+                                <Text style={{
+                                    color: '#727272',
+                                    fontSize: 16,
+                                    fontFamily: 'Droid Arabic Kufi'
+                                }}>سائق</Text>
+                            </Right>
+                        </ListItem>
 
                         <Listitem press={true} onPress={()=>{
                           nav.navigate('Complains')
