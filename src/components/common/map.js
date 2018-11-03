@@ -15,7 +15,7 @@ export default class MapComponent extends Component {
     render() {
         const nav = this.props.navigation
         return (
-        	<Image style={{flex: 1, width: '100%', height: 400}} source={require('../../assets/images/map.jpg')}></Image>
+        	<Image style={{flex: 1, width: '100%', height: 500}} source={require('../../assets/images/map.jpg')}></Image>
         );
     }
 }

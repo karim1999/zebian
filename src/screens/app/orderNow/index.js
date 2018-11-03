@@ -21,7 +21,7 @@ class OrderNow extends Component {
             time:'',
             car:'',
             desc:'',
-            deliveryType: undefined,
+            deliveryType: 0,
             cities:[],
             city:0
         }
@@ -136,13 +136,12 @@ class OrderNow extends Component {
                                 mode="dropdown"
                                 iosIcon={<Icon name="ios-arrow-down-outline" />}
                                 style={{ width: '100%' ,backgroundColor:'white',textAlign:'center'}}
-                                placeholder="التوصيل"
                                 placeholderStyle={{ color: '#bfc6ea' }}
                                 placeholderIconColor="#007aff"
                                 selectedValue={this.state.deliveryType}
                                 onValueChange={this.onValueChange2.bind(this)}
                             >
-                                <Picker.Item style={{color:'red'}} label="نوع التوصيل" value="0" />
+                                <Picker.Item  label="نوع التوصيل" value={0} />
                                 <Picker.Item label="توصيل خارجي" value="1" />
                                 <Picker.Item label="توصيل داخلي" value="2" />
                             </Picker>
@@ -154,7 +153,6 @@ class OrderNow extends Component {
                                 mode="dropdown"
                                 iosIcon={<Icon name="ios-arrow-down-outline" />}
                                 style={{ width: '100%' ,backgroundColor:'white',textAlign:'center'}}
-                                placeholder="مدينه الاستلام"
                                 placeholderStyle={{ color: "#bfc6ea" }}
                                 placeholderIconColor="#007aff"
 

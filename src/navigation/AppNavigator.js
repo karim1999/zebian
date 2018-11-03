@@ -85,8 +85,27 @@ const DriverTabNavigator= createTabNavigator(
 
 				// You can return any component that you like here! We usually use an
 				// icon component from react-native-vector-icons
-				return <Icon name={iconName} type={type} size={23} color={tintColor} />;
+				return <Icon name={iconName} type={type} size={23} color={tintColor} style={{color:'#005e95',fontSize:23}} />;
 			},
+			tabBarLabel: ({ focused, tintColor }) => {
+        const { routeName } = navigation.state;
+        switch (routeName) {
+          case 'MyOffers':
+            return <Text2 style={{ fontSize: 15,fontFamily:'Droid Arabic Kufi',color:'#5c5f5f' }} text="navigator.offers" />;
+            break;
+          case 'Orders':
+            return <Text2 style={{ fontSize: 15,fontFamily:'Droid Arabic Kufi',color:'#5c5f5f' }} text="navigator.orders" />;
+            break;
+          case 'ChatStack':
+              return <Text2 style={{ fontSize: 15,fontFamily:'Droid Arabic Kufi',color:'#5c5f5f' }} text="navigator.chat" />;
+              break;
+          case 'Settings':
+            return <Text2 style={{ fontSize: 15,fontFamily:'Droid Arabic Kufi',color:'#5c5f5f'}} text="navigator.settings" />;
+            break;
+
+
+        }
+			}
 		}),
 		tabBarPosition: 'bottom',
 		animationEnabled: false,
@@ -94,7 +113,7 @@ const DriverTabNavigator= createTabNavigator(
 
 		tabBarOptions: {
 			showIcon: true,
-			showLabel: false,
+			showLabel: true,
 			activeTintColor: 'black',
 			inactiveTintColor: 'gray',
 			labelStyle: {

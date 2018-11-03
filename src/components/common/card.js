@@ -124,7 +124,7 @@ export default class ListCard extends Component {
 						</Left>
 						<Right style={{ flex: 1, alignContent: 'flex-end' }}>
 							<View style={{ flexDirection: 'row' }}>
-								<Text style={{ color: '#175a8f',opacity:.8, fontSize: 20,fontWeight:'bold', fontFamily:'Droid Arabic Kufi' }} >{this.props.header}</Text>
+								<Text style={{ color: '#175a8f',opacity:.8, fontSize: 19,fontWeight:'bold', fontFamily:'Droid Arabic Kufi' }} >{this.props.header}</Text>
 							</View>
 							<View style={{width:'140%'}}>
 								<Text style={{ color: '#707070', fontSize: 15,fontFamily:'Droid Arabic Kufi', textAlign: "right" }} >{this.props.footer}</Text>

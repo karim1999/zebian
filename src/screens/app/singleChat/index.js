@@ -226,16 +226,16 @@ class SingleChatUser extends Component {
 							{
 								(this.state.fetch == 1)?(
 								(this.state.order.val().status == 0 )?
-								(<View style={{backgroundColor:'gray',height:30}}>
+								(<View style={{backgroundColor:'gray',height:40}}>
 									<Text style={{fontFamily:'Droid Arabic Kufi',fontSize:20,fontWeight:'bold',color:'white',textAlign:'center'}}>ب انتظار قبول عرض</Text>
 								</View>)
 								:
 								(this.state.order.val().status == 1)?
-								(<View style={{backgroundColor:'orange',height:30}}>
+								(<View style={{backgroundColor:'orange',height:40}}>
 									<Text style={{fontFamily:'Droid Arabic Kufi',fontSize:20,fontWeight:'bold',color:'white',textAlign:'center'}}>جاري التوصيل</Text>
 								</View>)
 								:
-								(<View style={{backgroundColor:'green',height:30}}>
+								(<View style={{backgroundColor:'green',height:40}}>
 									<Text style={{fontFamily:'Droid Arabic Kufi',fontSize:20,fontWeight:'bold',color:'white',textAlign:'center'}}>تم التوصيل </Text>
 								</View>)):null
 

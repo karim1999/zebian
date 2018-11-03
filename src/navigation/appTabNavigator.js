@@ -33,8 +33,8 @@ const AppTabNavigator = createTabNavigator(
           type="Ionicons"
         }
         else if (routeName === 'AccountSetting') {
-          iconName = `user-circle${focused ? '-o' : ''}`;
-          type = "FontAwesome"
+          iconName = `ios-contact${focused ? '' : '-outline'}`;
+          type = "Ionicons"
         }
         else if (routeName === 'ChatUser') {
           iconName = `chat-bubble${focused ? '' : '-outline'}`;
@@ -46,22 +46,22 @@ const AppTabNavigator = createTabNavigator(
 
         // You can return any component that you like here! We usually use an
         // icon component from react-native-vector-icons
-        return <Icon name={iconName} type={type}  style={{color:'#005e95',fontSize:25}}  />;
+        return <Icon name={iconName} type={type}  style={{color:'#005e95',fontSize:23}}  />;
       },
       tabBarLabel: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         switch (routeName) {
           case 'Home':
-            return <Text2 style={{ fontSize: 18,fontFamily:'Droid Arabic Kufi',color:'#5c5f5f' }} text="navigator.order" />;
+            return <Text2 style={{ fontSize: 15,fontFamily:'Droid Arabic Kufi',color:'#5c5f5f' }} text="navigator.order" />;
             break;
           case 'Orders':
-            return <Text2 style={{ fontSize: 18,fontFamily:'Droid Arabic Kufi',color:'#5c5f5f' }} text="navigator.orders" />;
+            return <Text2 style={{ fontSize: 15,fontFamily:'Droid Arabic Kufi',color:'#5c5f5f' }} text="navigator.orders" />;
             break;
           case 'ChatUser':
-              return <Text2 style={{ fontSize: 18,fontFamily:'Droid Arabic Kufi',color:'#5c5f5f' }} text="navigator.chat" />;
+              return <Text2 style={{ fontSize: 15,fontFamily:'Droid Arabic Kufi',color:'#5c5f5f' }} text="navigator.chat" />;
               break;
           case 'AccountSetting':
-            return <Text2 style={{ fontSize: 18,fontFamily:'Droid Arabic Kufi',color:'#5c5f5f'}} text="navigator.settings" />;
+            return <Text2 style={{ fontSize: 15,fontFamily:'Droid Arabic Kufi',color:'#5c5f5f'}} text="navigator.settings" />;
             break;
 
 

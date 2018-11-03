@@ -127,7 +127,7 @@ chat = (order,nav)=>{
 								</Button>
 							)
 						}
-						<ListCard onPress={()=>this.props.navigation.navigate("GivePlace", {order: this.state.order})} header={'مكان الاستلام '} footer={this.state.order.giveAddress} leftIconSrc={MapMarker} />
+						<ListCard onPress={()=>this.props.navigation.navigate("GivePlace", {order: this.state.order})} header={'مكان الاستلام '} footer={this.state.order.giveAddress} leftIconSrc={MapMarker}  />
 						<ListCard onPress={()=>this.props.navigation.navigate("RecievePlace", {order: this.state.order})} header={'مكان التسليم'} footer={this.state.order.recieveAddress} leftIconSrc={MapMarker} />
 						<ListCard leftIcon="history" header={'وقت التوصيل المتوقع'} footer={this.state.order.googleTime+" minutes"} leftIconSrc={MapMarker} />
 						<ListCard leftIcon="money" header={'المبلغ'} footer={this.state.order.minPrice+"$ : "+this.state.order.maxPrice+"$"} leftIconSrc={MapMarker} />
