@@ -133,7 +133,7 @@ class SingleChatUser extends Component {
             menu: !this.state.menu
         })
     }
-		arrived = (order,user,nav)=>{
+		arrived = (order,user,nav,offer_id)=>{
 			order_id = order.key;
 			price = order.val().price;
 			fees = price*.15;
@@ -167,6 +167,13 @@ class SingleChatUser extends Component {
 				stars:new_stars,
 				orders:new_orders
 			}
+			var now = new Date();
+
+			offerData = {
+				end_date : now
+			}
+			firebase.database().ref('/offers/' + offer_id).update(offerData);
+
 			firebase.database().ref('/orders/' + order_id).update(orderData);
 			firebase.database().ref('/users/' + driver_id).update(driverData);
 			nav.navigate('Home')
@@ -188,7 +195,7 @@ class SingleChatUser extends Component {
 											(<ListItem onPress={()=>{
 												 this.accept(this.state.user.uid,this.state.order_id,this.state.key,this.props.navigation,this.state.price,this.state.user);
 											}} style={{justifyContent: "flex-end"}}>
-													<TouchableOpacity ><Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17,borderColor:'#266a8f',borderWidth:1,padding:10,borderRadius:10,color:'#266a8f'}}>اختر هذا السائق</Text></TouchableOpacity>
+													<Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17,borderColor:'#266a8f',borderWidth:1,padding:10,borderRadius:10,color:'#266a8f'}}>اختر هذا السائق</Text>
 											</ListItem>)
 											:
 											(this.state.order.val().status == 1)?
@@ -196,8 +203,7 @@ class SingleChatUser extends Component {
 												<ListItem onPress={()=>{
 												 this._toggleModal()
 											 }}  style={{justifyContent: "flex-end"}}>
-														<TouchableOpacity
-														 ><Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17,color:'green',textAlign:'center',borderColor:'#266a8f',borderWidth:1,padding:10,borderRadius:10,color:'#266a8f'}}>وصل الطلب</Text></TouchableOpacity>
+														 <Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17,color:'green',textAlign:'center',borderColor:'#266a8f',borderWidth:1,padding:10,borderRadius:10,color:'#266a8f'}}>وصل الطلب</Text>
 												</ListItem>
 											)
 											:
@@ -213,8 +219,7 @@ class SingleChatUser extends Component {
 													this.props.navigation.navigate('talabDetails1',{order:this.state.order.val()})
 											}
 										}} style={{justifyContent: "flex-end"}}>
-												<TouchableOpacity
-												 ><Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17,color:'green',textAlign:'center',borderColor:'#266a8f',borderWidth:1,padding:10,borderRadius:10,color:'#266a8f'}}>بيانات الطلب</Text></TouchableOpacity>
+												 <Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17,color:'green',textAlign:'center',borderColor:'#266a8f',borderWidth:1,padding:10,borderRadius:10,color:'#266a8f'}}>بيانات الطلب</Text>
 										</ListItem>
                     </List>
                 )}
@@ -271,7 +276,7 @@ class SingleChatUser extends Component {
 							halfStar={<Icon type='MaterialCommunityIcons' name={'star-half'} style={[styles.myStarStyle]} />}
 						/>
 
-						<Button onPress={()=> 	this.arrived(this.state.order,this.state.user,this.props.navigation)} block rounded style={{ backgroundColor: 'green', alignSelf: 'center', marginTop: 15,margin:10,padding:10, }}>
+						<Button onPress={()=> 	this.arrived(this.state.order,this.state.user,this.props.navigation,this.state.key)} block rounded style={{ backgroundColor: 'green', alignSelf: 'center', marginTop: 15,margin:10,padding:10, }}>
 							<Text style={{  fontWeight: 'bold', color: 'white',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>قيم السائق</Text>
 							{this.state.isLoading && (
 								<ActivityIndicator style={{}} size="small" color="#000000" />

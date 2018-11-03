@@ -74,13 +74,21 @@ export default class ListCard extends Component {
 			)
 		}
 	}
+	dolar(){
+		if(this.props.dolar){
+			return (
+				<Text style={{color: '#175a8f', fontSize: 15, fontWeight: 'bold' ,fontFamily:'Droid Arabic Kufi'}}>ريال</Text>
+
+			)
+		}
+	}
 
 
 	StarsComponent() {
 		if (this.props.stars) {
 			return (
 				<Stars
-				disabled={true}
+				disabled={this.props.stars_status}
 					default={2.5}
 					count={5}
 					half={true}
@@ -107,7 +115,7 @@ export default class ListCard extends Component {
 			<TouchableOpacity activeOpacity={.9} onPress={this.props.onPress}>
 				<Card  style={{ flex: 1, borderRadius: 5 }} >
 					<CardItem style={{ borderRadius: 5 }}>
-					<Text style={{color: '#175a8f', fontSize: 15, fontWeight: 'bold' ,fontFamily:'Droid Arabic Kufi'}}>ريال</Text>
+					{this.dolar()}
 						<Left style={{ flex: 0.5 }} >
 							{this.btn()}
 							{this.deliveryClock()}
