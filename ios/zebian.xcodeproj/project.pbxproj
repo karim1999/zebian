@@ -27,6 +27,7 @@
 		24E18DF00CDF4E78B0E957EE /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7235722902540F88029F736 /* libRNFirebase.a */; };
 		2944E875217A0CF80082901D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2944E84A217A0CF80082901D /* GoogleService-Info.plist */; };
 		2944E877217A0DA10082901D /* DroidKufi-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2944E876217A0DA10082901D /* DroidKufi-Regular.ttf */; };
+		29F91202218F8A8C0045CA13 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29F91201218F8A2A0045CA13 /* libRNImagePicker.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -165,6 +166,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 6476C4051EEAA69700B10F51;
 			remoteInfo = "RNI18n-tvOS";
+		};
+		29F91200218F8A2A0045CA13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29F911FC218F8A280045CA13 /* RNImagePicker.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 014A3B5C1C6CF33500B6D375;
+			remoteInfo = RNImagePicker;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -411,6 +419,7 @@
 		2944E84A217A0CF80082901D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "zebian/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2944E876217A0DA10082901D /* DroidKufi-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DroidKufi-Regular.ttf"; path = "../src/assets/fonts/DroidKufi-Regular.ttf"; sourceTree = "<group>"; };
 		29D7A982218DE894004ACD33 /* zebian.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = zebian.entitlements; path = zebian/zebian.entitlements; sourceTree = "<group>"; };
+		29F911FC218F8A280045CA13 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* zebian-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "zebian-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* zebian-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "zebian-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -458,6 +467,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29F91202218F8A8C0045CA13 /* libRNImagePicker.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -673,6 +683,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		29F911FD218F8A280045CA13 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				29F91201218F8A2A0045CA13 /* libRNImagePicker.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -731,6 +749,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				29F911FC218F8A280045CA13 /* RNImagePicker.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -902,6 +921,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = K9B3R8BH58;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -997,6 +1017,10 @@
 				{
 					ProductGroup = 298F9BB12170F1D100FD5118 /* Products */;
 					ProjectRef = 83B7490FE9294962BBF3E9A7 /* RNI18n.xcodeproj */;
+				},
+				{
+					ProductGroup = 29F911FD218F8A280045CA13 /* Products */;
+					ProjectRef = 29F911FC218F8A280045CA13 /* RNImagePicker.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1099,6 +1123,13 @@
 			fileType = archive.ar;
 			path = "libRNI18n-tvOS.a";
 			remoteRef = 298F9BC42170F1D100FD5118 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		29F91201218F8A2A0045CA13 /* libRNImagePicker.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNImagePicker.a;
+			remoteRef = 29F91200218F8A2A0045CA13 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		2D16E6721FA4F8DC00B85C8A /* libRCTBlob-tvOS.a */ = {
@@ -1583,6 +1614,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = zebian/zebian.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = K9B3R8BH58;
@@ -1602,6 +1635,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = zebian;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1612,6 +1646,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = zebian/zebian.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K9B3R8BH58;
 				HEADER_SEARCH_PATHS = (
@@ -1630,6 +1666,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = zebian;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
