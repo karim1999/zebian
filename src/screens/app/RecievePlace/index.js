@@ -120,6 +120,9 @@ componentDidMount(){
             <AppTemplate back={true} navigation={nav} name="حدد مكان الاستلام">
 
                 <View style={{ position: 'relative' }}>
+                <View style={{backgroundColor:'gray',height:40}}>
+                  <Text style={{fontFamily:'Droid Arabic Kufi',fontSize:20,fontWeight:'bold',color:'white',textAlign:'center'}}>اضغط علي العلامه ثم اسحب</Text>
+                </View>
                 {
                 (this.state.fetch == 1)?
 
@@ -157,6 +160,7 @@ componentDidMount(){
 
                    :null
                   }
+
                        <View style={{ position: 'absolute', width: '90%', bottom: 0, alignSelf: 'center' }}>
                         <ListCard header={this.state.short_address} footer={this.state.address} rightIconSrc={MapMarker} />
 

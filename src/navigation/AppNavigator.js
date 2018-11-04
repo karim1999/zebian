@@ -73,7 +73,7 @@ const DriverTabNavigator= createTabNavigator(
 					iconName = `ios-briefcase${focused ? '' : '-outline'}`;
 				}
 				else if (routeName === 'Settings') {
-					iconName = `ios-settings${focused ? '' : '-outline'}`;
+					iconName = `ios-contact${focused ? '' : '-outline'}`;
 				}
 				else if (routeName === 'ChatStack') {
 					iconName = `chat-bubble${focused ? '' : '-outline'}`;
