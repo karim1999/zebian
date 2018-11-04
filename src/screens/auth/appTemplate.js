@@ -23,12 +23,12 @@ export default class AppTemplate extends Component {
               <Title style={[{ color: "white" }, (this.props.back == true) && {justifySelf: "flex-end", alignSelf: "flex-end"}]}>{this.props.name}</Title>
               </Body>
             }
-            <Button transparent>
+            <Button onPress={() => {
+              this.props.navigation.goBack();
+            }} transparent>
               {
                 (this.props.back == true)&&
-                <Icon onPress={() => {
-                  this.props.navigation.goBack();
-                }} name='ios-arrow-forward'
+                <Icon  name='ios-arrow-forward'
                       type='Ionicons' color="white" style={{ color: 'white' }} />
               }
 
