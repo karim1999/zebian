@@ -23,7 +23,7 @@ class AccountType extends Component {
 			selected:'pickup',
 			name: this.props.user.displayName,
 			phone: "",
-			birth: moment(),
+			// birth: moment(),
 			licenseImg: "",
 			carImg: "",
 			isSubmitting: false
@@ -83,7 +83,7 @@ class AccountType extends Component {
 		});
 	}
 	submit(){
-		if(this.state.name == "" || this.state.phone == "" || this.state.birth == "" || this.state.licenseImg == "" || this.state.carImg == ""){
+		if(this.state.name == "" || this.state.phone == "" || this.state.licenseImg == "" || this.state.carImg == ""){
 			Toast.show({
 				text: "جميع الحقول مطلوبة",
 				buttonText: "موافق",
@@ -92,7 +92,7 @@ class AccountType extends Component {
 		}else{
 			this.setState({
 				isSubmitting: true
-			})
+			});
 			firebase.storage()
 				.ref("/carImages/"+this.props.user.uid)
 				.putFile(this.state.carImg)
@@ -104,7 +104,7 @@ class AccountType extends Component {
 							firebase.database().ref('/users/'+this.props.user.uid).update({
 								displayName: this.state.name,
 								phone: this.state.phone,
-								birth: this.state.birth.format("DD/MM/YYYY"),
+								// birth: this.state.birth.format("DD/MM/YYYY"),
 								car: this.state.selected,
 								cities: false,
                                 allow: 1,
@@ -156,29 +156,29 @@ class AccountType extends Component {
 							</View>
 						</Item>
 					</View>
-					<View style={{ flex: 1, flexDirection: 'column' }} >
-						<View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-							<Text style={{ textAlign: 'center', color: '#266A8F', fontSize: 18, marginTop: 5, marginBottom: 5,fontFamily:'Droid Arabic Kufi' }}>تاريخ الميلاد</Text>
-						</View>
-						<Item>
-							<View style={{ flexDirection: 'row', justifyContent: "center", alignItems: "center" }}>
-                                <DatePicker
-                                    defaultDate={new Date(2018, 4, 4)}
-                                    minimumDate={new Date(1900, 1, 1)}
-                                    maximumDate={new Date(2018, 12, 31)}
-                                    locale={"en"}
-                                    timeZoneOffsetInMinutes={undefined}
-                                    modalTransparent={false}
-                                    animationType={"fade"}
-                                    androidMode={"default"}
-                                    placeHolderText={this.state.birth.format("DD/MM/YYYY")}
-                                    textStyle={{ color: "black", marginLeft: "40%"}}
-                                    placeHolderTextStyle={{ color: "#d3d3d3", marginLeft: "40%" }}
-                                    onDateChange={(birth)=> this.setState({birth: moment(birth)})}
-                                />
-							</View>
-						</Item>
-					</View>
+					{/*<View style={{ flex: 1, flexDirection: 'column' }} >*/}
+						{/*<View style={{ flexDirection: 'row', justifyContent: 'center' }}>*/}
+							{/*<Text style={{ textAlign: 'center', color: '#266A8F', fontSize: 18, marginTop: 5, marginBottom: 5,fontFamily:'Droid Arabic Kufi' }}>تاريخ الميلاد</Text>*/}
+						{/*</View>*/}
+						{/*<Item>*/}
+							{/*<View style={{ flexDirection: 'row', justifyContent: "center", alignItems: "center" }}>*/}
+                                {/*<DatePicker*/}
+                                    {/*defaultDate={new Date(2018, 4, 4)}*/}
+                                    {/*minimumDate={new Date(1900, 1, 1)}*/}
+                                    {/*maximumDate={new Date(2018, 12, 31)}*/}
+                                    {/*locale={"en"}*/}
+                                    {/*timeZoneOffsetInMinutes={undefined}*/}
+                                    {/*modalTransparent={false}*/}
+                                    {/*animationType={"fade"}*/}
+                                    {/*androidMode={"default"}*/}
+                                    {/*placeHolderText={this.state.birth.format("DD/MM/YYYY")}*/}
+                                    {/*textStyle={{ color: "black", marginLeft: "40%"}}*/}
+                                    {/*placeHolderTextStyle={{ color: "#d3d3d3", marginLeft: "40%" }}*/}
+                                    {/*onDateChange={(birth)=> this.setState({birth: moment(birth)})}*/}
+                                {/*/>*/}
+							{/*</View>*/}
+						{/*</Item>*/}
+					{/*</View>*/}
 					<Text style={{ textAlign: 'right', color: '#266A8F', fontSize: 18,textAlign:'center', marginTop: '2%',fontFamily:'Droid Arabic Kufi' }}>نوع السياره</Text>
 				</Form>
 				<View style={{ alignItems: 'center' }}>
