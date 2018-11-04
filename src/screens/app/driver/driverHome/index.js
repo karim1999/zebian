@@ -47,7 +47,7 @@ class Home extends Component {
             let first= await _.filter(_.map(data.val(), (value, key)=> {
                 return {...value, key};
             }), order=> {
-                fetch('https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins='+order.recievePos.lat+','+order.recievePos.long+'&destinations='+this.state.lat+','+this.state.long+'&key=AIzaSyCxXoRqTcOTvsOLQPOiVtPnSxLUyGJBFqw').then((response) => response.json())
+                return fetch('https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins='+order.recievePos.lat+','+order.recievePos.long+'&destinations='+this.state.lat+','+this.state.long+'&key=AIzaSyCxXoRqTcOTvsOLQPOiVtPnSxLUyGJBFqw').then((response) => response.json())
                     .then((data) => {
                         let distance = (data.rows[0].elements[0].distance.value)/1000; // Distanc by km
                         return order.status == 0 && (!this.props.user.cities || this.props.user.cities[order.city]) && distance <= 40
