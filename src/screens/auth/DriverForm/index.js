@@ -108,6 +108,7 @@ class AccountType extends Component {
 								car: this.state.selected,
 								cities: false,
                                 allow: 1,
+								accepted: false,
 								drivingStatus: 1
 							});
 							this.setState({

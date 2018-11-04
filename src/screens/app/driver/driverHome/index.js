@@ -93,26 +93,31 @@ class Home extends Component {
         return (
             <AppTemplate navigation={nav} name="طلبات التوصيل">
                 <View style={{flex: 1, flexDirection: 'row',justifyContent:'center' }}>
-                    <View style={{width:'90%'}}>
-                        {this.state.isLoading? (
-                            <View>
-                                <ActivityIndicator size="large" color="#000000" />
-                            </View>
-                        ) : (
-                            <FlatList
-                                ListEmptyComponent={
-                                    <Text style={{alignItems: "center", justifyContent: "center", flex: 1, textAlign: "center"}}>لا يوجد طلبات حاليا</Text>
-                                }
-                                data={_.reverse(this.state.orders)}
-                                renderItem={({item}) => (
-                                    <TouchableOpacity onPress={()=> this.props.navigation.navigate("AddTalab", {...item, token: item.user.token})}>
-                                        <ListCard header={item.giveShortAddress} footer={_.truncate(item.desc)} status={item.status} zeban={item.zeban} />
-                                    </TouchableOpacity>
-                                )}
-                                keyExtractor = { (item, index) => index.toString() }
-                            />
-                        )}
-                    </View>
+                    {this.props.user.accepted? (
+                        <View style={{width:'90%'}}>
+                            {this.state.isLoading? (
+                                <View>
+                                    <ActivityIndicator size="large" color="#000000" />
+                                </View>
+                            ) : (
+                                <FlatList
+                                    ListEmptyComponent={
+                                        <Text style={{alignItems: "center", justifyContent: "center", flex: 1, textAlign: "center"}}>لا يوجد طلبات حاليا</Text>
+                                    }
+                                    data={_.reverse(this.state.orders)}
+                                    renderItem={({item}) => (
+                                        <TouchableOpacity onPress={()=> this.props.navigation.navigate("AddTalab", {...item, token: item.user.token})}>
+                                            <ListCard header={item.giveShortAddress} footer={_.truncate(item.desc)} status={item.status} zeban={item.zeban} />
+                                        </TouchableOpacity>
+                                    )}
+                                    keyExtractor = { (item, index) => index.toString() }
+                                />
+                            )}
+                        </View>
+                    ) : (
+                        <Text style={{alignItems: "center", justifyContent: "center", flex: 1, textAlign: "center", color: "red"}}>في انتظار موافقة الادمن</Text>
+                    )}
+
                 </View>
             </AppTemplate>
         );
