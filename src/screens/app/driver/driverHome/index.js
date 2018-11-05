@@ -21,6 +21,18 @@ class Home extends Component {
         }
     }
     async componentDidMount(){
+        const prevGetStateForAction = Navigator.router.getStateForAction;
+
+        Navigator.router.getStateForAction = (action, state) => {
+            // Do not allow to go back to Login
+            if (action.type === 'Navigation/BACK' && state) {
+                const newRoutes = state.routes.filter(r => r.routeName !== 'DriverForm');
+                const newIndex = newRoutes.length - 1;
+                return prevGetStateForAction(action, { index: newIndex, routes: newRoutes });
+            }
+            return prevGetStateForAction(action, state);
+        };
+
         navigator.geolocation.getCurrentPosition((position) => {
             this.setState({
                 long: position.coords.longitude,
