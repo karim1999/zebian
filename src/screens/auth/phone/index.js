@@ -124,6 +124,23 @@ class Phone extends Component {
                                                 <Input placeholder='' value={this.state.code} onChangeText={(code)=> this.setState({code})} style={{ borderWidth: 0.5, borderRadius: 7,height:40,textAlign:'center', borderColor: '#266A8F' }} />
                                             </View>
                                         </Item>
+                                        <View style={{flex: .5}}>
+
+                                        </View>
+
+                                        <Button onPress={()=> {
+                                            if(this.state.confirm){
+                                                this.confirm()
+                                            }else{
+                                                this.submitPhone()
+                                            }
+                                        }} activeOpacity={.9}  block style={{ backgroundColor: '#15588D',width:'90%',justfyContent:'center',alignItems:'center',alignSelf:'center' }}>
+                                            <Text style={{ fontSize: 18,fontFamily:'Droid Arabic Kufi',textAlign:'center' }}>موافق</Text>
+                                            {this.state.isSubmitting && (
+                                                <ActivityIndicator style={{}} size="small" color="#000000" />
+                                            )}
+                                        </Button>
+
                                     </View>
                                 ):(
                                     <View style={{ flex: 1, flexDirection: 'column' }} >
@@ -135,22 +152,29 @@ class Phone extends Component {
                                                 <Input placeholder='' value={this.state.phone} onChangeText={(phone)=> this.setState({phone})} style={{ borderWidth: 0.5, borderRadius: 7,height:40,textAlign:'center', borderColor: '#266A8F' }} />
                                             </View>
                                         </Item>
+                                        <View style={{flex: .5}}>
+
+                                        </View>
+
+                                        <Button onPress={()=> {
+                                            if(this.state.confirm){
+                                                this.confirm()
+                                            }else{
+                                                this.submitPhone()
+                                            }
+                                        }} activeOpacity={.9}  block style={{ backgroundColor: '#15588D',width:'90%',justfyContent:'center',alignItems:'center',alignSelf:'center' }}>
+                                            <Text style={{ fontSize: 18,fontFamily:'Droid Arabic Kufi',textAlign:'center' }}>موافق</Text>
+                                            {this.state.isSubmitting && (
+                                                <ActivityIndicator style={{}} size="small" color="#000000" />
+                                            )}
+                                        </Button>
+
                                     </View>
                                 )
                             }
+
                         </Form>
-                        <Button onPress={()=> {
-                            if(this.state.confirm){
-                                this.confirm()
-                            }else{
-                                this.submitPhone()
-                            }
-                        }} activeOpacity={.9}  block style={{ backgroundColor: '#15588D',width:'90%',justfyContent:'center',alignItems:'center',alignSelf:'center' }}>
-                            <Text style={{ fontSize: 18,fontFamily:'Droid Arabic Kufi' }}>موافق</Text>
-                            {this.state.isSubmitting && (
-                                <ActivityIndicator style={{}} size="small" color="#000000" />
-                            )}
-                        </Button>
+
                     </View>
                     <View style={{flex: .5}}>
 

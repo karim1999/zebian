@@ -126,7 +126,6 @@ class SignUp extends Component {
 						/>
 					</View>
 					<View style={{ flex: .5, flexDirection: 'column', width: '80%', alignSelf: 'center' }}>
-						<SignBox onPress={()=> this.signInWithFacebook()} color="#15588e" icon="facebook" text="تسجيل الدخول بواسطه فيسبوك"/>
 						<SignBox onPress={()=> this.signInWithGoogle()} color="#d24040" icon="google" text="تسجيل الدخول بواسطه جوجل"/>
 						<SignBox onPress={()=> this.props.navigation.navigate("Phone")} color="#22688D" icon="phone" text="تسجيل الدخول بواسطه الهاتف"/>
 					</View>

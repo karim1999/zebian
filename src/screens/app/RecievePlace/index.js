@@ -147,14 +147,18 @@ componentDidMount(){
                          latitude: this.state.pos.lat,
                          longitude: this.state.pos.long
                        }}
+
+                       
                        onDragEnd={(e) =>
                        {
                          this.set_location(e.nativeEvent);
 
                        }
                        }
-                       draggable
-                       title={this.state.address}
+                        draggable
+                        onSelect={() => console.log('onSelect', arguments)}
+                        onDragStart={() => console.log('onDragStart', arguments)}
+
                      />
                    </MapView>
 

@@ -123,6 +123,7 @@ componentDidMount(){
                 <View style={{backgroundColor:'gray',height:40}}>
                   <Text style={{fontFamily:'Droid Arabic Kufi',fontSize:20,fontWeight:'bold',color:'white',textAlign:'center'}}>اضغط علي العلامه ثم اسحب</Text>
                 </View>
+
                 {
                 (this.state.fetch == 1)?
 
@@ -153,8 +154,10 @@ componentDidMount(){
 
                        }
                        }
-                       draggable
-                       title={this.state.address}
+                        draggable
+                        onSelect={() => console.log('onSelect', arguments)}
+                        onDragStart={() => console.log('onDragStart', arguments)}
+
                      />
                    </MapView>
 

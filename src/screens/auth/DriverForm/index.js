@@ -114,7 +114,21 @@ class AccountType extends Component {
 							this.setState({
 								isSubmitting: false
 							})
-                            this.props.navigation.navigate('DriverTabNavigator')
+
+
+							//navigation ----->
+							const resetAction = NavigationActions.reset({
+					      index: 1,
+					      actions: [
+					        NavigationActions.navigate({ routeName: 'DriverTabNavigator' }),
+					      ]
+					    });
+
+					    this.props.navigation.dispatch(resetAction);
+
+              // this.props.navigation.navigate('DriverTabNavigator')
+
+
                             Toast.show({
 								text: "تم",
 								buttonText: "موافق",
