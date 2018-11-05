@@ -52,7 +52,9 @@ class SignUp extends Component {
 				type: "success",
 				duration: 5000
 			});
-		} catch (e) {
+            this.props.navigation.navigate('App')
+
+        } catch (e) {
 			Toast.show({
 				text: "Please, try again later",
 				buttonText: "OK",
@@ -87,7 +89,9 @@ class SignUp extends Component {
 				type: "success",
 				duration: 5000
 			});
-		} catch (e) {
+            this.props.navigation.navigate('App')
+
+        } catch (e) {
 			Toast.show({
 				text: "Please, try again later",
 				buttonText: "OK",
