@@ -27,6 +27,9 @@ PODS:
   - Firebase/Messaging (5.9.0):
     - Firebase/CoreOnly
     - FirebaseMessaging (= 3.1.2)
+  - Firebase/Storage (5.9.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (= 3.0.2)
   - FirebaseAnalytics (5.2.0):
     - FirebaseCore (~> 5.1)
     - FirebaseInstanceID (~> 3.2)
@@ -56,6 +59,10 @@ PODS:
     - FirebaseInstanceID (~> 3.0)
     - GoogleUtilities/Reachability (~> 5.2)
     - Protobuf (~> 3.1)
+  - FirebaseStorage (3.0.2):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - Folly (2016.10.31.00):
     - boost-for-react-native
     - DoubleConversion
@@ -172,6 +179,7 @@ DEPENDENCIES:
   - Firebase/Core (~> 5.9.0)
   - Firebase/Database (~> 5.9.0)
   - Firebase/Messaging (~> 5.9.0)
+  - Firebase/Storage (~> 5.0)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - GoogleSignIn
@@ -207,6 +215,7 @@ SPEC REPOS:
     - FirebaseDatabase
     - FirebaseInstanceID
     - FirebaseMessaging
+    - FirebaseStorage
     - GoogleAppMeasurement
     - GoogleSignIn
     - GoogleToolboxForMac
@@ -248,6 +257,7 @@ SPEC CHECKSUMS:
   FirebaseDatabase: e2bcbc106adc4b11a2da3ec2eb63c0c4a44f2f54
   FirebaseInstanceID: 78ba376fcd5b94c001f9999b2cbd3d1f1e56e78d
   FirebaseMessaging: d6feeb06218d2675b4149b0ada925a6b707a74cf
+  FirebaseStorage: fd82e5e5c474897e19972b34b22ac0f589dce04e
   Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
   glog: e8acf0ebbf99759d3ff18c86c292a5898282dcde
   GoogleAppMeasurement: 2b3a023a61239c8d002e6e4fcf4abce8eddce0e0
@@ -263,6 +273,6 @@ SPEC CHECKSUMS:
   react-native-maps: 066c2afcc89e18726377bcc685315f989ca22449
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: cee7451d7bd142b9dad7857f0e29c27c806e76ce
+PODFILE CHECKSUM: 971e20ab23172aa58a3bd8f754dbbcdb0126d6a7
 
 COCOAPODS: 1.5.3
