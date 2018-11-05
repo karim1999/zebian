@@ -63,7 +63,7 @@ class Phone extends Component {
             let user= firebase.database().ref('users/'+currentUser.uid);
             user.once("value").then(snapshot => {
                 if(!snapshot.exists()){
-                    user.set(currentUser);
+                    user.set({currentUser, displayName: currentUser.phoneNumber});
                 }
             });
             Toast.show({
@@ -72,6 +72,7 @@ class Phone extends Component {
                 type: "success",
                 duration: 5000
             });
+            this.props.navigation.navigate('App')
 
         }).catch(error => {
             Toast.show({
@@ -121,7 +122,9 @@ class Phone extends Component {
                                         </View>
                                         <Item>
                                             <View style={{ flexDirection: 'row' }}>
-                                                <Input placeholder='' value={this.state.code} onChangeText={(code)=> this.setState({code})} style={{ borderWidth: 0.5, borderRadius: 7,height:40,textAlign:'center', borderColor: '#266A8F' }} />
+                                                <Input
+                                                    keyboardType='phone-pad'
+                                                    placeholder='123456' value={this.state.code} onChangeText={(code)=> this.setState({code})} style={{ borderWidth: 0.5, borderRadius: 7,height:40,textAlign:'center', borderColor: '#266A8F' }} />
                                             </View>
                                         </Item>
                                         <View style={{flex: .5}}>
@@ -149,7 +152,9 @@ class Phone extends Component {
                                         </View>
                                         <Item>
                                             <View style={{ flexDirection: 'row' }}>
-                                                <Input placeholder='' value={this.state.phone} onChangeText={(phone)=> this.setState({phone})} style={{ borderWidth: 0.5, borderRadius: 7,height:40,textAlign:'center', borderColor: '#266A8F' }} />
+                                                <Input
+                                                    keyboardType='phone-pad'
+                                                    placeholder='+20 114 046 3805' value={this.state.phone} onChangeText={(phone)=> this.setState({phone})} style={{ borderWidth: 0.5, borderRadius: 7,height:40,textAlign:'center', borderColor: '#266A8F' }} />
                                             </View>
                                         </Item>
                                         <View style={{flex: .5}}>

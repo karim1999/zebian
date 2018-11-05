@@ -89,7 +89,7 @@ class AuthLoadingScreen extends React.Component {
                     //         token: fcmToken,
                     //     });
                     // });
-					if(this.props.user && this.props.user.displayName)
+					if(this.props.user && this.props.user.uid)
 	                    this.props.navigation.navigate('App')
 				});
 			}else{
