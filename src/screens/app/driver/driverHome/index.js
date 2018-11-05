@@ -9,17 +9,17 @@ import axios from "axios";
 import {SERVER_KEY} from "../../../../constants/config";
 import {setUser} from "../../../../reducers";
 import {connect} from "react-redux";
-const prevGetStateForAction = Navigator.router.getStateForAction;
-
-Navigator.router.getStateForAction = (action, state) => {
-    // Do not allow to go back to Login
-    if (action.type === 'Navigation/BACK' && state) {
-        const newRoutes = state.routes.filter(r => r.routeName !== 'DriverForm');
-        const newIndex = newRoutes.length - 1;
-        return prevGetStateForAction(action, { index: newIndex, routes: newRoutes });
-    }
-    return prevGetStateForAction(action, state);
-};
+// const prevGetStateForAction = Navigator.router.getStateForAction;
+//
+// Navigator.router.getStateForAction = (action, state) => {
+//     // Do not allow to go back to Login
+//     if (action.type === 'Navigation/BACK' && state) {
+//         const newRoutes = state.routes.filter(r => r.routeName !== 'DriverForm');
+//         const newIndex = newRoutes.length - 1;
+//         return prevGetStateForAction(action, { index: newIndex, routes: newRoutes });
+//     }
+//     return prevGetStateForAction(action, state);
+// };
 
 class Home extends Component {
     constructor(props){
