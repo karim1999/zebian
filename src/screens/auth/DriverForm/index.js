@@ -12,7 +12,7 @@ import {connect} from "react-redux";
 import {setUser} from "../../../reducers";
 import firebase from 'react-native-firebase'
 import ImagePicker from 'react-native-image-picker';
-import { NavigationActions } from 'react-navigation';
+import { StackActions, NavigationActions } from 'react-navigation';
 
 
 var moment = require('moment');
@@ -118,17 +118,15 @@ class AccountType extends Component {
                                 isSubmitting: false
                             });
 
-                            //navigation ----->
-                            const resetAction = NavigationActions.reset({
-                                index: 0,
+                            const resetAction = StackActions.reset({
+                                index: 0, // <-- currect active route from actions array
                                 actions: [
                                     NavigationActions.navigate({ routeName: 'DriverTabNavigator' }),
-                                ]
+                                ],
                             });
 
                             this.props.navigation.dispatch(resetAction);
-
-                            this.props.navigation.navigate('DriverTabNavigator')
+                            // this.props.navigation.navigate('DriverTabNavigator')
 
 
                             Toast.show({
