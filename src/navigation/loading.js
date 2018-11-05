@@ -75,7 +75,6 @@ class AuthLoadingScreen extends React.Component {
         });
 		firebase.auth().onAuthStateChanged(user => {
 			if(user){
-			    alert(JSON.stringify(user));
 				firebase.database().ref('/users/'+user.uid).on('value', data => {
                     this.props.setUser(data.val());
                     // this.onTokenRefreshListener = firebase.messaging().onTokenRefresh(fcmToken => {
