@@ -76,7 +76,7 @@ class Phone extends Component {
 
         }).catch(error => {
             Toast.show({
-                text: "Please, try again later",
+                text: "Please, use a valid phone number",
                 buttonText: "OK",
                 type: "danger",
                 duration: 5000
