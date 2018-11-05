@@ -77,20 +77,21 @@ class AuthLoadingScreen extends React.Component {
 			if(user){
 				firebase.database().ref('/users/'+user.uid).on('value', data => {
                     this.props.setUser(data.val());
-                    firebase.messaging().getToken().then(fcmToken => {
-                        if (fcmToken) {
-                            firebase.database().ref('/users/'+user.uid).update({
-                                token: fcmToken,
-                            });
-                        }
-                    });
                     // this.onTokenRefreshListener = firebase.messaging().onTokenRefresh(fcmToken => {
                     //     firebase.database().ref('/users/'+user.uid).update({
                     //         token: fcmToken,
                     //     });
                     // });
-					if(this.props.user && this.props.user.uid)
-	                    this.props.navigation.navigate('App')
+					if(this.props.user && this.props.user.uid){
+                        firebase.messaging().getToken().then(fcmToken => {
+                            if (fcmToken) {
+                                firebase.database().ref('/users/'+user.uid).update({
+                                    token: fcmToken,
+                                });
+                            }
+                        });
+                        this.props.navigation.navigate('App')
+                    }
 				});
 			}else{
 				this.props.navigation.navigate('Auth')
