@@ -40,7 +40,7 @@ class Phone extends Component {
                 isSubmitting: false
             })
         }).catch(error => {
-            alert(JSON.stringify(error));
+            // alert(JSON.stringify(error));
             Toast.show({
                 text: "Please, try again later",
                 buttonText: "OK",
