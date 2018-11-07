@@ -13,6 +13,8 @@ pod 'FBSDKShareKit'
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'Firebase/Messaging', '~> 5.9.0'
+pod 'Firebase/Core'
+
 pod 'Firebase/Database', '~> 5.9.0'
 pod 'Firebase/Storage', '~> 5.0'
 # See http://facebook.github.io/react-native/docs/integration-with-existing-apps.html#configuring-cocoapods-dependencies

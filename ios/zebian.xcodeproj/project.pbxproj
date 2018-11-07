@@ -24,7 +24,6 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		24E18DF00CDF4E78B0E957EE /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7235722902540F88029F736 /* libRNFirebase.a */; };
 		2944E875217A0CF80082901D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2944E84A217A0CF80082901D /* GoogleService-Info.plist */; };
 		2944E877217A0DA10082901D /* DroidKufi-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2944E876217A0DA10082901D /* DroidKufi-Regular.ttf */; };
 		29F91202218F8A8C0045CA13 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29F91201218F8A2A0045CA13 /* libRNImagePicker.a */; };
@@ -55,6 +54,7 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B7DB3D095E94433EAF11F514 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF79949666574E799AA1945D /* Entypo.ttf */; };
 		B823EBA46DF44D57906C8DCF /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E52CA21BDF1489DB1316AE3 /* AddressBook.framework */; };
+		C1A32A9FC2E440898857DAED /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8363299CF0204D13A88D3FC3 /* libRNFirebase.a */; };
 		CE464634B84C4E33B0C1034D /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A176E32AE2854CC5A5FBF42B /* libRNGoogleSignin.a */; };
 		D44DB88F09AB40A3BD5870E2 /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE99A642A6A149A0B29E7F66 /* libRCTFBSDK.a */; };
 		D45A750BED3C40638E12807C /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62D3F6312E7343238EC2336C /* Roboto.ttf */; };
@@ -132,19 +132,19 @@
 			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
 			remoteInfo = React;
 		};
+		29626F3B219388A700EA9A7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E509DF5B81344B13BEEC5E8D /* RNFirebase.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNFirebase;
+		};
 		298F9BB82170F1D100FD5118 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0EE37747B59140A8B6260D16 /* RCTFBSDK.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 9350E0F11CE3B0920041D815;
 			remoteInfo = RCTFBSDK;
-		};
-		298F9BBB2170F1D100FD5118 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F78DD4D8BBED4A5B800507C5 /* RNFirebase.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNFirebase;
 		};
 		298F9BBE2170F1D100FD5118 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -432,6 +432,7 @@
 		7740FE55E4DCCBB06EF5F66F /* Pods-zebian-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zebian-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zebian-tvOS/Pods-zebian-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		8363299CF0204D13A88D3FC3 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		83B7490FE9294962BBF3E9A7 /* RNI18n.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNI18n.xcodeproj; path = "../node_modules/react-native-i18n/ios/RNI18n.xcodeproj"; sourceTree = "<group>"; };
 		84A0519C981D491690CFB566 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		8EFCE7DDAC1E41D4AB3F9309 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
@@ -440,7 +441,6 @@
 		A176E32AE2854CC5A5FBF42B /* libRNGoogleSignin.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGoogleSignin.a; sourceTree = "<group>"; };
 		A18077C21A6342BD9D74F23E /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		A6F949DC14DE40D394AD0FC6 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
-		A7235722902540F88029F736 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		A9B63806A39C4C1F91DE88AD /* RNGoogleSignin.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGoogleSignin.xcodeproj; path = "../node_modules/react-native-google-signin/ios/RNGoogleSignin.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		C385CBF10E589C793BC5D5E0 /* Pods-zebian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zebian.release.xcconfig"; path = "Pods/Target Support Files/Pods-zebian/Pods-zebian.release.xcconfig"; sourceTree = "<group>"; };
@@ -448,9 +448,9 @@
 		CA2BA13E572E48DAAE9FE5E6 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		CA2BD55803C44FF0894B9BE2 /* libRNI18n.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNI18n.a; sourceTree = "<group>"; };
 		DAC9D91E1B084483A422A942 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		E509DF5B81344B13BEEC5E8D /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
 		EE99A642A6A149A0B29E7F66 /* libRCTFBSDK.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTFBSDK.a; sourceTree = "<group>"; };
 		F634841F8E5C4BC7B744CB06 /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
-		F78DD4D8BBED4A5B800507C5 /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
 		FF79949666574E799AA1945D /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -481,7 +481,6 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				FD077EE697524242AF0A5115 /* libRNI18n.a in Frameworks */,
-				24E18DF00CDF4E78B0E957EE /* libRNFirebase.a in Frameworks */,
 				D44DB88F09AB40A3BD5870E2 /* libRCTFBSDK.a in Frameworks */,
 				CE464634B84C4E33B0C1034D /* libRNGoogleSignin.a in Frameworks */,
 				F983641534EA404C98DBE161 /* libz.tbd in Frameworks */,
@@ -489,6 +488,7 @@
 				F47A258076B5411A8E2A3030 /* SystemConfiguration.framework in Frameworks */,
 				B823EBA46DF44D57906C8DCF /* AddressBook.framework in Frameworks */,
 				0B409BE82E7ED2150E229189 /* libPods-zebian.a in Frameworks */,
+				C1A32A9FC2E440898857DAED /* libRNFirebase.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,14 +638,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		29626F38219388A700EA9A7B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				29626F3C219388A700EA9A7B /* libRNFirebase.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		298F9B892170F1CE00FD5118 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
 				CA2BD55803C44FF0894B9BE2 /* libRNI18n.a */,
-				A7235722902540F88029F736 /* libRNFirebase.a */,
 				EE99A642A6A149A0B29E7F66 /* libRCTFBSDK.a */,
 				A176E32AE2854CC5A5FBF42B /* libRNGoogleSignin.a */,
 				1247F631E9C1468FBF63C5E3 /* libRNI18n-tvOS.a */,
+				8363299CF0204D13A88D3FC3 /* libRNFirebase.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -663,14 +671,6 @@
 			children = (
 				298F9BC32170F1D100FD5118 /* libRNI18n.a */,
 				298F9BC52170F1D100FD5118 /* libRNI18n-tvOS.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		298F9BB32170F1D100FD5118 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				298F9BBC2170F1D100FD5118 /* libRNFirebase.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -763,9 +763,9 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				83B7490FE9294962BBF3E9A7 /* RNI18n.xcodeproj */,
-				F78DD4D8BBED4A5B800507C5 /* RNFirebase.xcodeproj */,
 				0EE37747B59140A8B6260D16 /* RCTFBSDK.xcodeproj */,
 				A9B63806A39C4C1F91DE88AD /* RNGoogleSignin.xcodeproj */,
+				E509DF5B81344B13BEEC5E8D /* RNFirebase.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1007,8 +1007,8 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
-					ProductGroup = 298F9BB32170F1D100FD5118 /* Products */;
-					ProjectRef = F78DD4D8BBED4A5B800507C5 /* RNFirebase.xcodeproj */;
+					ProductGroup = 29626F38219388A700EA9A7B /* Products */;
+					ProjectRef = E509DF5B81344B13BEEC5E8D /* RNFirebase.xcodeproj */;
 				},
 				{
 					ProductGroup = 298F9BAF2170F1D000FD5118 /* Products */;
@@ -1090,18 +1090,18 @@
 			remoteRef = 146834031AC3E56700842450 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		29626F3C219388A700EA9A7B /* libRNFirebase.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNFirebase.a;
+			remoteRef = 29626F3B219388A700EA9A7B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		298F9BB92170F1D100FD5118 /* libRCTFBSDK.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRCTFBSDK.a;
 			remoteRef = 298F9BB82170F1D100FD5118 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		298F9BBC2170F1D100FD5118 /* libRNFirebase.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNFirebase.a;
-			remoteRef = 298F9BBB2170F1D100FD5118 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		298F9BBF2170F1D100FD5118 /* libRNGoogleSignin.a */ = {
@@ -1553,16 +1553,13 @@
 					"$(SRCROOT)..\node_modules\neact-native-firebaseiosRNFirebase/**",
 					"$(SRCROOT)..\node_modules\neact-native-fbsdkiosRCTFBSDK/**",
 					"$(SRCROOT)..\node_modules\neact-native-google-signiniosRNGoogleSignin/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = zebianTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1586,16 +1583,13 @@
 					"$(SRCROOT)..\node_modules\neact-native-firebaseiosRNFirebase/**",
 					"$(SRCROOT)..\node_modules\neact-native-fbsdkiosRCTFBSDK/**",
 					"$(SRCROOT)..\node_modules\neact-native-google-signiniosRNGoogleSignin/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = zebianTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1621,10 +1615,21 @@
 				DEVELOPMENT_TEAM = K9B3R8BH58;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)..\node_modules\neact-native-i18nios",
-					"$(SRCROOT)..\node_modules\neact-native-firebaseiosRNFirebase/**",
-					"$(SRCROOT)..\node_modules\neact-native-fbsdkiosRCTFBSDK/**",
-					"$(SRCROOT)..\node_modules\neact-native-google-signiniosRNGoogleSignin/**",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-i18nios",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-firebaseiosRNFirebase/**",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-fbsdkiosRCTFBSDK/**",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-google-signiniosRNGoogleSignin/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/RNFirebase",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = zebian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1652,10 +1657,21 @@
 				DEVELOPMENT_TEAM = K9B3R8BH58;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)..\node_modules\neact-native-i18nios",
-					"$(SRCROOT)..\node_modules\neact-native-firebaseiosRNFirebase/**",
-					"$(SRCROOT)..\node_modules\neact-native-fbsdkiosRCTFBSDK/**",
-					"$(SRCROOT)..\node_modules\neact-native-google-signiniosRNGoogleSignin/**",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-i18nios",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-firebaseiosRNFirebase/**",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-fbsdkiosRCTFBSDK/**",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-google-signiniosRNGoogleSignin/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/RNFirebase",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = zebian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1690,15 +1706,12 @@
 					"$(SRCROOT)..\node_modules\neact-native-firebaseiosRNFirebase/**",
 					"$(SRCROOT)..\node_modules\neact-native-fbsdkiosRCTFBSDK/**",
 					"$(SRCROOT)..\node_modules\neact-native-google-signiniosRNGoogleSignin/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = "zebian-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1732,15 +1745,12 @@
 					"$(SRCROOT)..\node_modules\neact-native-firebaseiosRNFirebase/**",
 					"$(SRCROOT)..\node_modules\neact-native-fbsdkiosRCTFBSDK/**",
 					"$(SRCROOT)..\node_modules\neact-native-google-signiniosRNGoogleSignin/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = "zebian-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1772,15 +1782,12 @@
 					"$(SRCROOT)..\node_modules\neact-native-firebaseiosRNFirebase/**",
 					"$(SRCROOT)..\node_modules\neact-native-fbsdkiosRCTFBSDK/**",
 					"$(SRCROOT)..\node_modules\neact-native-google-signiniosRNGoogleSignin/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = "zebian-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1812,15 +1819,12 @@
 					"$(SRCROOT)..\node_modules\neact-native-firebaseiosRNFirebase/**",
 					"$(SRCROOT)..\node_modules\neact-native-fbsdkiosRCTFBSDK/**",
 					"$(SRCROOT)..\node_modules\neact-native-google-signiniosRNGoogleSignin/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = "zebian-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
