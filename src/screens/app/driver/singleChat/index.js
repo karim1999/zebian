@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from "react-native";
+import {ActivityIndicator, StyleSheet, Text, View} from "react-native";
 import { Button, Container, Icon, List, ListItem } from "native-base";
 import _ from "lodash";
 import {Bubble, GiftedChat} from 'react-native-gifted-chat';
@@ -9,6 +9,8 @@ import firebase from "react-native-firebase";
 import AppTemplate from '../../appTemplate';
 import {SERVER_KEY} from "../../../../constants/config";
 import axios from "axios/index";
+import Stars from 'react-native-stars';
+import Modal from "react-native-modal";
 
 class SingleChat extends Component {
 	constructor(props) {
@@ -17,8 +19,10 @@ class SingleChat extends Component {
 			...this.props.navigation.state.params,
 			message: "",
 			logs: [],
-			menu: false
-		};
+			menu: false,
+            stars:5,
+            isModalVisible: false,
+        };
 	}
 	renderBubble (props) {
 		return (
@@ -75,18 +79,42 @@ class SingleChat extends Component {
             menu: !this.state.menu
         })
     }
-
+    review(){
+		let stars= (this.state.user.stars)? this.state.user.stars : 0;
+		let num_reviews= (this.state.user.num_reviews)? this.state.user.num_reviews : 0;
+        let new_stars = (stars + this.state.stars)/(num_reviews+1);
+		let new_num_reviews= num_reviews+1;
+        let driverData = {
+            stars:new_stars,
+			num_reviews: new_num_reviews
+        };
+        firebase.database().ref('/users/' + this.state.user.uid).update(driverData);
+        firebase.database().ref('/offers/' + this.state.key + '/reviewed').set(true);
+        this._toggleModal();
+    }
     // componentDidUnMount() {
 	//     this.state.ref.off('value');
 	// }
-	render() {
+    _toggleModal = () => this.setState({ isModalVisible: !this.state.isModalVisible });
+
+    render() {
 		return (
-			<AppTemplate right={true} toggleMenu={() => this.toggleMenu()} isChat back navigation={this.props.navigation} name={this.state.title}>
+			<AppTemplate right={this.state.end_date || !this.state.reviewed} toggleMenu={() => this.toggleMenu()} isChat back navigation={this.props.navigation} name={this.state.title}>
                 {this.state.menu && (
-                    <List style={{backgroundColor: "#FFFFFF", right: 0}}>
-                        <ListItem onPress={alert("working")} style={{justifyContent: "flex-end"}}>
-                            <Text style={{textAlign: "right"}}>اختار</Text>
-                        </ListItem>
+                    <List style={{backgroundColor: "#ffffff", right: 0}}>
+                        {
+                            (this.state.end_date || !this.state.reviewed) &&
+                            (
+                                <ListItem
+                                    onPress={()=>{
+                                        this._toggleModal();
+                                    }}
+                                    style={{justifyContent: "flex-end"}}
+								>
+                                    <Text>قيم هذا السائق</Text>
+                                </ListItem>
+                            )
+                        }
                     </List>
                 )}
 				<GiftedChat
@@ -104,6 +132,34 @@ class SingleChat extends Component {
 						avatar: this.props.user.photoURL
 					}}
 				/>
+                <Modal
+                    isVisible={this.state.isModalVisible}
+                    onBackdropPress={() => this.setState({ isModalVisible: false })}
+                >
+                    <View style={{ height: '30%', width: '90%', backgroundColor: 'white', alignSelf: 'center',alignItems:'center', justifyContent: 'center', flexDirection: 'column',borderRadius:10 }}>
+                        <Text style={{fontWeight: 'bold',  color: '#266A8F',fontSize: 13,fontFamily:'Droid Arabic Kufi'}}>قيم العميل </Text>
+                        <Stars
+                            default={this.state.stars}
+                            count={5}
+                            half={true}
+                            starSize={50}
+                            update={(stars)=>{this.setState({stars})}}
+
+                            fullStar={<Icon type='MaterialCommunityIcons' name={'star'} style={[styles.myStarStyle]} />}
+                            emptyStar={<Icon type='MaterialCommunityIcons' name={'star-outline'} style={[styles.myStarStyle, styles.myEmptyStarStyle]} />}
+                            halfStar={<Icon type='MaterialCommunityIcons' name={'star-half'} style={[styles.myStarStyle]} />}
+                        />
+
+                        <Button onPress={()=> 	this.review()} block rounded style={{ backgroundColor: 'green', alignSelf: 'center', marginTop: 15,margin:10,padding:10, }}>
+                            <Text style={{  fontWeight: 'bold', color: 'white',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>قيم العميل</Text>
+                            {this.state.isLoading && (
+                                <ActivityIndicator style={{}} size="small" color="#000000" />
+                            )}
+                        </Button>
+
+                    </View>
+                </Modal>
+
 			</AppTemplate>
 		);
 	}
@@ -119,3 +175,15 @@ export default connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(SingleChat);
+const styles = StyleSheet.create({
+    myStarStyle: {
+        color: '#FAC819',
+        backgroundColor: 'transparent',
+        textShadowColor: 'black',
+        textShadowOffset: { width: 1, height: 1 },
+        textShadowRadius: 2,
+    },
+    myEmptyStarStyle: {
+        color: '#FAC819',
+    }
+});
