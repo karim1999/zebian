@@ -24,11 +24,11 @@ class Chat extends Component {
 			let first= await _.filter(_.map(data.val(), (value, key)=> {
 				return {...value, key};
 			}), offer=> {
-				let now= moment();
-				if(offer.end_date){
-                    let time= moment(offer.end_date);
-				}
-				return offer.chat && (offer.client_id == this.props.user.uid || this.props.user.uid == offer.user_id) && (!offer.end_date || now.diff(time, 'hours', true) >= 24)
+				// let now= moment();
+				// if(offer.end_date){
+                 //    alert(moment().diff(moment(offer.end_date), 'hours', true));
+				// }
+				return offer.chat && (offer.client_id == this.props.user.uid || this.props.user.uid == offer.user_id) && (!offer.end_date || moment().diff(moment(offer.end_date), 'hours', true) <= 24)
 			});
 
 			await first.forEach(async (result)=>{

@@ -24,7 +24,7 @@ class ChatUser extends Component {
 			let first= await _.filter(_.map(data.val(), (value, key)=> {
 				return {...value, key};
 			}), offer=> {
-				return offer.chat && (offer.client_id == this.props.user.uid || this.props.user.uid == offer.user_id)
+				return offer.chat && (offer.client_id == this.props.user.uid || this.props.user.uid == offer.user_id) && (!offer.end_date || moment().diff(moment(offer.end_date), 'hours', true) <= 24)
 			});
 
 			await first.forEach(async (result)=>{
