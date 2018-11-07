@@ -23,7 +23,7 @@ class SingleChatUser extends Component {
 			order:[{
 				status:0
 			}],
-			stars:5,
+			star:5,
 			isModalVisible: false,
 			order_key:'',
 			fetch:0
@@ -157,7 +157,7 @@ class SingleChatUser extends Component {
 			else {
 				new_orders = Number(orders)+1
 			}
-			var new_stars = (stars + this.state.stars)/new_orders
+			var new_stars = (stars + this.state.star)/new_orders
 			var new_balance = balance - fees;
 			orderData= {
 				status : 2
@@ -170,7 +170,7 @@ class SingleChatUser extends Component {
 			var now = new Date();
 
 			offerData = {
-				end_date : now
+				end_date : now,
 			}
 			firebase.database().ref('/offers/' + offer_id).update(offerData);
 
@@ -269,7 +269,7 @@ class SingleChatUser extends Component {
 							count={5}
 							half={true}
 							starSize={50}
-							update={(stars)=>{this.setState({stars})}}
+							update={(star)=>{this.setState({star})}}
 
 							fullStar={<Icon type='MaterialCommunityIcons' name={'star'} style={[styles.myStarStyle]} />}
 							emptyStar={<Icon type='MaterialCommunityIcons' name={'star-outline'} style={[styles.myStarStyle, styles.myEmptyStarStyle]} />}
