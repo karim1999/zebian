@@ -18,6 +18,7 @@ class SingleChat extends Component {
 		this.state = {
 			...this.props.navigation.state.params,
 			message: "",
+			fetch:0,
 			logs: [],
 			menu: false,
             stars:5,
@@ -73,6 +74,13 @@ class SingleChat extends Component {
 				logs: _.values(data.val())
 			})
 		});
+		firebase.database().ref('/orders/'+this.state.order_id).on('value', data => {
+				this.setState({
+						order: data,
+						fetch:1
+				})
+
+		});
 	}
     toggleMenu() {
         this.setState({
@@ -111,12 +119,29 @@ class SingleChat extends Component {
                                     }}
                                     style={{justifyContent: "flex-end"}}
 								>
-                                    <Text>قيم هذا السائق</Text>
+                                    <Text style={{fontFamily:'Droid Arabic Kufi',fontSize:18,fontWeight:'bold',textAlign:'center'}}>قيم هذا السائق</Text>
                                 </ListItem>
                             )
                         }
                     </List>
                 )}
+								{
+										(this.state.fetch == 1)?(
+												(this.state.order.val().status == 0 )?
+														(<View style={{backgroundColor:'gray',height:40}}>
+																<Text style={{fontFamily:'Droid Arabic Kufi',fontSize:20,fontWeight:'bold',color:'white',textAlign:'center'}}>ب انتظار قبول عرض</Text>
+														</View>)
+														:
+														(this.state.order.val().status == 1)?
+																(<View style={{backgroundColor:'orange',height:40}}>
+																		<Text style={{fontFamily:'Droid Arabic Kufi',fontSize:20,fontWeight:'bold',color:'white',textAlign:'center'}}>جاري التوصيل</Text>
+																</View>)
+																:
+																(<View style={{backgroundColor:'green',height:40}}>
+																		<Text style={{fontFamily:'Droid Arabic Kufi',fontSize:20,fontWeight:'bold',color:'white',textAlign:'center'}}>تم التوصيل </Text>
+																</View>)):null
+
+								}
 				<GiftedChat
 					messages={this.state.logs}
 					onSend={data => this.addNewMessage(data)}

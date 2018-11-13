@@ -7,6 +7,7 @@ import firebase from "react-native-firebase";
 import _ from "lodash";
 import SingleChatUser from "../singleChat";
 import {setUser} from "../../../reducers";
+var moment = require('moment');
 
 class ChatUser extends Component {
 	constructor(props) {
@@ -24,17 +25,22 @@ class ChatUser extends Component {
 			let first= await _.filter(_.map(data.val(), (value, key)=> {
 				return {...value, key};
 			}), offer=> {
+				// let now= moment();
+				// if(offer.end_date){
+                 //    alert(moment().diff(moment(offer.end_date), 'hours', true));
+				// }
 				return offer.chat && (offer.client_id == this.props.user.uid || this.props.user.uid == offer.user_id) && (!offer.end_date || moment().diff(moment(offer.end_date), 'hours', true) <= 24)
 			});
 
 			await first.forEach(async (result)=>{
 				await firebase.database().ref('/users/'+(this.props.user.driver ? result.client_id : result.user_id)).once('value', data2 => {
-					if(this.state.orders.length != first.length){
-					this.setState({
-						orders: _.concat(this.state.orders, [{user: data2.val(), ...result}]),
-						isLoading: false
-					});
-				}
+                    if(this.state.orders.length != first.length){
+                        this.setState({
+                            orders: _.concat(this.state.orders, [{user: data2.val(), ...result}]),
+                            isLoading: false
+                        });
+					}
+
 				});
 			});
 			this.setState({

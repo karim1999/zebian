@@ -176,6 +176,30 @@ class SingleChatUser extends Component {
 
         firebase.database().ref('/orders/' + order_id).update(orderData);
         firebase.database().ref('/users/' + driver_id).update(driverData);
+        axios.post("https://fcm.googleapis.com/fcm/send", {
+            data: {
+                type: "msg",
+                toast: true,
+                toast_type: "success",
+                toast_text: "تم توصيل الطلب",
+                navigation: true,
+            },
+            notification: {
+                title: 'تم اختيارك',
+                text: this.props.user.displayName+'تم اختيارك لطلب جديد'
+            },
+            to: user.token
+        }, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'key=' + SERVER_KEY
+            }
+        }).then(response => {
+            // alert("done")
+        }).catch(error => {
+            // alert("error1")
+        });
+
         nav.navigate('Home')
     }
     _toggleModal = () => this.setState({ isModalVisible: !this.state.isModalVisible });
@@ -195,7 +219,7 @@ class SingleChatUser extends Component {
                                 (<ListItem onPress={()=>{
                                     this.accept(this.state.user.uid,this.state.order_id,this.state.key,this.props.navigation,this.state.price,this.state.user);
                                 }} style={{justifyContent: "flex-end"}}>
-                                    <Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17,borderColor:'#266a8f',borderWidth:1,padding:10,borderRadius:10,color:'#266a8f'}}>اختر هذا السائق</Text>
+                                    <Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17}}>اختر هذا السائق</Text>
                                 </ListItem>)
                                 :
                                 (this.state.order.val().status == 1)?
@@ -203,7 +227,7 @@ class SingleChatUser extends Component {
                                         <ListItem onPress={()=>{
                                             this._toggleModal()
                                         }}  style={{justifyContent: "flex-end"}}>
-                                            <Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17,color:'green',textAlign:'center',borderColor:'#266a8f',borderWidth:1,padding:10,borderRadius:10,color:'#266a8f'}}>وصل الطلب</Text>
+                                            <Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17,textAlign:'center'}}>وصل الطلب</Text>
                                         </ListItem>
                                     )
                                     :
@@ -219,7 +243,7 @@ class SingleChatUser extends Component {
                                 this.props.navigation.navigate('talabDetails1',{order:this.state.order.val()})
                             }
                         }} style={{justifyContent: "flex-end"}}>
-                            <Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17,color:'green',textAlign:'center',borderColor:'#266a8f',borderWidth:1,padding:10,borderRadius:10,color:'#266a8f'}}>بيانات الطلب</Text>
+                            <Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17,textAlign:'center'}}>بيانات الطلب</Text>
                         </ListItem>
                     </List>
                 )}

@@ -24,7 +24,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		2944E875217A0CF80082901D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2944E84A217A0CF80082901D /* GoogleService-Info.plist */; };
+		29309FBA2194E7FC0000CFA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29309FB92194E7FC0000CFA5 /* GoogleService-Info.plist */; };
 		2944E877217A0DA10082901D /* DroidKufi-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2944E876217A0DA10082901D /* DroidKufi-Regular.ttf */; };
 		29F91202218F8A8C0045CA13 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29F91201218F8A2A0045CA13 /* libRNImagePicker.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -416,7 +416,7 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		1875E707FD3F42E8B88B28EE /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		28C8B288DB0C2C935BBCB542 /* libPods-zebianTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-zebianTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2944E84A217A0CF80082901D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "zebian/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		29309FB92194E7FC0000CFA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2944E876217A0DA10082901D /* DroidKufi-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DroidKufi-Regular.ttf"; path = "../src/assets/fonts/DroidKufi-Regular.ttf"; sourceTree = "<group>"; };
 		29D7A982218DE894004ACD33 /* zebian.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = zebian.entitlements; path = zebian/zebian.entitlements; sourceTree = "<group>"; };
 		29F911FC218F8A280045CA13 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
@@ -607,8 +607,8 @@
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
-				2944E84A217A0CF80082901D /* GoogleService-Info.plist */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
+				29309FB92194E7FC0000CFA5 /* GoogleService-Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
@@ -921,7 +921,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = K9B3R8BH58;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1360,9 +1360,9 @@
 				89C8D24AEAB14156BE9FC9F7 /* MaterialCommunityIcons.ttf in Resources */,
 				2944E877217A0DA10082901D /* DroidKufi-Regular.ttf in Resources */,
 				FBD9A7097E2844628218AED9 /* MaterialIcons.ttf in Resources */,
+				29309FBA2194E7FC0000CFA5 /* GoogleService-Info.plist in Resources */,
 				7D5CFACF7961429790457081 /* Octicons.ttf in Resources */,
 				8258D99B09B540AE8A8E1A6B /* Roboto_medium.ttf in Resources */,
-				2944E875217A0CF80082901D /* GoogleService-Info.plist in Resources */,
 				D45A750BED3C40638E12807C /* Roboto.ttf in Resources */,
 				EC314FC2C2D84A429DFF5449 /* rubicon-icon-font.ttf in Resources */,
 				F6378D67C8514B92AFBFA32F /* SimpleLineIcons.ttf in Resources */,
@@ -1609,7 +1609,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = zebian/zebian.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = K9B3R8BH58;
@@ -1640,7 +1640,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zeban;
 				PRODUCT_NAME = zebian;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Amr Mohamed Mac";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1651,8 +1651,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = zebian/zebian.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = K9B3R8BH58;
 				HEADER_SEARCH_PATHS = (
@@ -1682,7 +1682,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zeban;
 				PRODUCT_NAME = zebian;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "po duction amr provision";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

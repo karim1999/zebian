@@ -90,12 +90,12 @@ class OrderNow extends Component {
                         }
                         else { // inside country
                             if(order.car == 'car'){ // sedan normal
-                                order.maxPrice = (13 + order.googleDistance*1)-5;
-                                order.minPrice = (13 + order.googleDistance*1)+5;
+                                order.maxPrice = (13 + order.googleDistance*1)+5;
+                                order.minPrice = (13 + order.googleDistance*1)-5;
                             }
                             else { // pickup
-                                order.maxPrice = (15 + order.googleDistance*2)-5;
-                                order.minPrice = (15 + order.googleDistance*2)+5;
+                                order.maxPrice = (15 + order.googleDistance*2)+5;
+                                order.minPrice = (15 + order.googleDistance*2)-5;
                             }
                         }
                     }).then(()=>{

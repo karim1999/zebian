@@ -102,9 +102,9 @@ android {
         applicationId "com.zebian"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 22
+        versionCode 1541625136
         multiDexEnabled true
-        versionName "22.0"
+        versionName "23.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -195,3 +195,4 @@ task copyDownloadableDepsToLibs(type: Copy) {
     into 'libs'
 }
 apply plugin: 'com.google.gms.google-services'
+
