@@ -107,11 +107,11 @@ class SingleChat extends Component {
 
     render() {
 		return (
-			<AppTemplate right={this.state.end_date || !this.state.reviewed} toggleMenu={() => this.toggleMenu()} isChat back navigation={this.props.navigation} name={this.state.title}>
+			<AppTemplate right={this.state.end_date && !this.state.reviewed} toggleMenu={() => this.toggleMenu()} isChat back navigation={this.props.navigation} name={this.state.title}>
                 {this.state.menu && (
                     <List style={{backgroundColor: "#ffffff", right: 0}}>
                         {
-                            (this.state.end_date || !this.state.reviewed) &&
+                            (this.state.end_date && !this.state.reviewed) &&
                             (
                                 <ListItem
                                     onPress={()=>{

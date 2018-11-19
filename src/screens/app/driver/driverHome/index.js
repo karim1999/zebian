@@ -127,7 +127,7 @@ class Home extends Component {
                             )}
                         </View>
                     ) : (
-                        <Text style={{alignItems: "center", justifyContent: "center", flex: 1, textAlign: "center", color: "red"}}>في انتظار موافقة الادمن</Text>
+                        <Text style={{alignItems: "center", justifyContent: "center", flex: 1, textAlign: "center", color: "red"}}>طلبك تحت التدقيق في انتظار الموافقة</Text>
                     )}
 
                 </View>
