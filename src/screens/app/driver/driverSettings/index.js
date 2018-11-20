@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, Text, View, List, ListItem, Left, Right, CheckBox, Toast, Switch} from 'native-base';
+import {Button, Text, View, List, ListItem, Left, Right, CheckBox, Toast, Switch,Input} from 'native-base';
 import AppTemplate from '../../appTemplate';
 import Modal from "react-native-modal";
 import ModalListItem from '../../../../components/common/modalListItem';
@@ -10,7 +10,7 @@ import firebase from 'react-native-firebase'
 import {setUser} from "../../../../reducers";
 import {connect} from "react-redux";
 import _ from "lodash";
-import {FlatList} from "react-native";
+import {FlatList,Share} from "react-native";
 
 class Settings extends Component {
 	constructor(props) {
@@ -20,16 +20,73 @@ class Settings extends Component {
 			cities: [],
 			chosen: this.props.user.cities ? this.props.user.cities : [],
 			allow: this.props.user.allow,
-			driver: this.props.user.driver
+			driver: this.props.user.driver,
+			coupon:''
 		};
 	}
 
+	press_share = ()=>{
+			Share.share({
+					message: 'رحله مجانيه عند اضافه هذا الكود '+this.props.user.uid ,
+					title: 'ذيبان'
+			}, {
+					// Android only:
+					dialogTitle: 'ذيبان',
+					// iOS only:
+					excludedActivityTypes: [
+							'com.apple.UIKit.activity.PostToTwitter'
+					]
+			})
+	}
 
 	onValueChange2(value) {
 		this.setState({
 			selected2: value
 		});
 	}
+	coupon = ()=>{
+		if(this.props.user.coupon == 0){
+			if(this.state.coupon != ''){
+				firebase.database().ref('/users/'+this.state.coupon).once('value',(users)=>{
+					if(JSON.stringify(users) !== null && JSON.stringify(users) != 'null'){
+						firebase.database().ref('/users/'+this.props.user.uid).update({coupon:1,used_coupon:0})
+						Toast.show({
+								text: "تم استخدام الكود بعد ٣٠ رحله تاخذ رحله بدون عموله",
+								buttonText: "OK",
+								type: "success",
+								duration: 5000
+						});
+					}else {
+						Toast.show({
+								text: "الكود غير صحيح",
+								buttonText: "OK",
+								type: "danger",
+								duration: 5000
+						});
+					}
+				})
+			}
+			else {
+				Toast.show({
+						text: "الرجاء ادخال كود",
+						buttonText: "OK",
+						type: "danger",
+						duration: 5000
+				});
+			}
+		}
+		else {
+			Toast.show({
+					text: "قمت ب استخدام كود من قبل",
+					buttonText: "OK",
+					type: "danger",
+					duration: 5000
+			});
+		}
+
+
+
+		}
 
 	state = {
 		isModalVisible: false
@@ -77,7 +134,9 @@ class Settings extends Component {
 				<View style={{ flex: 1, flexDirection: 'column', width: '95%', alignSelf: 'center' }}>
 					<List>
 						{/*<Listitem RightData='نوع الحساب' Label='سائق' Label2='مستخدم' />*/}
-						<Listitem RightData='رقم العضويه' LeftData={this.props.user.uid} />
+						<Listitem RightData='رقم العضويه' LeftData={this.props.user.uid} onPress={()=> {this.press_share()}} press={true} />
+						<Listitem RightData='عدد الرحلات' LeftData={this.props.user.num_reviews}  />
+
                         <ListItem selected>
                             <Left style={{flex: 1}}>
                                 <Switch onValueChange={()=> this.setDriver()} value={this.state.driver} />
@@ -120,6 +179,22 @@ class Settings extends Component {
 								<Text style={{ color: '#727272', fontSize: 16,fontFamily:'Droid Arabic Kufi' }}>المدن المفضله لي</Text>
 							</Right>
 						</ListItem>
+
+
+						<ListItem selected>
+							<Left style={{ flex: 1 }}>
+								<Button onPress={this.coupon} rounded style={{ backgroundColor: '#266A8F', height: 30 }}>
+									<Text style={{ fontSize: 16, paddingHorizontal: 10 }}>
+										موافق
+									</Text>
+								</Button>
+							</Left>
+							<Right style={{ flex: 1 }}>
+							<Input style={{  fontSize: 16,fontFamily:'Droid Arabic Kufi' }} value={this.state.coupon} onChangeText={(coupon)=>this.setState({coupon})} placeholder="الكوبون" />
+
+							</Right>
+						</ListItem>
+
 						<Listitem press={true} onPress={()=>{
 							nav.navigate('ComplainsDriver')
 						}} RightData='الشكاوي' />

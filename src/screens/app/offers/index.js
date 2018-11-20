@@ -8,6 +8,7 @@ import firebase from 'react-native-firebase'
 import {TouchableOpacity,ActivityIndicator} from 'react-native'
 import {_} from 'lodash';
 import {FlatList} from 'react-native'
+var moment = require('moment');
 
 import Modal from "react-native-modal";
 
@@ -28,11 +29,22 @@ class Offers extends Component {
             drivers:[],
             fetch:0,
             isLoading:false,
-            isModalVisible:false
+            isModalVisible:false,
+            time:'',
+            show:false
         }
+        setInterval(()=>{
+        order = this.props.navigation.state.params.order;
+        this.setState({time:Math.round(moment().diff(moment(order.orderedTime), 'minutes', true))})
+        if(this.state.time >= 5){
+          this.setState({show:true})
+        }
+
+        },1000)
     }
 
     async componentDidMount(){
+
         const ref = firebase.database().ref('users');
         ref.on('value',snapshot => {
             this.setState({ drivers:  _.map(snapshot.val(), (value, key)=> {
@@ -49,6 +61,7 @@ class Offers extends Component {
         this.fetch_data();
     }
     async fetch_data(){
+
         this.setState({
             isLoading: true
         });
@@ -208,7 +221,21 @@ class Offers extends Component {
                                                 style={{ alignSelf: 'center', marginBottom: 10 }}
                                             />
                                         </View>
+                                        {
+                                        (this.state.show == false) ?
+
                                         <View style={{ flexDirection: 'column', alignSelf: 'center' }}>
+
+                                        <Text style={{ fontFamily:'Droid Arabic Kufi',color: '#266A8F', fontSize: 23, fontWeight: 'bold' }}>
+                                          انتظر العروض ستظهر هنا
+                                        </Text>
+                                        <Text style={{ color: 'gray',fontFamily:'Droid Arabic Kufi', fontSize: 12, fontWeight: 'bold',textAlign:'center' }}>
+                                          مر {this.state.time} دقيقه
+                                        </Text>
+                                        </View>
+                                        :
+                                        <View style={{ flexDirection: 'column', alignSelf: 'center' }}>
+
                                             <Text style={{ fontFamily:'Droid Arabic Kufi',color: '#266A8F', fontSize: 23, fontWeight: 'bold' }}>
                                                 جرب معنا خدمه ذيبان فذعه
                                             </Text>
@@ -216,8 +243,11 @@ class Offers extends Component {
                                                 يتضاعف السعر مع هذه الخدمه
                                             </Text>
                                         </View>
+                                      }
                                         </Body>
                                     </CardItem>
+                                    {
+                                    (this.state.show == true) ?
                                     <CardItem footer style={{ alignSelf: 'center', width: '60%' }}>
                                         <Button onPress={()=>{
                                             this._toggleModal()
@@ -225,6 +255,8 @@ class Offers extends Component {
                                             <Text style={{ fontSize: 18,fontFamily:'Droid Arabic Kufi' }}>جرب ذلك</Text>
                                         </Button>
                                     </CardItem>
+                                    :null
+                                  }
                                 </Card>
                             </View>
                         }

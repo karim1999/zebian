@@ -112,7 +112,8 @@ class AccountType extends Component {
                                 cities: false,
                                 allow: 1,
                                 accepted: false,
-                                drivingStatus: 1
+                                drivingStatus: 1,
+                                coupon:0
                             });
                             this.setState({
                                 isSubmitting: false

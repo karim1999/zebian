@@ -11,6 +11,7 @@ import {AsyncStorage} from 'react-native'
 import {connect} from "react-redux";
 import firebase from 'react-native-firebase'
 import {_} from 'lodash'
+var moment = require('moment');
 
 class OrderNow extends Component {
     constructor(props){
@@ -57,7 +58,8 @@ class OrderNow extends Component {
         else {
 
             order = this.props.order;
-            if(order.giveAddress == '' || this.state.city == 0|| order.car == '' || order.time == '' || order.recieveAddress == '' || desc == '' || deliveryType == undefined){
+            //order.giveAddress == '' || this.state.city == 0|| order.car == '' || order.time == '' || order.recieveAddress == '' || desc == '' || deliveryType == undefined
+            if(false){
                 Toast.show({
                     text: "الرجاء ملأ جميع البيانات",
                     buttonText: "موافق",
@@ -72,11 +74,14 @@ class OrderNow extends Component {
                 order.deliveryType = deliveryType;
                 order.status = 0;
                 order.city = this.state.city;
+
                 fetch('https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins='+order.recievePos.lat+','+order.recievePos.long+'&destinations='+order.givePos.lat+','+order.givePos.long+'&key=AIzaSyCxXoRqTcOTvsOLQPOiVtPnSxLUyGJBFqw').then((response) => response.json())
                     .then((data) => {
                         var distance = (data.rows[0].elements[0].distance.value)/1000; // Distanc by km
                         var time = (data.rows[0].elements[0].duration.value)/60; // time per minutes
                         order.googleTime = Math.round(Number(time));
+                        var time_from_now = Math.round(moment().diff(moment(this.props.order.time), 'hours', true))
+
                         order.googleDistance = Number(distance).toFixed(2);
                         if(order.deliveryType == 1){ // outside country
                             if(order.car == 'car'){ // sedan
@@ -98,15 +103,25 @@ class OrderNow extends Component {
                                 order.minPrice = (15 + order.googleDistance*2)-5;
                             }
                         }
+
                     }).then(()=>{
+                      var time_from_now = Math.round(moment().diff(moment(this.props.order.time), 'minutes', ))
+                      if(Number(-time_from_now) < order.googleTime ){
+                        Toast.show({
+                            text: "الطلب يحتاج علي الاقل "+order.googleTime+" دقيقه",
+                            buttonText: "موافق",
+                            type: "danger",
+                            duration: 100000
+                        });
+                      }
+                      else {
+                        var addOrder=   firebase.database().ref('orders/').push(
+                            order
+                        )
+                        nav.navigate('offers',{key:addOrder.key,order})
 
-                    var addOrder=   firebase.database().ref('orders/').push(
-                        order
-                    )
-                    nav.navigate('offers',{key:addOrder.key,order})
+                      }
 
-                }).then(()=>{
-                    nav.navigate('offers',{order_id:addOrder.key})
                 })
 
             }

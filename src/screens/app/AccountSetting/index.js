@@ -8,7 +8,7 @@ import Listitem from '../../../components/common/ListItem'
 import Twon from '../../../components/common/twon'
 import firebase from 'react-native-firebase'
 import {connect} from "react-redux";
-
+import {Share} from 'react-native'
 class Settings extends Component {
     constructor(props) {
         super(props);
@@ -38,6 +38,21 @@ class Settings extends Component {
 
     _toggleModal = () => this.setState({ isModalVisible: !this.state.isModalVisible });
 
+
+    press_share = ()=>{
+        Share.share({
+            message: 'رحله مجانيه عند اضافه هذا الكود '+this.props.user.uid ,
+            title: 'ذيبان'
+        }, {
+            // Android only:
+            dialogTitle: 'ذيبان',
+            // iOS only:
+            excludedActivityTypes: [
+                'com.apple.UIKit.activity.PostToTwitter'
+            ]
+        })
+    }
+
     render() {
         const nav = this.props.navigation
         return (
@@ -45,7 +60,7 @@ class Settings extends Component {
 
                 <View style={{ flex: 1, flexDirection: 'column', width: '95%', alignSelf: 'center' }}>
                     <List>
-                        <Listitem RightData='رقم العضويه' LeftData={this.props.user.uid} />
+                        <Listitem RightData='رقم العضويه' LeftData={this.props.user.uid} onPress={()=> {this.press_share()}} press={true} />
                         <ListItem selected>
                             <Left style={{flex: 1}}>
                                 <Switch onValueChange={()=> this.setDriver()} value={this.state.driver} />

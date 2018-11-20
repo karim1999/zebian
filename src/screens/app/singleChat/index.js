@@ -25,6 +25,7 @@ class SingleChatUser extends Component {
             }],
             stars:5,
             isModalVisible: false,
+            isModalVisible2: false,
             order_key:'',
             fetch:0
 
@@ -136,7 +137,12 @@ class SingleChatUser extends Component {
     arrived = (order,user,nav,offer_id)=>{
         order_id = order.key;
         price = order.val().price;
-        fees = price*.15;
+        if(user.coupon == 1 && user.num_reviews == 29 ){
+          fees = 0;
+        }
+        else{
+          fees = price*.15;
+        }
         var driver_id = user.uid;
         var	balance = user.balance;
         var	stars = this.state.stars;
@@ -203,6 +209,10 @@ class SingleChatUser extends Component {
         nav.navigate('Home')
     }
     _toggleModal = () => this.setState({ isModalVisible: !this.state.isModalVisible });
+    _toggleModal2 = () => this.setState({ isModalVisible2: !this.state.isModalVisible2 });
+    cancel = ()=>{
+
+    }
 
     // componentDidUnMount() {
     //     this.state.ref.off('value');
@@ -224,11 +234,20 @@ class SingleChatUser extends Component {
                                 :
                                 (this.state.order.val().status == 1)?
                                     (
+                                      <List style={{backgroundColor: "#ffffff", right: 0}}>
+
                                         <ListItem onPress={()=>{
                                             this._toggleModal()
                                         }}  style={{justifyContent: "flex-end"}}>
                                             <Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17,textAlign:'center'}}>وصل الطلب</Text>
                                         </ListItem>
+
+                                        <ListItem onPress={()=>{
+                                            this._toggleModal2()
+                                        }}  style={{justifyContent: "flex-end"}}>
+                                            <Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17,textAlign:'center'}}>الغاء الطلب</Text>
+                                        </ListItem>
+                                        </List>
                                     )
                                     :
                                     null
@@ -309,6 +328,33 @@ class SingleChatUser extends Component {
 
                     </View>
                 </Modal>
+
+                <Modal
+                    isVisible={this.state.isModalVisible2}
+                    onBackdropPress={() => this.setState({ isModalVisible2: false })}
+                >
+                    <View style={{ height: '30%', width: '90%', backgroundColor: 'white', alignSelf: 'center',alignItems:'center', justifyContent: 'center', flexDirection: 'column',borderRadius:10 }}>
+                        <Text style={{fontWeight: 'bold',  color: '#266A8F',fontSize: 18,fontFamily:'Droid Arabic Kufi'}}>الغاء الرحله</Text>
+
+                        <View style={{flexDirection:'row'}}>
+                        <Button onPress={()=>this.cancel()} block rounded style={{ backgroundColor: 'green', alignSelf: 'center', marginTop: 15,margin:10,padding:10, }}>
+                            <Text style={{  fontWeight: 'bold', color: 'white',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>تاكيد</Text>
+                            {this.state.isLoading && (
+                                <ActivityIndicator  size="small" color="#000000" />
+                            )}
+                        </Button>
+
+                        <Button onPress={()=> 	this._toggleModal2()} block rounded style={{ backgroundColor: 'gray', alignSelf: 'center', marginTop: 15,margin:10,padding:10, }}>
+                            <Text style={{  fontWeight: 'bold', color: 'white',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>الغاء</Text>
+                            {this.state.isLoading && (
+                                <ActivityIndicator style={{}} size="small" color="#000000" />
+                            )}
+                        </Button>
+                        </View>
+
+                    </View>
+                </Modal>
+
 
             </AppTemplate>
         );
