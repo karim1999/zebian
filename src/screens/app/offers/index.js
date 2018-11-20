@@ -237,8 +237,8 @@ class Offers extends Component {
                                         <View style={{ flexDirection: 'column', alignSelf: 'center' }}>
 
                                             <Text style={{ fontFamily:'Droid Arabic Kufi',color: '#266A8F', fontSize: 23, fontWeight: 'bold' }}>
-                                                جرب معنا خدمه ذيبان فذعه
-                                            </Text>
+                                            جرب معنا خدمه ذيبان فزعه
+                                              </Text>
                                             <Text style={{ color: 'gray',fontFamily:'Droid Arabic Kufi', fontSize: 12, fontWeight: 'bold',textAlign:'center' }}>
                                                 يتضاعف السعر مع هذه الخدمه
                                             </Text>
