@@ -137,8 +137,11 @@ class SingleChat extends Component {
 																		<Text style={{fontFamily:'Droid Arabic Kufi',fontSize:20,fontWeight:'bold',color:'white',textAlign:'center'}}>جاري التوصيل</Text>
 																</View>)
 																:
+																(this.state.order.val().status == 2)?
 																(<View style={{backgroundColor:'green',height:40}}>
 																		<Text style={{fontFamily:'Droid Arabic Kufi',fontSize:20,fontWeight:'bold',color:'white',textAlign:'center'}}>تم التوصيل </Text>
+																</View>):(<View style={{backgroundColor:'red',height:40}}>
+																		<Text style={{fontFamily:'Droid Arabic Kufi',fontSize:20,fontWeight:'bold',color:'white',textAlign:'center'}}>تم الغاء الطلب</Text>
 																</View>)):null
 
 								}

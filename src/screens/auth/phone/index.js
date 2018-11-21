@@ -124,7 +124,11 @@ class Phone extends Component {
                                             <View style={{ flexDirection: 'row' }}>
                                                 <Input
                                                     keyboardType='phone-pad'
-                                                    placeholder='123456' value={this.state.code} onChangeText={(code)=> this.setState({code})} style={{ borderWidth: 0.5, borderRadius: 7,height:40,textAlign:'center', borderColor: '#266A8F' }} />
+                                                    inputColorPlaceholder="gray"
+                                                    placeholder='123456'
+                                                    value={this.state.code}
+                                                    onChangeText={(code)=> this.setState({code})}
+                                                    style={{ borderWidth: 0.5, borderRadius: 7,height:40,textAlign:'center', borderColor: '#266A8F' }} />
                                             </View>
                                         </Item>
                                         <View style={{flex: .5}}>
@@ -153,6 +157,7 @@ class Phone extends Component {
                                         <Item>
                                             <View style={{ flexDirection: 'row' }}>
                                                 <Input
+                                                    placeholderTextColor="gray"
                                                     keyboardType='phone-pad'
                                                     placeholder='+20 114 046 3805' value={this.state.phone} onChangeText={(phone)=> this.setState({phone})} style={{ borderWidth: 0.5, borderRadius: 7,height:40,textAlign:'center', borderColor: '#266A8F' }} />
                                             </View>

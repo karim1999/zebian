@@ -118,9 +118,13 @@ class Home extends Component {
                                     }
                                     data={_.reverse(this.state.orders)}
                                     renderItem={({item}) => (
-                                        <TouchableOpacity onPress={()=> this.props.navigation.navigate("AddTalab", {...item, token: item.user.token})}>
+
+                                        (item.status == 0)?
+                                        (<TouchableOpacity onPress={()=> this.props.navigation.navigate("AddTalab", {...item, token: item.user.token})}>
                                             <ListCard header={item.giveShortAddress} footer={_.truncate(item.desc)} status={item.status} zeban={item.zeban} />
-                                        </TouchableOpacity>
+                                        </TouchableOpacity>):null
+                                      
+
                                     )}
                                     keyExtractor = { (item, index) => index.toString() }
                                 />

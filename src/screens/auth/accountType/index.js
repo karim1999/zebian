@@ -51,6 +51,8 @@ class AccountType extends Component {
 						()=>{
 							if(this.state.selected == 'user'){
 								firebase.database().ref('users/'+this.props.user.uid).child('driver').set(false);
+								firebase.database().ref('users/'+this.props.user.uid).child('balance').set(0);
+
 								nav.navigate('Home')
 							}
 							else{

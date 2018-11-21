@@ -11,7 +11,7 @@ import axios from 'axios';
 import {SERVER_KEY} from "../../../constants/config";
 import Stars from 'react-native-stars';
 import Modal from "react-native-modal";
-
+var moment = require('moment')
 class SingleChatUser extends Component {
     constructor(props) {
         super(props);
@@ -211,7 +211,30 @@ class SingleChatUser extends Component {
     _toggleModal = () => this.setState({ isModalVisible: !this.state.isModalVisible });
     _toggleModal2 = () => this.setState({ isModalVisible2: !this.state.isModalVisible2 });
     cancel = ()=>{
+      order = this.state.order;
+      time = Math.round(moment().diff(moment(order.accepted_time), 'minutes', true))
+      if(time <= 5){
+        order = this.state.order;
+        orderData= {
+            status : 3
+        }
+        firebase.database().ref('/orders/' + order.key).update(orderData);
 
+      }
+      else {
+        // alert('no')
+        orderData= {
+            status : 3
+        }
+        firebase.database().ref('/orders/' + order.key).update(orderData);
+
+        balance = this.props.user.balance;
+        userData= {
+            status : balance-order.minPrice;
+        }
+        firebase.database().ref('/users/' + this.props.user.uid).update(userData);
+
+      }
     }
 
     // componentDidUnMount() {
@@ -278,8 +301,11 @@ class SingleChatUser extends Component {
                                     <Text style={{fontFamily:'Droid Arabic Kufi',fontSize:20,fontWeight:'bold',color:'white',textAlign:'center'}}>جاري التوصيل</Text>
                                 </View>)
                                 :
+                                (this.state.order.val().status == 2)?
                                 (<View style={{backgroundColor:'green',height:40}}>
                                     <Text style={{fontFamily:'Droid Arabic Kufi',fontSize:20,fontWeight:'bold',color:'white',textAlign:'center'}}>تم التوصيل </Text>
+                                </View>):(<View style={{backgroundColor:'red',height:40}}>
+                                    <Text style={{fontFamily:'Droid Arabic Kufi',fontSize:20,fontWeight:'bold',color:'white',textAlign:'center'}}>تم الغاء الطلب</Text>
                                 </View>)):null
 
                 }
