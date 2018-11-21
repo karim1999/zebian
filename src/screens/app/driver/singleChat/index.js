@@ -71,7 +71,7 @@ class SingleChat extends Component {
         });
 		firebase.database().ref('/chat/').child(this.state.key).on('value', data => {
 			this.setState({
-				logs: _.values(data.val())
+				logs: _.reverse(_.values(data.val()))
 			})
 		});
 		firebase.database().ref('/orders/'+this.state.order_id).on('value', data => {
@@ -151,7 +151,7 @@ class SingleChat extends Component {
 					alwaysShowSend={true}
 					placeholder="Send a message..."
 					isAnimated={true}
-                    inverted={true}
+                    inverted={false}
 					showUserAvatar={true}
 					renderBubble={(props) => this.renderBubble(props)}
 					user={{
