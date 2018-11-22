@@ -11,7 +11,7 @@ import {SERVER_KEY} from "../../../../constants/config";
 import axios from "axios/index";
 import Stars from 'react-native-stars';
 import Modal from "react-native-modal";
-
+var moment = require('moment')
 class SingleChat extends Component {
 	constructor(props) {
 		super(props);
@@ -21,8 +21,9 @@ class SingleChat extends Component {
 			fetch:0,
 			logs: [],
 			menu: false,
-            stars:5,
-            isModalVisible: false,
+      stars:5,
+      isModalVisible: false,
+			isModalVisible2:false
         };
 	}
 	renderBubble (props) {
@@ -32,11 +33,11 @@ class SingleChat extends Component {
 			/>
 		)
 	}
-	// toggleMenu() {
-	// 	this.setState({
-	// 		menu: !this.state.menu
-	// 	})
-	// }
+	toggleMenu() {
+		this.setState({
+			menu: !this.state.menu
+		})
+	}
 	addNewMessage(data){
 		let newPostKey = firebase.database().ref('/chat/').child(this.state.key).push(data[0]);
         axios.post("https://fcm.googleapis.com/fcm/send", {
@@ -69,10 +70,13 @@ class SingleChat extends Component {
         firebase.database().ref('/offers/'+this.state.key).update({
             chat: true
         });
-		firebase.database().ref('/chat/').child(this.state.key).on('value', data => {
+		firebase.database().ref('/chat/'+this.state.key).on('value', data => {
+
 			this.setState({
-				logs: _.reverse(_.values(data.val()))
+				logs: _.sortBy(_.values(data.val()),['createdAt'])
 			})
+			 // alert(JSON.stringify())
+
 		});
 		firebase.database().ref('/orders/'+this.state.order_id).on('value', data => {
 				this.setState({
@@ -86,6 +90,38 @@ class SingleChat extends Component {
         this.setState({
             menu: !this.state.menu
         })
+    }
+		cancel = (order)=>{
+      firebase.database().ref('/orders/').child(order.key).once('value', data => {
+        order2 = data.val();
+      time = Math.round(moment().diff(moment(order2.accepted_time), 'minutes', true))
+
+      if(time <= 5){
+        order = this.state.order;
+        orderData= {
+            status : 3
+        }
+        firebase.database().ref('/orders/' + order.key).update(orderData);
+      }
+      else {
+        orderData= {
+            status : 4,
+        }
+        firebase.database().ref('/orders/' + order.key).update(orderData);
+
+        // balance = this.props.user.balance ?this.props.user.balance :0 ;
+        // minPrice = Math.round(order2.minPrice);
+				//
+        // newBalance = balance - minPrice;
+				//
+        // userData = {
+        //     balance : newBalance
+        // }
+        // firebase.database().ref('/users/' + this.props.user.uid).update(userData);
+      }
+      _toggleModal2();
+
+    });
     }
     review(){
 		let stars= (this.state.user.stars)? this.state.user.stars : 0;
@@ -104,10 +140,11 @@ class SingleChat extends Component {
 	//     this.state.ref.off('value');
 	// }
     _toggleModal = () => this.setState({ isModalVisible: !this.state.isModalVisible });
+		_toggleModal2 = () => this.setState({ isModalVisible2: !this.state.isModalVisible2 });
 
     render() {
 		return (
-			<AppTemplate right={this.state.end_date && !this.state.reviewed} toggleMenu={() => this.toggleMenu()} isChat back navigation={this.props.navigation} name={this.state.title}>
+			<AppTemplate  right={true} toggleMenu={() => this.toggleMenu()} isChat back navigation={this.props.navigation} name={this.state.title}>
                 {this.state.menu && (
                     <List style={{backgroundColor: "#ffffff", right: 0}}>
                         {
@@ -123,6 +160,15 @@ class SingleChat extends Component {
                                 </ListItem>
                             )
                         }
+												<ListItem
+														onPress={()=>{
+																this._toggleModal2();
+														}}
+														style={{justifyContent: "flex-end"}}
+				>
+														<Text style={{fontFamily:'Droid Arabic Kufi',fontSize:18,fontWeight:'bold',textAlign:'center'}}>الغاء الرحله </Text>
+												</ListItem>
+
                     </List>
                 )}
 								{
@@ -184,6 +230,34 @@ class SingleChat extends Component {
                                 <ActivityIndicator style={{}} size="small" color="#000000" />
                             )}
                         </Button>
+
+                    </View>
+                </Modal>
+								<Modal
+                    isVisible={this.state.isModalVisible2}
+                    onBackdropPress={() => this.setState({ isModalVisible2: false })}
+                	>
+                    <View style={{ height: '30%', width: '90%', backgroundColor: 'white', alignSelf: 'center',alignItems:'center', justifyContent: 'center', flexDirection: 'column',borderRadius:10 }}>
+                        <Text style={{fontWeight: 'bold',  color: '#266A8F',fontSize: 18,fontFamily:'Droid Arabic Kufi'}}>الغاء الرحله</Text>
+                        <Text style={{ color: 'gray',fontFamily:'Droid Arabic Kufi', fontSize: 12, fontWeight: 'bold',textAlign:'center',width:'90%' }}>
+                          اذا كان الالغاء ليس عن تراضي يتم تغريمك العموله
+                        </Text>
+
+                        <View style={{flexDirection:'row'}}>
+                        <Button onPress={()=>this.cancel(this.state.order)} block rounded style={{ backgroundColor: 'green', alignSelf: 'center', marginTop: 15,margin:10,padding:10, }}>
+                            <Text style={{  fontWeight: 'bold', color: 'white',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>تاكيد</Text>
+                            {this.state.isLoading && (
+                                <ActivityIndicator  size="small" color="#000000" />
+                            )}
+                        </Button>
+
+                        <Button onPress={()=> 	this._toggleModal2()} block rounded style={{ backgroundColor: 'gray', alignSelf: 'center', marginTop: 15,margin:10,padding:10, }}>
+                            <Text style={{  fontWeight: 'bold', color: 'white',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>الغاء</Text>
+                            {this.state.isLoading && (
+                                <ActivityIndicator style={{}} size="small" color="#000000" />
+                            )}
+                        </Button>
+                        </View>
 
                     </View>
                 </Modal>

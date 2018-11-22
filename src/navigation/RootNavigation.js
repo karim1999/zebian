@@ -13,6 +13,7 @@ import talabDetails1 from "../screens/app/talabDetails1";
 import Header2 from "../components/Header2";
 import ComplainsDriver from "../screens/app/complainingsDriver"
 import AddComplainDriver from "../screens/app/AddComplainDriver"
+import Charge from "../screens/app/Charge"
 
 const RootStack= createStackNavigator(
     {
@@ -24,7 +25,8 @@ const RootStack= createStackNavigator(
         SingleChatUser,
         talabDetails1,
         ComplainsDriver,
-        AddComplainDriver
+        AddComplainDriver,
+        Charge
     },
     {
       headerMode:'none',

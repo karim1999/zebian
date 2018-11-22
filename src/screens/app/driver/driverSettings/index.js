@@ -77,7 +77,7 @@ class Settings extends Component {
 		}
 		else {
 			Toast.show({
-					text: "قمت ب استخدام كود من قبل",
+					text: "لقد استخدمت خاصيه الكود من قبل",
 					buttonText: "OK",
 					type: "danger",
 					duration: 5000
@@ -198,6 +198,9 @@ class Settings extends Component {
 						<Listitem press={true} onPress={()=>{
 							nav.navigate('ComplainsDriver')
 						}} RightData='الشكاوي' />
+						<Listitem press={true} onPress={()=>{
+							nav.navigate('Charge')
+						}} RightData='شحن الرصيد' />
 						<Listitem press={true} onPress={()=>{
 							nav.navigate('Policy')
 						}}  RightData='سياسه الخصوصيه' />

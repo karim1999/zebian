@@ -39,7 +39,7 @@ class talabDetails1 extends Component {
 	componentDidMount(){
 		firebase.database().ref('/orders/'+this.state.order.key).on('value', data => {
 			this.setState({
-				orders: data.val(),
+				order: data.val(),
 			});
 		});
 		firebase.database().ref('/offers/').on('value', data => {
@@ -103,6 +103,33 @@ chat = (order,nav)=>{
   nav.navigate('SingleChatUser',{key:order.offer_id,title:this.state.driver.displayName,token:this.state.driver.token,user:this.state.driver,order:this.state.order,order_id:this.state.order.key})
    // alert(JSON.stringify(order.driver_id))
 }
+cancelNo = (order)=>{
+	firebase.database().ref('/users/').child(order.driver_id).once('value', data => {
+		driver = data.val();
+
+	orderData= {
+			status : 3
+	}
+	firebase.database().ref('/orders/' + order.key).update(orderData);
+
+	balance = driver.balance ;
+	minPrice = Math.round(order.minPrice)*.15;
+
+	newBalance = balance - minPrice;
+
+	userData = {
+			balance : newBalance
+	}
+	firebase.database().ref('/users/' + data.key).update(userData);
+	});
+}
+cancelOk = (order)=>{
+	orderData= {
+			status : 3
+	}
+	firebase.database().ref('/orders/' + order.key).update(orderData);
+
+}
 	render() {
 		const nav = this.props.navigation
 		return (
@@ -140,7 +167,11 @@ chat = (order,nav)=>{
 					<Text style={{ textAlign:'center', fontWeight: 'bold', color: 'green',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>تم توصيل الطلب</Text>
 
 					:
+					(this.state.order.status== 3)?
+					<Text style={{ textAlign:'center', fontWeight: 'bold', color: 'red',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>تم الغاء الطلب</Text>
 
+					:
+					(this.state.order.status== 1) ?
 						<View style={{ width: '95%', alignSelf: 'center' }}>
 
 							<View style={{ width: '100%', alignSelf: 'center',justifyContent:'center',flexDirection:'row' }}>
@@ -158,6 +189,31 @@ chat = (order,nav)=>{
 								</Button>
 							</View>
 							</View>
+							:
+							<View style={{ height: '30%', width: '90%', backgroundColor: 'white', alignSelf: 'center',alignItems:'center', justifyContent: 'center', flexDirection: 'column',borderRadius:10 }}>
+									<Text style={{fontWeight: 'bold',  color: '#266A8F',fontSize: 18,fontFamily:'Droid Arabic Kufi'}}>تم الغاء الطلب</Text>
+									<Text style={{ color: 'gray',fontFamily:'Droid Arabic Kufi', fontSize: 12, fontWeight: 'bold',textAlign:'center',width:'90%' }}>
+											هل تم الالغاء ب التراضي(في حاله تم الالغاء بدون تراضي يتم تغريم السائق)
+									</Text>
+
+									<View style={{flexDirection:'row'}}>
+									<Button onPress={()=>this.cancelOk(this.state.order)} block rounded style={{ backgroundColor: 'green', alignSelf: 'center', marginTop: 15,margin:10,padding:10, }}>
+											<Text style={{  fontWeight: 'bold', color: 'white',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>ب التراضي</Text>
+											{this.state.isLoading && (
+													<ActivityIndicator  size="small" color="#000000" />
+											)}
+									</Button>
+
+									<Button onPress={()=> 	this.cancelNo(this.state.order)} block rounded style={{ backgroundColor: 'gray', alignSelf: 'center', marginTop: 15,margin:10,padding:10, }}>
+											<Text style={{  fontWeight: 'bold', color: 'white',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>بدون تراضي</Text>
+											{this.state.isLoading && (
+													<ActivityIndicator style={{}} size="small" color="#000000" />
+											)}
+									</Button>
+									</View>
+
+							</View>
+
 
 				}
 

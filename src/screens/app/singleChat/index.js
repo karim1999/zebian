@@ -77,7 +77,7 @@ class SingleChatUser extends Component {
         });
         firebase.database().ref('/chat/').child(this.state.key).on('value', data => {
             this.setState({
-                logs: _.values(data.val())
+                logs: _.sortBy(_.values(data.val()),['createdAt'])
             })
         });
         firebase.database().ref('/orders/'+this.state.order_id).on('value', data => {
@@ -210,31 +210,37 @@ class SingleChatUser extends Component {
     }
     _toggleModal = () => this.setState({ isModalVisible: !this.state.isModalVisible });
     _toggleModal2 = () => this.setState({ isModalVisible2: !this.state.isModalVisible2 });
-    cancel = ()=>{
-      order = this.state.order;
-      time = Math.round(moment().diff(moment(order.accepted_time), 'minutes', true))
+    cancel = (order)=>{
+      firebase.database().ref('/orders/').child(order.key).once('value', data => {
+        order2 = data.val();
+      time = Math.round(moment().diff(moment(order2.accepted_time), 'minutes', true))
+
       if(time <= 5){
         order = this.state.order;
         orderData= {
             status : 3
         }
         firebase.database().ref('/orders/' + order.key).update(orderData);
-
       }
       else {
-        // alert('no')
         orderData= {
             status : 3
         }
         firebase.database().ref('/orders/' + order.key).update(orderData);
 
-        balance = this.props.user.balance;
-        userData= {
-            status : balance-order.minPrice;
+        balance = this.props.user.balance ?this.props.user.balance :0 ;
+        minPrice = Math.round(order2.minPrice);
+
+        newBalance = balance - minPrice;
+
+        userData = {
+            balance : newBalance
         }
         firebase.database().ref('/users/' + this.props.user.uid).update(userData);
-
       }
+      _toggleModal2();
+
+    });
     }
 
     // componentDidUnMount() {
@@ -361,9 +367,12 @@ class SingleChatUser extends Component {
                 >
                     <View style={{ height: '30%', width: '90%', backgroundColor: 'white', alignSelf: 'center',alignItems:'center', justifyContent: 'center', flexDirection: 'column',borderRadius:10 }}>
                         <Text style={{fontWeight: 'bold',  color: '#266A8F',fontSize: 18,fontFamily:'Droid Arabic Kufi'}}>الغاء الرحله</Text>
+                        <Text style={{ color: 'gray',fontFamily:'Droid Arabic Kufi', fontSize: 12, fontWeight: 'bold',textAlign:'center',width:'90%' }}>
+                            يتم تغريمك الحد الدني للرحله عند الالغاء بعد ٥ دقائق من الطلب
+                        </Text>
 
                         <View style={{flexDirection:'row'}}>
-                        <Button onPress={()=>this.cancel()} block rounded style={{ backgroundColor: 'green', alignSelf: 'center', marginTop: 15,margin:10,padding:10, }}>
+                        <Button onPress={()=>this.cancel(this.state.order)} block rounded style={{ backgroundColor: 'green', alignSelf: 'center', marginTop: 15,margin:10,padding:10, }}>
                             <Text style={{  fontWeight: 'bold', color: 'white',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>تاكيد</Text>
                             {this.state.isLoading && (
                                 <ActivityIndicator  size="small" color="#000000" />

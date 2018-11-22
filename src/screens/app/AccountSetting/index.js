@@ -61,6 +61,8 @@ class Settings extends Component {
                 <View style={{ flex: 1, flexDirection: 'column', width: '95%', alignSelf: 'center' }}>
                     <List>
                         <Listitem RightData='رقم العضويه' LeftData={this.props.user.uid} onPress={()=> {this.press_share()}} press={true} />
+                        <Listitem RightData='الرصيد' LeftData={this.props.user.balance ? this.props.user.balance : 0}  />
+
                         <ListItem selected>
                             <Left style={{flex: 1}}>
                                 <Switch onValueChange={()=> this.setDriver()} value={this.state.driver} />
