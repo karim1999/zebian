@@ -102,7 +102,7 @@ android {
         applicationId "com.zebian"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1541625136
+        versionCode 1541625137
         multiDexEnabled true
         versionName "23.0"
         ndk {
@@ -195,4 +195,5 @@ task copyDownloadableDepsToLibs(type: Copy) {
     into 'libs'
 }
 apply plugin: 'com.google.gms.google-services'
+com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
 

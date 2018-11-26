@@ -44,7 +44,7 @@ class Talabaty extends Component {
             this.props.navigation.navigate('offers',{key:order.key,order})
         }
         else {
-            this.props.navigation.navigate('talabDetails1',{order})
+            this.props.navigation.navigate('talabDetails1',{key:order.key,order})
         }
     }
 

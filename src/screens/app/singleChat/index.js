@@ -288,7 +288,7 @@ class SingleChatUser extends Component {
                                 this.props.navigation.navigate('offers',{key:this.state.order_id,order:this.state.order})
                             }
                             else {
-                                this.props.navigation.navigate('talabDetails1',{order:this.state.order.val()})
+                                this.props.navigation.navigate('talabDetails1',{order:this.state.order.val(),key:this.state.order.key})
                             }
                         }} style={{justifyContent: "flex-end"}}>
                             <Text style={{fontFamily:'Droid Arabic Kufi',fontSize:17,textAlign:'center'}}>بيانات الطلب</Text>
@@ -324,7 +324,8 @@ class SingleChatUser extends Component {
                     alwaysShowSend={true}
                     placeholder="Send a message..."
                     isAnimated={true}
-                    inverted={true}
+                    inverted={false}
+
                     showUserAvatar={true}
                     renderBubble={(props) => this.renderBubble(props)}
                     user={{

@@ -135,7 +135,7 @@ class Settings extends Component {
 					<List>
 						{/*<Listitem RightData='نوع الحساب' Label='سائق' Label2='مستخدم' />*/}
 						<Listitem RightData='رقم العضويه' LeftData={this.props.user.uid} onPress={()=> {this.press_share()}} press={true} />
-						<Listitem RightData='عدد الرحلات' LeftData={this.props.user.num_reviews}  />
+						<Listitem RightData='عدد الرحلات' LeftData={this.props.user.num_reviews ? this.props.user.num_reviews : 0}  />
 
                         <ListItem selected>
                             <Left style={{flex: 1}}>

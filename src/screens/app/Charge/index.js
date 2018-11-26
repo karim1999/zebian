@@ -75,7 +75,7 @@ class Charge extends Component {
 					<View style={{ flex: .5, flexDirection: 'column', width: '80%', alignSelf: 'center' }}>
           <Text style={{ color: '#22688D', textAlign:'center',fontFamily:'Droid Arabic Kufi',fontSize:19 }}>الرجاء تحويل المبلغ الي هذا الحساب ( 123456789)</Text>
           <Input style={{fontSize: 16,fontFamily:'Droid Arabic Kufi',textAlign:'center' }} value={this.state.code} onChangeText={(code)=>this.setState({code})} placeholder="رقم التحويل" />
-          <Button onPress={()=> 	this.send()} block rounded style={{ backgroundColor: 'gray', alignSelf: 'center', marginTop: 15,margin:10,padding:10, }}>
+          <Button onPress={()=> 	this.send()} block rounded style={{ backgroundColor: 'gray', alignSelf: 'center',padding:10 }}>
               <Text style={{  fontWeight: 'bold', color: 'white',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>ارسال</Text>
               {this.state.isLoading && (
                   <ActivityIndicator style={{}} size="small" color="#000000" />

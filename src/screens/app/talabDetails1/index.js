@@ -37,14 +37,14 @@ class talabDetails1 extends Component {
 	}
 
 	componentDidMount(){
-		firebase.database().ref('/orders/'+this.state.order.key).on('value', data => {
+		firebase.database().ref('/orders/'+this.props.navigation.state.params.key).on('value', data => {
 			this.setState({
 				order: data.val(),
 			});
 		});
 		firebase.database().ref('/offers/').on('value', data => {
 			let result= _.filter(data.val(), offer=>{
-				return offer.user_id == this.props.user.uid && offer.order_id == this.state.order.key
+				return offer.user_id == this.props.user.uid && offer.order_id == this.props.navigation.state.params.key
 			});
 			if(result.length >= 1){
 				this.setState({
@@ -62,7 +62,7 @@ ref.once('value',snapshot => {
 	arrived = (order,nav)=>{
 
 
-		order_id = order.key;
+		order_id = this.props.navigation.state.params.key;
 		price = order.price;
 		fees = price*.15;
 		var driver_id = this.state.driver.key;
@@ -100,7 +100,7 @@ ref.once('value',snapshot => {
 		nav.navigate('Home')
 	}
 chat = (order,nav)=>{
-  nav.navigate('SingleChatUser',{key:order.offer_id,title:this.state.driver.displayName,token:this.state.driver.token,user:this.state.driver,order:this.state.order,order_id:this.state.order.key})
+  nav.navigate('SingleChatUser',{key:order.offer_id,title:this.state.driver.displayName,token:this.state.driver.token,user:this.state.driver,order:this.state.order,order_id:this.props.navigation.state.params.key})
    // alert(JSON.stringify(order.driver_id))
 }
 cancelNo = (order)=>{
@@ -110,9 +110,9 @@ cancelNo = (order)=>{
 	orderData= {
 			status : 3
 	}
-	firebase.database().ref('/orders/' + order.key).update(orderData);
+	firebase.database().ref('/orders/' + this.props.navigation.state.params.key).update(orderData);
 
-	balance = driver.balance ;
+	balance = driver.balance ? driver.balance : 0 ;
 	minPrice = Math.round(order.minPrice)*.15;
 
 	newBalance = balance - minPrice;
@@ -127,7 +127,7 @@ cancelOk = (order)=>{
 	orderData= {
 			status : 3
 	}
-	firebase.database().ref('/orders/' + order.key).update(orderData);
+	firebase.database().ref('/orders/' + this.props.navigation.state.params.key).update(orderData);
 
 }
 	render() {
@@ -164,15 +164,15 @@ cancelOk = (order)=>{
 				{
 					(this.state.order.status == 2)?
 
-					<Text style={{ textAlign:'center', fontWeight: 'bold', color: 'green',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>تم توصيل الطلب</Text>
+					(<Text style={{ textAlign:'center', fontWeight: 'bold', color: 'green',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>تم توصيل الطلب</Text>)
 
 					:
 					(this.state.order.status== 3)?
-					<Text style={{ textAlign:'center', fontWeight: 'bold', color: 'red',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>تم الغاء الطلب</Text>
+					(<Text style={{ textAlign:'center', fontWeight: 'bold', color: 'red',fontSize: 15,fontFamily:'Droid Arabic Kufi' }}>تم الغاء الطلب</Text>)
 
 					:
 					(this.state.order.status== 1) ?
-						<View style={{ width: '95%', alignSelf: 'center' }}>
+						(<View style={{ width: '95%', alignSelf: 'center' }}>
 
 							<View style={{ width: '100%', alignSelf: 'center',justifyContent:'center',flexDirection:'row' }}>
 								<Button onPress={()=> this.chat(this.state.order,nav)} block rounded style={{ backgroundColor: '#15588D', alignSelf: 'center', marginTop: 15,margin:10,padding:10 }}>
@@ -188,9 +188,9 @@ cancelOk = (order)=>{
 									)}
 								</Button>
 							</View>
-							</View>
+							</View>)
 							:
-							<View style={{ height: '30%', width: '90%', backgroundColor: 'white', alignSelf: 'center',alignItems:'center', justifyContent: 'center', flexDirection: 'column',borderRadius:10 }}>
+							(<View style={{ height: '30%', width: '90%', backgroundColor: 'white', alignSelf: 'center',alignItems:'center', justifyContent: 'center', flexDirection: 'column',borderRadius:10 }}>
 									<Text style={{fontWeight: 'bold',  color: '#266A8F',fontSize: 18,fontFamily:'Droid Arabic Kufi'}}>تم الغاء الطلب</Text>
 									<Text style={{ color: 'gray',fontFamily:'Droid Arabic Kufi', fontSize: 12, fontWeight: 'bold',textAlign:'center',width:'90%' }}>
 											هل تم الالغاء ب التراضي(في حاله تم الالغاء بدون تراضي يتم تغريم السائق)
@@ -212,7 +212,7 @@ cancelOk = (order)=>{
 									</Button>
 									</View>
 
-							</View>
+							</View>)
 
 
 				}

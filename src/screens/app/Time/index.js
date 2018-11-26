@@ -19,7 +19,6 @@ class Time extends Component {
 
   _showDateTimePicker = () => {
     this.setState({ isDateTimePickerVisible: true });
-    alert(this.state.date)
   }
 
   _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });

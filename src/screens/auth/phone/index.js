@@ -65,7 +65,7 @@ class Phone extends Component {
             user.once("value").then(snapshot => {
                 if(!snapshot.exists()){
 
-                    user.set({currentUser, displayName: currentUser.phoneNumber,accepted:false});
+                    user.set({...currentUser._user, displayName: currentUser.phoneNumber,accepted:false});
                 }
             });
             Toast.show({

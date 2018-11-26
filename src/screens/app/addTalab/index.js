@@ -27,7 +27,7 @@ class AddTalab extends Component {
 	constructor(props){
 		super(props);
 		this.state= {
-			maximumAmount: -200,
+			maximumAmount: -50,
 			isModalVisible: false,
 			price: 0,
 			order: {...this.props.navigation.state.params},
@@ -137,12 +137,12 @@ class AddTalab extends Component {
 					</Button>
 				)
 				}
-				{(this.props.user.balance && this.props.user.balance <= this.state.maximumAmount) && (
+				{
+					((this.props.user.balance ? this.props.user.balance : 0 )<= this.state.maximumAmount) &&
 					<Button
 						style={{width: "100%", alignItems: "center"}} warning={true}><Text style={[{flex: 1}, {textAlign: "right"}]}> يجب سداد عمولة ذبيان اولا</Text>
 						<Icon name="ios-information-circle-outline" style={{color: "white", fontSize: 25}}/>
 					</Button>
-				)
 				}
 				<View style={{ position: 'relative' }}>
 					<MapComponent />
@@ -160,7 +160,7 @@ class AddTalab extends Component {
 						<ListCard onPress={()=>this.props.navigation.navigate("GivePlace", {order: this.state.order})} header={'مكان الاستلام '} footer={this.state.order.giveAddress} leftIconSrc={MapMarker} />
 						<ListCard onPress={()=>this.props.navigation.navigate("RecievePlace", {order: this.state.order})} header={'مكان التسليم'} footer={this.state.order.recieveAddress} leftIconSrc={MapMarker} />
 						<ListCard leftIcon="history" header={'وقت التوصيل المتوقع'} footer={this.state.order.googleTime+" minutes"} leftIconSrc={MapMarker} />
-						<ListCard leftIcon="money" header={'المبلغ'} footer={this.state.order.minPrice+"$ : "+this.state.order.maxPrice+"$"} leftIconSrc={MapMarker} />
+						<ListCard leftIcon="money" header={'المبلغ'} footer={Math.round(this.state.order.minPrice)+"$ : "+Math.round(this.state.order.maxPrice)+"$"} leftIconSrc={MapMarker} />
 					</View>
 				</View>
 				{!this.state.isSubmitted && (
@@ -176,7 +176,7 @@ class AddTalab extends Component {
 						</Form>
 						<View style={{ width: '60%', alignSelf: 'center' }}>
 							<Button onPress={()=> this.submit()} block rounded style={{ backgroundColor: '#15588D', alignSelf: 'center', marginTop: 15 }}>
-								<Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white' }}>اضافه عرض</Text>
+								<Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white',padding:5 }}>اضافه عرض</Text>
 								{this.state.isLoading && (
 									<ActivityIndicator style={{}} size="small" color="#000000" />
 								)}
