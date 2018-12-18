@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {View, Form, Textarea, Text, Button, Toast, Picker, Item, Icon} from 'native-base';
+import {View, Form, Textarea, Text, Button, Toast, Picker, Item, Icon,Card} from 'native-base';
 import AppTemplate from '../appTemplate';
 import ListCard from '../../../components/common/card';
 import MapLocation from '../../../assets/images/png/map-location.png'

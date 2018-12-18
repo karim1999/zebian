@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
 	Dimensions,
 	Image,
+	Linking,
 	Text, TouchableHighlight, TouchableOpacity, View, Alert, StyleSheet, ActivityIndicator
 } from "react-native";
 import {Button, Icon, Card, CardItem, Body, Left, Right, Item, Input, Label, Form, Toast,} from 'native-base';
@@ -157,8 +158,8 @@ class AddTalab extends Component {
 								</Button>
 							)
 						}
-						<ListCard onPress={()=>this.props.navigation.navigate("GivePlace", {order: this.state.order})} header={'مكان الاستلام '} footer={this.state.order.giveAddress} leftIconSrc={MapMarker} />
-						<ListCard onPress={()=>this.props.navigation.navigate("RecievePlace", {order: this.state.order})} header={'مكان التسليم'} footer={this.state.order.recieveAddress} leftIconSrc={MapMarker} />
+						<ListCard onPress={()=>Linking.openURL('https://maps.google.com/?q='+this.state.order.givePos.long+','+this.state.order.givePos.lat).catch(err => console.error('An error occurred', err))} header={'مكان الاستلام '} footer={this.state.order.giveAddress} leftIconSrc={MapMarker} />
+						<ListCard onPress={()=>Linking.openURL('https://maps.google.com/?q='+this.state.order.recievePos.long+','+this.state.order.recievePos.lat).catch(err => console.error('An error occurred', err))} header={'مكان التسليم'} footer={this.state.order.recieveAddress} leftIconSrc={MapMarker} />
 						<ListCard leftIcon="history" header={'وقت التوصيل المتوقع'} footer={this.state.order.googleTime+" minutes"} leftIconSrc={MapMarker} />
 						<ListCard leftIcon="money" header={'المبلغ'} footer={Math.round(this.state.order.minPrice)+"$ : "+Math.round(this.state.order.maxPrice)+"$"} leftIconSrc={MapMarker} />
 					</View>

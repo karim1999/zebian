@@ -13,7 +13,10 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* zebianTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* zebianTests.m */; };
+		026D98F93ADE4B36889A2338 /* Din next arabic light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DC90DA4DBD104330821257EF /* Din next arabic light.otf */; };
+		091D708774574109826E24AB /* ProximaNova-BoldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7C065463D9F7480D8B51D9A0 /* ProximaNova-BoldIt.otf */; };
 		0B409BE82E7ED2150E229189 /* libPods-zebian.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0494AE4F70A5BD29980196CC /* libPods-zebian.a */; };
+		0BB407A45AF847C09C729078 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B90F6F934B634D369FC2FE53 /* MaterialIcons.ttf */; };
 		11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
@@ -22,11 +25,14 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		13E0F1FBE0A148EABA680A61 /* ProximaNova-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0B29AB0975EA4D0D97588E0A /* ProximaNova-SemiboldItalic.otf */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		272E48A3FE3A462FA4F0D700 /* DroidNaskh-Bold_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 345E0114B381495F91069F2E /* DroidNaskh-Bold_0.ttf */; };
 		29309FBA2194E7FC0000CFA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29309FB92194E7FC0000CFA5 /* GoogleService-Info.plist */; };
 		2944E877217A0DA10082901D /* DroidKufi-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2944E876217A0DA10082901D /* DroidKufi-Regular.ttf */; };
 		29F91202218F8A8C0045CA13 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29F91201218F8A2A0045CA13 /* libRNImagePicker.a */; };
+		2AF3AEA7DB4C40BD8E7B6E60 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEDEAA33FBDB445389F0D89D /* SimpleLineIcons.ttf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -41,30 +47,71 @@
 		2DCD954D1E0B4F2C00145EB5 /* zebianTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* zebianTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		3141DEF35D854B1C8E07F5D4 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84A0519C981D491690CFB566 /* Foundation.ttf */; };
+		3349A87BB9EC48CDBEFFCE5F /* DINNextLTArabic-Regular-e4c85cd4c16b4bf5aabf873c38f5b246.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EB5E002F0D9492CAFAF074C /* DINNextLTArabic-Regular-e4c85cd4c16b4bf5aabf873c38f5b246.ttf */; };
+		34494B67D1034FB1A8D38553 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51A1B37A1ABE4E559F1E3FD7 /* Zocial.ttf */; };
 		34C81C5691D84185BC525D2E /* libRNI18n-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1247F631E9C1468FBF63C5E3 /* libRNI18n-tvOS.a */; };
+		38CBEFE37CAE46BF945CAE9B /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D24B62990BDF4CB79E05EB8B /* MaterialCommunityIcons.ttf */; };
+		3BA669F29E57450A82839382 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2A01A84906246D0B78C5CCC /* Entypo.ttf */; };
+		3ED61429A30649C6B7C0A444 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 23DD854C5C9640768763CF46 /* FontAwesome.otf */; };
+		4A40AF3DBE9F4D1D8D26903D /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50A4405E74064B93A9C2F3D7 /* ProximaNova-Light.otf */; };
+		4B1F85B9DA3241B39E920E86 /* ProximaNovaCond-RegularIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = A931BD5195344120BC32E66D /* ProximaNovaCond-RegularIt.otf */; };
+		50973B74A300486E9454C150 /* DIN NEXT™ ARABIC MEDIUM .otf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD1F4B1405A4F37B396E03B /* DIN NEXT™ ARABIC MEDIUM .otf */; };
+		51227F6893F441CBA1EEB5A4 /* DroidNaskh-Regular_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1ADFD8A626D4EB0A17857DF /* DroidNaskh-Regular_0.ttf */; };
+		554F639E802B4654B56AA331 /* DIN NEXT™ ARABIC BOLD.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BDBD68B0FBE4750B118139D /* DIN NEXT™ ARABIC BOLD.otf */; };
+		555A6A8397EF42DE9F769E77 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7866574F47594C849C1A5160 /* FontAwesome.ttf */; };
+		55973D9F3CBD4C559E82C2F3 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8BD8F1861DDF4F3982797514 /* Ionicons.ttf */; };
+		56D7C4ACBA1C4F3F9059822E /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 868CF5554C3146569E430F6D /* ProximaNova-Bold.otf */; };
+		65CE3234CB274BC4A7C63993 /* ProximaNovaCond-SemiboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F8B24BF21664076BC90C2A3 /* ProximaNovaCond-SemiboldIt.otf */; };
+		6C1C8F3063A447FC95178847 /* DroidKufi-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E60DF43A130B4FA28F5799D7 /* DroidKufi-Bold.ttf */; };
+		6C511C07634B4B749918B106 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1648E09F69242D499A9B17B /* fontawesome-webfont.ttf */; };
+		6D50D25EB23E4FE9BD4F8D81 /* ProximaNovaCond-LightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = C3030B388A6E4E7CB162E630 /* ProximaNovaCond-LightIt.otf */; };
+		76C0DF7112DA4481899C2CE6 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C981F0B976804246BD8C50A3 /* Feather.ttf */; };
+		7764C010386A43ADB2456F04 /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F8BA4116F346496EB6316A37 /* ProximaNova-Regular.otf */; };
 		7AE8CDFE07374D8CB6232F12 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EFCE7DDAC1E41D4AB3F9309 /* Zocial.ttf */; };
 		7C7657BFAA9E4558A1E614A7 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0469B76F994F4850A7FE55D2 /* FontAwesome.ttf */; };
 		7D5CFACF7961429790457081 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA2BA13E572E48DAAE9FE5E6 /* Octicons.ttf */; };
+		7ED3702CA2AF4201A6BBDFCB /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0DF72D1B48C491986A85B65 /* rubicon-icon-font.ttf */; };
 		8068533C1EEF4244A6F4301F /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D704B916B064A74B069F326 /* Feather.ttf */; };
 		8258D99B09B540AE8A8E1A6B /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F634841F8E5C4BC7B744CB06 /* Roboto_medium.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		85FBC5B3BC1447C8B8761D54 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A18077C21A6342BD9D74F23E /* EvilIcons.ttf */; };
 		89C8D24AEAB14156BE9FC9F7 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 724B5F142578485BB147320F /* MaterialCommunityIcons.ttf */; };
+		8A264449A7D64925809B6661 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6382F3996A64B54BF4DB94C /* Octicons.ttf */; };
 		8AED094459674B009D7C9ADB /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0316606671C6434BB7C3DCB2 /* Ionicons.ttf */; };
+		8CE477105C174DA8880028B8 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F93774357DD34EF08C6C5715 /* Foundation.ttf */; };
+		8E4A9C8C32E44E5083DCB968 /* DIN NEXT™ ARABIC BLACK.otf in Resources */ = {isa = PBXBuildFile; fileRef = E39EF1E33EAA40C0B0883DB7 /* DIN NEXT™ ARABIC BLACK.otf */; };
+		95B182A1E0A0431A8BA59BBE /* DIN NEXT™ ARABIC LIGHT.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7725788F42B14881998AF917 /* DIN NEXT™ ARABIC LIGHT.otf */; };
+		9D04918D090E46B1BBDB4CBE /* ProximaNovaCond-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7C47795AF90D4ACD88CC7343 /* ProximaNovaCond-Regular.otf */; };
+		A7BDFC7E1E2B4375A638865B /* DroidSans_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 595EBAD6F528487F8267AF24 /* DroidSans_0.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		B20FD27EAA0644EF865A7880 /* ProximaNova-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1FDB08690444765B7286F63 /* ProximaNova-Black.otf */; };
+		B73E0AB183764CBDA6716A4F /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CAEEC6249C3547FE98236AE6 /* EvilIcons.ttf */; };
 		B7DB3D095E94433EAF11F514 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF79949666574E799AA1945D /* Entypo.ttf */; };
 		B823EBA46DF44D57906C8DCF /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E52CA21BDF1489DB1316AE3 /* AddressBook.framework */; };
 		C1A32A9FC2E440898857DAED /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8363299CF0204D13A88D3FC3 /* libRNFirebase.a */; };
+		CDCEA765EAEA4F02BD5C82F6 /* ProximaNova-Extrabold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7A110C4CBB4496A937B210 /* ProximaNova-Extrabold.otf */; };
 		CE464634B84C4E33B0C1034D /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A176E32AE2854CC5A5FBF42B /* libRNGoogleSignin.a */; };
+		D03B86FA82DF4B0C9068FD44 /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2314F1A4F0B04565AB28B5D6 /* Roboto_medium.ttf */; };
 		D44DB88F09AB40A3BD5870E2 /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE99A642A6A149A0B29E7F66 /* libRCTFBSDK.a */; };
 		D45A750BED3C40638E12807C /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62D3F6312E7343238EC2336C /* Roboto.ttf */; };
+		D50666E885DF4DD68ED34EBF /* ProximaNovaCond-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 765C2303C3A3439DA007CF17 /* ProximaNovaCond-Light.otf */; };
 		D551ED6C73094DBAA1632415 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C3075CE94C44F1898E8A7A /* SafariServices.framework */; };
+		D6A28DA5CAB043F7B21921C6 /* DroidSans-Bold_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF2859FBEF5847A6B49277AE /* DroidSans-Bold_0.ttf */; };
 		DE8FD54B5C77AAC3F13883BA /* libPods-zebian-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 041230BADE879390AED1B3D8 /* libPods-zebian-tvOS.a */; };
+		DF86DFC33B6B4CE5A4FEA7A4 /* ProximaNova-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50DEB1B7967B4D04BE4D567E /* ProximaNova-LightItalic.otf */; };
+		E8A3196AFF134572B67289AC /* ProximaNovaCond-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5EB2B49CD0EC49F5BF8D2117 /* ProximaNovaCond-Semibold.otf */; };
 		EC314FC2C2D84A429DFF5449 /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E3D168D3BC243B6BE83C9A3 /* rubicon-icon-font.ttf */; };
+		ED5013A4C1F74A0BADDEB427 /* DIN NEXT™ ARABIC ULTRALIGHT.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6E1A3BF1F61B4B14819E255C /* DIN NEXT™ ARABIC ULTRALIGHT.otf */; };
+		F30C502AA8E84E158F18AA50 /* DIN NEXT™ ARABIC REGULAR.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7113D24634FB4ABB97D246B2 /* DIN NEXT™ ARABIC REGULAR.otf */; };
 		F47A258076B5411A8E2A3030 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B10F805F92748A5A87DD0A3 /* SystemConfiguration.framework */; };
 		F6378D67C8514B92AFBFA32F /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6F949DC14DE40D394AD0FC6 /* SimpleLineIcons.ttf */; };
 		F983641534EA404C98DBE161 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC9D91E1B084483A422A942 /* libz.tbd */; };
+		F98E3B875E37434BB9FE979C /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 920AA5A751C24020B3720644 /* ProximaNova-Semibold.otf */; };
+		F9DE8CC1947344F5B3ADE7EE /* DroidSansArabic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C824B5B0CE7740D795BD5C58 /* DroidSansArabic.ttf */; };
+		FAEF4247508240D1B9103E6C /* DIN NEXT™ ARABIC HEAVY.otf in Resources */ = {isa = PBXBuildFile; fileRef = 94A1682D33B541A697F2F722 /* DIN NEXT™ ARABIC HEAVY.otf */; };
+		FB170996BF1D4365B4F427B8 /* ProximaNova-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = EF27DD7D5FAE409780CB72C2 /* ProximaNova-RegularItalic.otf */; };
 		FBD9A7097E2844628218AED9 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1875E707FD3F42E8B88B28EE /* MaterialIcons.ttf */; };
+		FD064C01149743429FCE7320 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3AEB79DFFBD43CA8B22063F /* Roboto.ttf */; };
 		FD077EE697524242AF0A5115 /* libRNI18n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA2BD55803C44FF0894B9BE2 /* libRNI18n.a */; };
 /* End PBXBuildFile section */
 
@@ -402,6 +449,8 @@
 		0494AE4F70A5BD29980196CC /* libPods-zebian.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-zebian.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04ECC517D48652C4349C9866 /* Pods-zebian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zebian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zebian/Pods-zebian.debug.xcconfig"; sourceTree = "<group>"; };
 		0B10F805F92748A5A87DD0A3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0B29AB0975EA4D0D97588E0A /* ProximaNova-SemiboldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ProximaNova-SemiboldItalic.otf"; path = "../src/assets/fonts/ProximaNova-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		0BDBD68B0FBE4750B118139D /* DIN NEXT™ ARABIC BOLD.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DIN NEXT™ ARABIC BOLD.otf"; path = "../src/assets/fonts/DIN NEXT™ ARABIC BOLD.otf"; sourceTree = "<group>"; };
 		0EE37747B59140A8B6260D16 /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTFBSDK.xcodeproj; path = "../node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj"; sourceTree = "<group>"; };
 		1247F631E9C1468FBF63C5E3 /* libRNI18n-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNI18n-tvOS.a"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
@@ -415,6 +464,8 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = zebian/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		1875E707FD3F42E8B88B28EE /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		2314F1A4F0B04565AB28B5D6 /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = ../src/assets/fonts/Roboto_medium.ttf; sourceTree = "<group>"; };
+		23DD854C5C9640768763CF46 /* FontAwesome.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.otf; path = ../src/assets/fonts/FontAwesome.otf; sourceTree = "<group>"; };
 		28C8B288DB0C2C935BBCB542 /* libPods-zebianTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-zebianTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		29309FB92194E7FC0000CFA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2944E876217A0DA10082901D /* DroidKufi-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DroidKufi-Regular.ttf"; path = "../src/assets/fonts/DroidKufi-Regular.ttf"; sourceTree = "<group>"; };
@@ -423,34 +474,77 @@
 		2D02E47B1E0B4A5D006451C7 /* zebian-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "zebian-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* zebian-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "zebian-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EB5E002F0D9492CAFAF074C /* DINNextLTArabic-Regular-e4c85cd4c16b4bf5aabf873c38f5b246.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DINNextLTArabic-Regular-e4c85cd4c16b4bf5aabf873c38f5b246.ttf"; path = "../src/assets/fonts/DINNextLTArabic-Regular-e4c85cd4c16b4bf5aabf873c38f5b246.ttf"; sourceTree = "<group>"; };
 		30C3075CE94C44F1898E8A7A /* SafariServices.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		345E0114B381495F91069F2E /* DroidNaskh-Bold_0.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DroidNaskh-Bold_0.ttf"; path = "../src/assets/fonts/DroidNaskh-Bold_0.ttf"; sourceTree = "<group>"; };
 		3D704B916B064A74B069F326 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		3F7A110C4CBB4496A937B210 /* ProximaNova-Extrabold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ProximaNova-Extrabold.otf"; path = "../src/assets/fonts/ProximaNova-Extrabold.otf"; sourceTree = "<group>"; };
+		3F8B24BF21664076BC90C2A3 /* ProximaNovaCond-SemiboldIt.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ProximaNovaCond-SemiboldIt.otf"; path = "../src/assets/fonts/ProximaNovaCond-SemiboldIt.otf"; sourceTree = "<group>"; };
 		4E52CA21BDF1489DB1316AE3 /* AddressBook.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		50A4405E74064B93A9C2F3D7 /* ProximaNova-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ProximaNova-Light.otf"; path = "../src/assets/fonts/ProximaNova-Light.otf"; sourceTree = "<group>"; };
+		50DEB1B7967B4D04BE4D567E /* ProximaNova-LightItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ProximaNova-LightItalic.otf"; path = "../src/assets/fonts/ProximaNova-LightItalic.otf"; sourceTree = "<group>"; };
+		51A1B37A1ABE4E559F1E3FD7 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = ../src/assets/fonts/Zocial.ttf; sourceTree = "<group>"; };
+		595EBAD6F528487F8267AF24 /* DroidSans_0.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = DroidSans_0.ttf; path = ../src/assets/fonts/DroidSans_0.ttf; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		5EB2B49CD0EC49F5BF8D2117 /* ProximaNovaCond-Semibold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ProximaNovaCond-Semibold.otf"; path = "../src/assets/fonts/ProximaNovaCond-Semibold.otf"; sourceTree = "<group>"; };
 		62D3F6312E7343238EC2336C /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
+		6E1A3BF1F61B4B14819E255C /* DIN NEXT™ ARABIC ULTRALIGHT.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DIN NEXT™ ARABIC ULTRALIGHT.otf"; path = "../src/assets/fonts/DIN NEXT™ ARABIC ULTRALIGHT.otf"; sourceTree = "<group>"; };
+		7113D24634FB4ABB97D246B2 /* DIN NEXT™ ARABIC REGULAR.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DIN NEXT™ ARABIC REGULAR.otf"; path = "../src/assets/fonts/DIN NEXT™ ARABIC REGULAR.otf"; sourceTree = "<group>"; };
 		724B5F142578485BB147320F /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		765C2303C3A3439DA007CF17 /* ProximaNovaCond-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ProximaNovaCond-Light.otf"; path = "../src/assets/fonts/ProximaNovaCond-Light.otf"; sourceTree = "<group>"; };
+		7725788F42B14881998AF917 /* DIN NEXT™ ARABIC LIGHT.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DIN NEXT™ ARABIC LIGHT.otf"; path = "../src/assets/fonts/DIN NEXT™ ARABIC LIGHT.otf"; sourceTree = "<group>"; };
 		7740FE55E4DCCBB06EF5F66F /* Pods-zebian-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zebian-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zebian-tvOS/Pods-zebian-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		7866574F47594C849C1A5160 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = ../src/assets/fonts/FontAwesome.ttf; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		7C065463D9F7480D8B51D9A0 /* ProximaNova-BoldIt.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ProximaNova-BoldIt.otf"; path = "../src/assets/fonts/ProximaNova-BoldIt.otf"; sourceTree = "<group>"; };
+		7C47795AF90D4ACD88CC7343 /* ProximaNovaCond-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ProximaNovaCond-Regular.otf"; path = "../src/assets/fonts/ProximaNovaCond-Regular.otf"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8363299CF0204D13A88D3FC3 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		83B7490FE9294962BBF3E9A7 /* RNI18n.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNI18n.xcodeproj; path = "../node_modules/react-native-i18n/ios/RNI18n.xcodeproj"; sourceTree = "<group>"; };
 		84A0519C981D491690CFB566 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		868CF5554C3146569E430F6D /* ProximaNova-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ProximaNova-Bold.otf"; path = "../src/assets/fonts/ProximaNova-Bold.otf"; sourceTree = "<group>"; };
+		8BD8F1861DDF4F3982797514 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = ../src/assets/fonts/Ionicons.ttf; sourceTree = "<group>"; };
 		8EFCE7DDAC1E41D4AB3F9309 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		920AA5A751C24020B3720644 /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ProximaNova-Semibold.otf"; path = "../src/assets/fonts/ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
+		94A1682D33B541A697F2F722 /* DIN NEXT™ ARABIC HEAVY.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DIN NEXT™ ARABIC HEAVY.otf"; path = "../src/assets/fonts/DIN NEXT™ ARABIC HEAVY.otf"; sourceTree = "<group>"; };
 		98E1E11905E881212E334302 /* Pods-zebian-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zebian-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-zebian-tvOS/Pods-zebian-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		9BD1F4B1405A4F37B396E03B /* DIN NEXT™ ARABIC MEDIUM .otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DIN NEXT™ ARABIC MEDIUM .otf"; path = "../src/assets/fonts/DIN NEXT™ ARABIC MEDIUM .otf"; sourceTree = "<group>"; };
 		9E3D168D3BC243B6BE83C9A3 /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
 		A176E32AE2854CC5A5FBF42B /* libRNGoogleSignin.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGoogleSignin.a; sourceTree = "<group>"; };
 		A18077C21A6342BD9D74F23E /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		A2A01A84906246D0B78C5CCC /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = ../src/assets/fonts/Entypo.ttf; sourceTree = "<group>"; };
+		A3AEB79DFFBD43CA8B22063F /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = ../src/assets/fonts/Roboto.ttf; sourceTree = "<group>"; };
 		A6F949DC14DE40D394AD0FC6 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		A931BD5195344120BC32E66D /* ProximaNovaCond-RegularIt.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ProximaNovaCond-RegularIt.otf"; path = "../src/assets/fonts/ProximaNovaCond-RegularIt.otf"; sourceTree = "<group>"; };
 		A9B63806A39C4C1F91DE88AD /* RNGoogleSignin.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGoogleSignin.xcodeproj; path = "../node_modules/react-native-google-signin/ios/RNGoogleSignin.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		B0DF72D1B48C491986A85B65 /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../src/assets/fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
+		B1ADFD8A626D4EB0A17857DF /* DroidNaskh-Regular_0.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DroidNaskh-Regular_0.ttf"; path = "../src/assets/fonts/DroidNaskh-Regular_0.ttf"; sourceTree = "<group>"; };
+		B90F6F934B634D369FC2FE53 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = ../src/assets/fonts/MaterialIcons.ttf; sourceTree = "<group>"; };
+		BF2859FBEF5847A6B49277AE /* DroidSans-Bold_0.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DroidSans-Bold_0.ttf"; path = "../src/assets/fonts/DroidSans-Bold_0.ttf"; sourceTree = "<group>"; };
+		C1648E09F69242D499A9B17B /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "fontawesome-webfont.ttf"; path = "../src/assets/fonts/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
+		C3030B388A6E4E7CB162E630 /* ProximaNovaCond-LightIt.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ProximaNovaCond-LightIt.otf"; path = "../src/assets/fonts/ProximaNovaCond-LightIt.otf"; sourceTree = "<group>"; };
 		C385CBF10E589C793BC5D5E0 /* Pods-zebian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zebian.release.xcconfig"; path = "Pods/Target Support Files/Pods-zebian/Pods-zebian.release.xcconfig"; sourceTree = "<group>"; };
 		C4637129C7E55718491417F5 /* libPods-zebian-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-zebian-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C824B5B0CE7740D795BD5C58 /* DroidSansArabic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = DroidSansArabic.ttf; path = ../src/assets/fonts/DroidSansArabic.ttf; sourceTree = "<group>"; };
+		C981F0B976804246BD8C50A3 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = ../src/assets/fonts/Feather.ttf; sourceTree = "<group>"; };
 		CA2BA13E572E48DAAE9FE5E6 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		CA2BD55803C44FF0894B9BE2 /* libRNI18n.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNI18n.a; sourceTree = "<group>"; };
+		CAEEC6249C3547FE98236AE6 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = ../src/assets/fonts/EvilIcons.ttf; sourceTree = "<group>"; };
+		CEDEAA33FBDB445389F0D89D /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = ../src/assets/fonts/SimpleLineIcons.ttf; sourceTree = "<group>"; };
+		D1FDB08690444765B7286F63 /* ProximaNova-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ProximaNova-Black.otf"; path = "../src/assets/fonts/ProximaNova-Black.otf"; sourceTree = "<group>"; };
+		D24B62990BDF4CB79E05EB8B /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = ../src/assets/fonts/MaterialCommunityIcons.ttf; sourceTree = "<group>"; };
+		D6382F3996A64B54BF4DB94C /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = ../src/assets/fonts/Octicons.ttf; sourceTree = "<group>"; };
 		DAC9D91E1B084483A422A942 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		DC90DA4DBD104330821257EF /* Din next arabic light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Din next arabic light.otf"; path = "../src/assets/fonts/Din next arabic light.otf"; sourceTree = "<group>"; };
+		E39EF1E33EAA40C0B0883DB7 /* DIN NEXT™ ARABIC BLACK.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DIN NEXT™ ARABIC BLACK.otf"; path = "../src/assets/fonts/DIN NEXT™ ARABIC BLACK.otf"; sourceTree = "<group>"; };
 		E509DF5B81344B13BEEC5E8D /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
+		E60DF43A130B4FA28F5799D7 /* DroidKufi-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DroidKufi-Bold.ttf"; path = "../src/assets/fonts/DroidKufi-Bold.ttf"; sourceTree = "<group>"; };
 		EE99A642A6A149A0B29E7F66 /* libRCTFBSDK.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTFBSDK.a; sourceTree = "<group>"; };
+		EF27DD7D5FAE409780CB72C2 /* ProximaNova-RegularItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ProximaNova-RegularItalic.otf"; path = "../src/assets/fonts/ProximaNova-RegularItalic.otf"; sourceTree = "<group>"; };
 		F634841F8E5C4BC7B744CB06 /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
+		F8BA4116F346496EB6316A37 /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ProximaNova-Regular.otf"; path = "../src/assets/fonts/ProximaNova-Regular.otf"; sourceTree = "<group>"; };
+		F93774357DD34EF08C6C5715 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = ../src/assets/fonts/Foundation.ttf; sourceTree = "<group>"; };
 		FF79949666574E799AA1945D /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -724,6 +818,53 @@
 				9E3D168D3BC243B6BE83C9A3 /* rubicon-icon-font.ttf */,
 				A6F949DC14DE40D394AD0FC6 /* SimpleLineIcons.ttf */,
 				8EFCE7DDAC1E41D4AB3F9309 /* Zocial.ttf */,
+				DC90DA4DBD104330821257EF /* Din next arabic light.otf */,
+				E39EF1E33EAA40C0B0883DB7 /* DIN NEXT™ ARABIC BLACK.otf */,
+				0BDBD68B0FBE4750B118139D /* DIN NEXT™ ARABIC BOLD.otf */,
+				94A1682D33B541A697F2F722 /* DIN NEXT™ ARABIC HEAVY.otf */,
+				7725788F42B14881998AF917 /* DIN NEXT™ ARABIC LIGHT.otf */,
+				9BD1F4B1405A4F37B396E03B /* DIN NEXT™ ARABIC MEDIUM .otf */,
+				7113D24634FB4ABB97D246B2 /* DIN NEXT™ ARABIC REGULAR.otf */,
+				6E1A3BF1F61B4B14819E255C /* DIN NEXT™ ARABIC ULTRALIGHT.otf */,
+				2EB5E002F0D9492CAFAF074C /* DINNextLTArabic-Regular-e4c85cd4c16b4bf5aabf873c38f5b246.ttf */,
+				E60DF43A130B4FA28F5799D7 /* DroidKufi-Bold.ttf */,
+				345E0114B381495F91069F2E /* DroidNaskh-Bold_0.ttf */,
+				B1ADFD8A626D4EB0A17857DF /* DroidNaskh-Regular_0.ttf */,
+				595EBAD6F528487F8267AF24 /* DroidSans_0.ttf */,
+				BF2859FBEF5847A6B49277AE /* DroidSans-Bold_0.ttf */,
+				C824B5B0CE7740D795BD5C58 /* DroidSansArabic.ttf */,
+				A2A01A84906246D0B78C5CCC /* Entypo.ttf */,
+				CAEEC6249C3547FE98236AE6 /* EvilIcons.ttf */,
+				C981F0B976804246BD8C50A3 /* Feather.ttf */,
+				C1648E09F69242D499A9B17B /* fontawesome-webfont.ttf */,
+				23DD854C5C9640768763CF46 /* FontAwesome.otf */,
+				7866574F47594C849C1A5160 /* FontAwesome.ttf */,
+				F93774357DD34EF08C6C5715 /* Foundation.ttf */,
+				8BD8F1861DDF4F3982797514 /* Ionicons.ttf */,
+				D24B62990BDF4CB79E05EB8B /* MaterialCommunityIcons.ttf */,
+				B90F6F934B634D369FC2FE53 /* MaterialIcons.ttf */,
+				D6382F3996A64B54BF4DB94C /* Octicons.ttf */,
+				D1FDB08690444765B7286F63 /* ProximaNova-Black.otf */,
+				868CF5554C3146569E430F6D /* ProximaNova-Bold.otf */,
+				7C065463D9F7480D8B51D9A0 /* ProximaNova-BoldIt.otf */,
+				3F7A110C4CBB4496A937B210 /* ProximaNova-Extrabold.otf */,
+				50A4405E74064B93A9C2F3D7 /* ProximaNova-Light.otf */,
+				50DEB1B7967B4D04BE4D567E /* ProximaNova-LightItalic.otf */,
+				F8BA4116F346496EB6316A37 /* ProximaNova-Regular.otf */,
+				EF27DD7D5FAE409780CB72C2 /* ProximaNova-RegularItalic.otf */,
+				920AA5A751C24020B3720644 /* ProximaNova-Semibold.otf */,
+				0B29AB0975EA4D0D97588E0A /* ProximaNova-SemiboldItalic.otf */,
+				765C2303C3A3439DA007CF17 /* ProximaNovaCond-Light.otf */,
+				C3030B388A6E4E7CB162E630 /* ProximaNovaCond-LightIt.otf */,
+				7C47795AF90D4ACD88CC7343 /* ProximaNovaCond-Regular.otf */,
+				A931BD5195344120BC32E66D /* ProximaNovaCond-RegularIt.otf */,
+				5EB2B49CD0EC49F5BF8D2117 /* ProximaNovaCond-Semibold.otf */,
+				3F8B24BF21664076BC90C2A3 /* ProximaNovaCond-SemiboldIt.otf */,
+				2314F1A4F0B04565AB28B5D6 /* Roboto_medium.ttf */,
+				A3AEB79DFFBD43CA8B22063F /* Roboto.ttf */,
+				B0DF72D1B48C491986A85B65 /* rubicon-icon-font.ttf */,
+				CEDEAA33FBDB445389F0D89D /* SimpleLineIcons.ttf */,
+				51A1B37A1ABE4E559F1E3FD7 /* Zocial.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1367,6 +1508,53 @@
 				EC314FC2C2D84A429DFF5449 /* rubicon-icon-font.ttf in Resources */,
 				F6378D67C8514B92AFBFA32F /* SimpleLineIcons.ttf in Resources */,
 				7AE8CDFE07374D8CB6232F12 /* Zocial.ttf in Resources */,
+				026D98F93ADE4B36889A2338 /* Din next arabic light.otf in Resources */,
+				8E4A9C8C32E44E5083DCB968 /* DIN NEXT™ ARABIC BLACK.otf in Resources */,
+				554F639E802B4654B56AA331 /* DIN NEXT™ ARABIC BOLD.otf in Resources */,
+				FAEF4247508240D1B9103E6C /* DIN NEXT™ ARABIC HEAVY.otf in Resources */,
+				95B182A1E0A0431A8BA59BBE /* DIN NEXT™ ARABIC LIGHT.otf in Resources */,
+				50973B74A300486E9454C150 /* DIN NEXT™ ARABIC MEDIUM .otf in Resources */,
+				F30C502AA8E84E158F18AA50 /* DIN NEXT™ ARABIC REGULAR.otf in Resources */,
+				ED5013A4C1F74A0BADDEB427 /* DIN NEXT™ ARABIC ULTRALIGHT.otf in Resources */,
+				3349A87BB9EC48CDBEFFCE5F /* DINNextLTArabic-Regular-e4c85cd4c16b4bf5aabf873c38f5b246.ttf in Resources */,
+				6C1C8F3063A447FC95178847 /* DroidKufi-Bold.ttf in Resources */,
+				272E48A3FE3A462FA4F0D700 /* DroidNaskh-Bold_0.ttf in Resources */,
+				51227F6893F441CBA1EEB5A4 /* DroidNaskh-Regular_0.ttf in Resources */,
+				A7BDFC7E1E2B4375A638865B /* DroidSans_0.ttf in Resources */,
+				D6A28DA5CAB043F7B21921C6 /* DroidSans-Bold_0.ttf in Resources */,
+				F9DE8CC1947344F5B3ADE7EE /* DroidSansArabic.ttf in Resources */,
+				3BA669F29E57450A82839382 /* Entypo.ttf in Resources */,
+				B73E0AB183764CBDA6716A4F /* EvilIcons.ttf in Resources */,
+				76C0DF7112DA4481899C2CE6 /* Feather.ttf in Resources */,
+				6C511C07634B4B749918B106 /* fontawesome-webfont.ttf in Resources */,
+				3ED61429A30649C6B7C0A444 /* FontAwesome.otf in Resources */,
+				555A6A8397EF42DE9F769E77 /* FontAwesome.ttf in Resources */,
+				8CE477105C174DA8880028B8 /* Foundation.ttf in Resources */,
+				55973D9F3CBD4C559E82C2F3 /* Ionicons.ttf in Resources */,
+				38CBEFE37CAE46BF945CAE9B /* MaterialCommunityIcons.ttf in Resources */,
+				0BB407A45AF847C09C729078 /* MaterialIcons.ttf in Resources */,
+				8A264449A7D64925809B6661 /* Octicons.ttf in Resources */,
+				B20FD27EAA0644EF865A7880 /* ProximaNova-Black.otf in Resources */,
+				56D7C4ACBA1C4F3F9059822E /* ProximaNova-Bold.otf in Resources */,
+				091D708774574109826E24AB /* ProximaNova-BoldIt.otf in Resources */,
+				CDCEA765EAEA4F02BD5C82F6 /* ProximaNova-Extrabold.otf in Resources */,
+				4A40AF3DBE9F4D1D8D26903D /* ProximaNova-Light.otf in Resources */,
+				DF86DFC33B6B4CE5A4FEA7A4 /* ProximaNova-LightItalic.otf in Resources */,
+				7764C010386A43ADB2456F04 /* ProximaNova-Regular.otf in Resources */,
+				FB170996BF1D4365B4F427B8 /* ProximaNova-RegularItalic.otf in Resources */,
+				F98E3B875E37434BB9FE979C /* ProximaNova-Semibold.otf in Resources */,
+				13E0F1FBE0A148EABA680A61 /* ProximaNova-SemiboldItalic.otf in Resources */,
+				D50666E885DF4DD68ED34EBF /* ProximaNovaCond-Light.otf in Resources */,
+				6D50D25EB23E4FE9BD4F8D81 /* ProximaNovaCond-LightIt.otf in Resources */,
+				9D04918D090E46B1BBDB4CBE /* ProximaNovaCond-Regular.otf in Resources */,
+				4B1F85B9DA3241B39E920E86 /* ProximaNovaCond-RegularIt.otf in Resources */,
+				E8A3196AFF134572B67289AC /* ProximaNovaCond-Semibold.otf in Resources */,
+				65CE3234CB274BC4A7C63993 /* ProximaNovaCond-SemiboldIt.otf in Resources */,
+				D03B86FA82DF4B0C9068FD44 /* Roboto_medium.ttf in Resources */,
+				FD064C01149743429FCE7320 /* Roboto.ttf in Resources */,
+				7ED3702CA2AF4201A6BBDFCB /* rubicon-icon-font.ttf in Resources */,
+				2AF3AEA7DB4C40BD8E7B6E60 /* SimpleLineIcons.ttf in Resources */,
+				34494B67D1034FB1A8D38553 /* Zocial.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
